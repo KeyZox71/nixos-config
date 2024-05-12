@@ -15,10 +15,17 @@
 	  yosyo.url = "github:y-syo/.nixos-config/ReiAyanami";
   };
 
-  outputs = { self, nixpkgs, nixos-hardware, ... }:
+	outputs = inputs@{ self, nixpkgs, nixos-hardware, ... }:
+	 let
+    inherit (self) outputs;
+    systems = [ "x86_64-linux" ];
+    forSystems = nixpkgs.lib.genAttrs systems;
+  in
   {
     nixosConfigurations = {
       LAPTOP-5530-ADAM = nixpkgs.lib.nixosSystem {
+				system = "x86_64-linux";
+        specialArgs = { inherit inputs outputs; };
         modules = [
           nixos-hardware.nixosModules.dell-precision-5530
           nixos-hardware.nixosModules.common-gpu-nvidia-disable
