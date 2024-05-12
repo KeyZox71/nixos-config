@@ -15,7 +15,7 @@
 	  yosyo.url = "github:y-syo/.nixos-config/ReiAyanami";
   };
 
-  outputs = { self, nixpkgs, nixos-hardware }:
+  outputs = { self, nixpkgs, nixos-hardware, ... }:
   {
     nixosConfigurations = {
       LAPTOP-5530-ADAM = nixpkgs.lib.nixosSystem {
