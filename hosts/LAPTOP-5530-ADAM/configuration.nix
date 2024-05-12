@@ -105,6 +105,7 @@
     vivaldi
     git
     gh
+		inputs.yosyo.packages."${pkgs.system}".pogit
   ];
 
   # Some programs need SUID wrappers, can be configured further or are

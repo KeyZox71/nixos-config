@@ -21,6 +21,7 @@
       LAPTOP-5530-ADAM = nixpkgs.lib.nixosSystem {
         modules = [
           nixos-hardware.nixosModules.dell-precision-5530
+          nixos-hardware.nixosModules.common-gpu-nvidia-disable
           "./hosts/LAPTOP-5530-ADAM/default.nix"
         ];
       };
