@@ -14,7 +14,7 @@
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
-  networking.hostName = "nixos"; # Define your hostname.
+  networking.hostName = "LAPTOP-5530-ADAM"; # Define your hostname.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
 
   # Configure network proxy if necessary
@@ -23,8 +23,8 @@
 
   # Enable networking
   networking.networkmanager.enable = true;
-
-  # Set your time zone.
+ 
+ # Set your time zone.
   time.timeZone = "Europe/Paris";
 
   # Select internationalisation properties.
@@ -59,7 +59,7 @@
   console.keyMap = "us-acentos";
 
   # Enable CUPS to print documents.
-  services.printing.enable = true;
+  #services.printing.enable = true;
 
   # Enable sound with pipewire.
   sound.enable = true;
