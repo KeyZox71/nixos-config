@@ -1,7 +1,8 @@
-{ config, ... }:
+{ config, pkgs, ... }:
 
 {
 	programs.tmux = {
+		enable = true;
 		terminal = "screen-256color";
 		prefix = "C-a";
 		mouse = true;
@@ -21,7 +22,7 @@
   		  '';
   		}
 			{
-				plugin = tmuxPlugins.catpuccin;
+				plugin = tmuxPlugins.catppuccin;
 				extraConfig = "set -g @catppuccin_flavour 'frappe'"; 
 			}
 			tmuxPlugins.vim-tmux-navigator
