@@ -23,6 +23,7 @@
 				git_protocal = "ssh";
 			};
 		};
+		readline.enable = true;
 	};
 
 	services.nextcloud-client = {

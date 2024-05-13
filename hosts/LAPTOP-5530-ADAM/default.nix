@@ -44,6 +44,8 @@
 		tmux
 		btop
 		gnome3.gnome-tweaks
+		unzip
+		wl-clipboard
 	];
 
 	home-manager = {

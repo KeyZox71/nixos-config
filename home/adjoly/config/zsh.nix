@@ -4,14 +4,63 @@
 	programs = {
 		zsh = {
 			enable = true;
-			#autosuggestion.enable = true;
+			enableAutosuggestions = true;
 			enableCompletion = true;
 			shellAliases = {
 				l = "ls -lA --color=auto";
-  	    ls = "ls -A --color=auto";
-  	    re = "sudo nixos-rebuild switch";
-  	    grep = "grep --color=auto";
+		  	    ls = "ls -A --color=auto";
+			    re = "sudo nixos-rebuild switch";
+			    grep = "grep --color=auto";
 			};
+			initExtra = ''
+				tm() {
+					if [[ -n "$TMUX" ]]; then
+						# If inside a tmux session, just use the original tmux command
+						command tmux "$@"
+					elif [[ "$#" -eq 0 ]]; then
+						command tmux new-session -s "''${PWD##*/}"
+				    elif [[ "$#" -eq 1 && "$1" != -* ]]; then
+					    command tmux new-session -s "$1"
+					else
+						command tmux "$@"
+				    fi
+				}
+				fzf-tmux-session() {
+					local session
+					session=$(tmux list-sessions -F "#{session_name}" | fzf)
+    
+					if [ ! -z "$session" ]; then
+						tmux attach -t "$session"
+					fi
+				}
+				alias ts='fzf-tmux-session'
+				function cdd() {
+					# Use fzf to select a file and get its directory name
+				    local dir_path="$(dirname "$(find . -type f | fzf)")"
+				    
+				    # Exit if no file (and thus no directory) was selected
+				    if [[ -z "$dir_path" ]]; then
+				        echo "No file selected."
+				        return
+				    fi
+				
+				    # Get the absolute path if not already
+				    dir_path=$(realpath "$dir_path")
+				
+				    # Use the name of the directory as the session name
+				    local session_name="$(basename "$dir_path")"
+				
+				    # Create or re-attach to a tmux session with the name of the directory
+				    if tmux has-session -t "$session_name" 2>/dev/null; then
+				        echo "Reattaching to existing session named $session_name"
+				        tmux attach -t "$session_name"
+				    else
+				        echo "Creating new tmux session named $session_name"
+				        tmux new-session -d -s "$session_name" -c "$dir_path"
+				        tmux attach -t "$session_name"
+				    fi
+				}
+			'';
 		};
 
 		fzf = {
