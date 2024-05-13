@@ -43,6 +43,7 @@
 vivaldi-ffmpeg-codecs
 tmux
 btop
+gnome3.gnome-tweaks
   ];
 
   home-manager = {

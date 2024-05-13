@@ -7,6 +7,7 @@
 
     ./config/kitty.nix
     ./config/zsh.nix
+    ./config/tmux.nix
 
   ];
 
@@ -16,13 +17,18 @@
       userName = "adjoly";
       userEmail = "adamjly@proton.me";
     };
-    gh.enable = true;
-		};
-
-		services.nextcloud-client = {
+    gh = {
 			enable = true;
-			startInBackground = true;
-};
+			settings = {
+				git_protocal = "ssh";
+			};
+		};
+	};
+
+	services.nextcloud-client = {
+		enable = true;
+		startInBackground = true;
+	};
 
   nixpkgs = {
     config = {

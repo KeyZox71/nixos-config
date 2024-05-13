@@ -41,14 +41,14 @@
 				add_newline = false;
 				format = lib.concatStrings [ 
 					"$os$hostname $directory$git_branch $git_status"
-					"[➜](bold green)"
+					"[➜](bold green) "
 				];
 				right_format = lib.concatStrings [
 					"$time"
 				];
 				os = {
 					format = "[$symbol]($style)";
-					style = "#FF8000";
+					style = "#abcdef";
 					disabled = false;
 				};
 				hostname = {
@@ -73,24 +73,24 @@
 					read_only = " 󰌾 ";
 					format = "at [$path]($style)[$read_only]($read_only_style) ";
 				};
-				git_status = {
-					format = "[$all_status$ahead_behind]($style) ";
-					style = "bold green";
-					conflicted = "🏳";
-					up_to_date = "";
-					untracked = "[](red) ";
-					#ahead = "⇡${count}";
-					#diverged = "⇕⇡${ahead_count}⇣${behind_count}";
-					#behind = "⇣${count}";
-					stashed = " ";
-					modified = " ";
-					#staged = "[++\($count\)](green)";
-					deleted = " ";
-				};
+				#git_status = {
+				#	format = "[$all_status$ahead_behind]($style) ";
+				#	style = "bold green";
+				#	conflicted = "🏳";
+				#	up_to_date = "";
+				#	untracked = "[](red) ";
+				#	ahead = "⇡${count}";
+				#	diverged = "⇕⇡${ahead_count}⇣${behind_count}";
+				#	behind = "⇣${count}";
+				#	stashed = " ";
+				#	modified = " ";
+				#	staged = "[++\($count\)](green)";
+				#	deleted = " ";
+				#};
 				git_branch = {
 					symbol = " ";
 					format = "via [$symbol$branch]($style)";
-					# truncation_length = 4
+					truncation_length = 4;
 					truncation_symbol = "…/";
 					style = "bold green";
 				};
