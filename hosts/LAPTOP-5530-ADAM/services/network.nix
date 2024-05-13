@@ -7,7 +7,8 @@
     firewall = {
       enable = false;
     };
-		tailscale = {
+  };
+  services.tailscale = {
 			enable = true;
 			extraUpFlags = [ "--accept-routes" ];
   };

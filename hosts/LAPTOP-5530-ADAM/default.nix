@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ config, pkgs, inputs, lib, outputs, ... }:
 
 {
   imports =
@@ -15,6 +15,8 @@
     ];
 
   nixpkgs.config.allowUnfree = true;
+
+  programs.zsh.enable = true;
 
 	users.users.adjoly = {
 		shell = pkgs.zsh;
@@ -35,6 +37,12 @@
 		nextcloud-client
 		zsh
 		zsh-z
+		nerdfonts
+		beeper
+		discord
+vivaldi-ffmpeg-codecs
+tmux
+btop
   ];
 
   home-manager = {

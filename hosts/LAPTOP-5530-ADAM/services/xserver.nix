@@ -11,5 +11,5 @@
 			enable = true;
 			mouse.accelProfile = "flat";
 		};
-  }
+  };
 }

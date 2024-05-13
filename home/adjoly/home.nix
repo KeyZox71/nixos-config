@@ -17,11 +17,12 @@
       userEmail = "adamjly@proton.me";
     };
     gh.enable = true;
-		nextcloud-client = {
+		};
+
+		services.nextcloud-client = {
 			enable = true;
 			startInBackground = true;
-		};
-  };
+};
 
   nixpkgs = {
     config = {

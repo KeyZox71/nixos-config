@@ -1,10 +1,10 @@
-{ config, ... }:
+{ config, lib, ... }:
 
 {
 	programs = {
 		zsh = {
 			enable = true;
-			autosuggestions.enable = true;
+			#autosuggestion.enable = true;
 			enableCompletion = true;
 			shellAliases = {
 				l = "ls -lA --color=auto";
@@ -79,12 +79,12 @@
 					conflicted = "🏳";
 					up_to_date = "";
 					untracked = "[](red) ";
-					ahead = "⇡${count}";
-					diverged = "⇕⇡${ahead_count}⇣${behind_count}";
-					behind = "⇣${count}";
+					#ahead = "⇡${count}";
+					#diverged = "⇕⇡${ahead_count}⇣${behind_count}";
+					#behind = "⇣${count}";
 					stashed = " ";
 					modified = " ";
-					staged = "[++\($count\)](green)";
+					#staged = "[++\($count\)](green)";
 					deleted = " ";
 				};
 				git_branch = {

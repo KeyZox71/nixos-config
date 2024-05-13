@@ -12,7 +12,7 @@
 
 		font = {
 			name = "JetBrainsMono Nerd Font Mono";
-			package = pkgs.nerdfonts;
+			#package = pkgs.nerdfonts;
 		};
 
 		theme = "Catppuccin-Frappe";
