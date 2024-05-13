@@ -1,23 +1,23 @@
 { inputs, outputs, lib, config, pkgs, theme, ... }:
 
 {
-  imports = [
+	imports = [
 
-    ./dev.nix
+		./dev.nix
 
-    ./config/kitty.nix
-    ./config/zsh.nix
-    ./config/tmux.nix
+		./config/kitty.nix
+		./config/zsh.nix
+		./config/tmux.nix
 
-  ];
+	];
 
-  programs = {
-    git = {
-      enable = true;
-      userName = "adjoly";
-      userEmail = "adamjly@proton.me";
-    };
-    gh = {
+	programs = {
+		git = {
+			enable = true;
+			userName = "adjoly";
+			userEmail = "adamjly@proton.me";
+		};
+		gh = {
 			enable = true;
 			settings = {
 				git_protocal = "ssh";
@@ -30,14 +30,14 @@
 		startInBackground = true;
 	};
 
-  nixpkgs = {
-    config = {
-      allowUnfree = true;
-      allowUnfreePredicate = (_: true);
-    };
-  };
+	nixpkgs = {
+		config = {
+			allowUnfree = true;
+			allowUnfreePredicate = (_: true);
+		};
+	};
 
-  programs.home-manager.enable = true;
+	programs.home-manager.enable = true;
 
-  home.stateVersion = "23.11";
+	home.stateVersion = "23.11";
 }
