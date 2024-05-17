@@ -1,4 +1,4 @@
-{ config, lib, ... }:
+{ config, lib, pkgs, ... }:
 
 {
 	programs = {
@@ -6,10 +6,23 @@
 			enable = true;
 			enableAutosuggestions = true;
 			enableCompletion = true;
+			plugins = 
+			[
+			  {
+			    name = "zsh-z";
+			    src = pkgs.fetchFromGitHub {
+			      owner = "agkozak";
+			      repo = "zsh-z";
+				  rev = "afaf2965b41fdc6ca66066e09382726aa0b6aa04";
+			      sha256 = "1s23azd9hk57dgya0xrqh16jq1qbmm0n70x32mxg8b29ynks6w8n";
+			    };
+			  }
+			];
 			shellAliases = {
 				l = "ls -lA --color=auto";
 		  	    ls = "ls -A --color=auto";
 			    re = "sudo nixos-rebuild switch";
+			    update = "sudo nix flake update && sudo nixos-rebuild switch";
 			    grep = "grep --color=auto";
 			};
 			initExtra = ''
@@ -60,7 +73,13 @@
 				        tmux attach -t "$session_name"
 				    fi
 				}
+				path+=('/home/adjoly/.local/bin')
 			'';
+		};
+
+		thefuck = {
+			enable = true;
+			enableZshIntegration = true;
 		};
 
 		fzf = {

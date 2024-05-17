@@ -15,6 +15,8 @@
 		];
 
 	nixpkgs.config.allowUnfree = true;
+ 
+	nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
 	programs.zsh.enable = true;
 
@@ -36,7 +38,6 @@
 		signal-desktop
 		nextcloud-client
 		zsh
-		zsh-z
 		nerdfonts
 		beeper
 		discord
@@ -46,6 +47,8 @@
 		gnome3.gnome-tweaks
 		unzip
 		wl-clipboard
+		python311Packages.compiledb
+		plex-media-player
 	];
 
 	home-manager = {

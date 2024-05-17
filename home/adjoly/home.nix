@@ -20,10 +20,9 @@
 		gh = {
 			enable = true;
 			settings = {
-				git_protocal = "ssh";
+				git_protocol = "ssh";
 			};
 		};
-		readline.enable = true;
 	};
 
 	services.nextcloud-client = {
