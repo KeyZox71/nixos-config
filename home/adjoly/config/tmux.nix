@@ -14,8 +14,6 @@
     		plugin = tmuxPlugins.resurrect;
     		extraConfig = ''
 				set -g @resurrect-capture-pane-contents 'on'
-				set -g @resurrect-strategy-vim 'session'
-				set -g @resurrect-strategy-nvim 'session'
 			'';
 			}
   		{
@@ -23,8 +21,7 @@
  		  	extraConfig = ''
     			set -g @continuum-restore 'on'
 				set -g @continuum-save-interval '15' # minutes
-				set -g @continuum-boot 'on'
-  		  '';
+			'';
   		}
 			{
 				plugin = tmuxPlugins.catppuccin;

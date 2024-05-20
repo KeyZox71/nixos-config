@@ -23,6 +23,7 @@
 				git_protocol = "ssh";
 			};
 		};
+		home-manager.enable = true;
 	};
 
 	services.nextcloud-client = {
@@ -37,7 +38,13 @@
 		};
 	};
 
-	programs.home-manager.enable = true;
-
-	home.stateVersion = "23.11";
+	home = {
+		packages = with pkgs; [
+			obsidian
+			onlyoffice-bin
+			vlc
+			prismlauncher
+		];
+		stateVersion = "23.11";
+	};
 }
