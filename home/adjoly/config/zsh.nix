@@ -108,7 +108,7 @@
 			settings = {
 				add_newline = false;
 				format = lib.concatStrings [ 
-					"$os$hostname $directory$git_branch $git_status"
+					"$os$directory$git_branch $git_status"
 					"[➜](bold green) "
 				];
 				right_format = lib.concatStrings [
@@ -119,12 +119,12 @@
 					style = "#abcdef";
 					disabled = false;
 				};
-				hostname = {
-					ssh_only = false;
-					ssh_symbol = " ";
-					format = "on [$hostname](bold yellow)";
-					disabled = false;
-				};
+			#	hostname = {
+			#		ssh_only = false;
+			#		ssh_symbol = " ";
+			#		format = "on [$hostname](bold yellow)";
+			#		disabled = false;
+			#	};
 				time = {
 					disabled = false;
 					time_format = "%R";
@@ -139,7 +139,7 @@
 					home_symbol = "󰋜 ~";
 					read_only_style = "197";
 					read_only = " 󰌾 ";
-					format = "at [$path]($style)[$read_only]($read_only_style) ";
+					format = "[$path]($style)[$read_only]($read_only_style) ";
 				};
 				#git_status = {
 				#	format = "[$all_status$ahead_behind]($style) ";

@@ -44,6 +44,19 @@
 			onlyoffice-bin
 			vlc
 			prismlauncher
+			tradingview
+			molotov
+			vivaldi
+			vivaldi-ffmpeg-codecs
+			signal-desktop
+			discord
+			inputs.yosyo.packages."${pkgs.system}".pogit
+			tmux
+			plex-media-player
+			beeper
+			nerdfonts
+			nextcloud-client
+			neovim
 		];
 		stateVersion = "23.11";
 	};

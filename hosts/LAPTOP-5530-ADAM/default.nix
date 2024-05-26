@@ -30,25 +30,13 @@
 		vim 
 		wget
 		curl
-		vivaldi
 		git
 		gh
-		inputs.yosyo.packages."${pkgs.system}".pogit
-		neovim
-		signal-desktop
-		nextcloud-client
 		zsh
-		nerdfonts
-		beeper
-		discord
-		vivaldi-ffmpeg-codecs
-		tmux
 		btop
 		gnome3.gnome-tweaks
 		unzip
 		wl-clipboard
-		python311Packages.compiledb
-		plex-media-player
 	];
 
 	home-manager = {
