@@ -10,12 +10,11 @@
 		./config/tmux.nix
 
 	];
-
 	programs = {
 		git = {
 			enable = true;
 			userName = "adjoly";
-			userEmail = "adamjly@proton.me";
+			userEmail = "adjoly@student.42angouleme.fr";
 		};
 		gh = {
 			enable = true;
@@ -26,10 +25,10 @@
 		home-manager.enable = true;
 	};
 
-	services.nextcloud-client = {
-		enable = true;
-		startInBackground = true;
-	};
+#	services.nextcloud-client = {
+#		enable = false;
+#		startInBackground = false;
+#	};
 
 	nixpkgs = {
 		config = {
@@ -40,24 +39,21 @@
 
 	home = {
 		packages = with pkgs; [
-			obsidian
-			onlyoffice-bin
-			vlc
-			prismlauncher
-			tradingview
-			molotov
+			#obsidian
+			ripgrep
 			vivaldi
 			vivaldi-ffmpeg-codecs
-			signal-desktop
 			discord
-			inputs.yosyo.packages."${pkgs.system}".pogit
 			tmux
-			plex-media-player
 			beeper
-			nerdfonts
-			nextcloud-client
 			neovim
+			ncdu
 		];
-		stateVersion = "23.11";
+#		sessionVariables = {
+#			SHELL = "${pkgs.zsh}/bin/zsh";
+#		};
+		stateVersion = "24.05";
+		username = "adjoly";
+		homeDirectory = "/nfs/homes/adjoly";
 	};
 }

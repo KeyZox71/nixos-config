@@ -28,7 +28,15 @@
 
 	environment.systemPackages = with pkgs; [
 		vim 
+		nextcloud-client
+		onlyoffice-bin
+		prismlauncher
+		molotov
 		wget
+		inputs.yosyo.packages."${pkgs.system}".pogit
+		tradingview
+		vlc
+		plex-media-player
 		curl
 		git
 		gh

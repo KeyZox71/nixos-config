@@ -2,7 +2,7 @@
 
 {
 	programs.kitty = {
-		enable = true;
+		enable = false;
 
 		shellIntegration.enableZshIntegration = true;
 
@@ -15,6 +15,6 @@
 			#package = pkgs.nerdfonts;
 		};
 
-		theme = "Catppuccin-Frappe";
+		theme = "Catppuccin-Latte";
 	};
 }

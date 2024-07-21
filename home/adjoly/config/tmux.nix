@@ -11,18 +11,18 @@
 		clock24 = true;
 		plugins = with pkgs; [
 			{
-    		plugin = tmuxPlugins.resurrect;
-    		extraConfig = ''
-				set -g @resurrect-capture-pane-contents 'on'
-			'';
+				plugin = tmuxPlugins.resurrect;
+    			extraConfig = ''
+					set -g @resurrect-capture-pane-contents 'on'
+				'';
 			}
-  		{
-		    plugin = tmuxPlugins.continuum;
- 		  	extraConfig = ''
-    			set -g @continuum-restore 'on'
-				set -g @continuum-save-interval '15' # minutes
-			'';
-  		}
+			{
+				plugin = tmuxPlugins.continuum;
+				extraConfig = ''
+					set -g @continuum-restore 'on'
+					set -g @continuum-save-interval '15' # minutes
+				'';
+			}
 			{
 				plugin = tmuxPlugins.catppuccin;
 				extraConfig = "set -g @catppuccin_flavour 'frappe'"; 
@@ -36,5 +36,6 @@
 			bind -n M-H previous-window
 			bind -n M-L next-window
 		''; 
+		shell = "${pkgs.zsh}/bin/zsh";
 	};
 }

@@ -4,7 +4,7 @@
 	programs = {
 		zsh = {
 			enable = true;
-			enableAutosuggestions = true;
+			autosuggestion.enable = true;
 			enableCompletion = true;
 			plugins = 
 			[
@@ -24,11 +24,16 @@
 			    re = "sudo nixos-rebuild switch";
 			    update = "sudo nix flake update && sudo nixos-rebuild switch";
 			    grep = "grep --color=auto";
+				hre = "nix run home-manager switch";
+				kty-frappe = "kitty +kitten themes Catppuccin-Frappe";
+				kty-latte = "kitty +kitten themes Catppuccin-Latte";
+				kbus = "setxkbmap -layout us -variant intl";
+				powershell = "nix-shell -p powershell --run pwsh";
 			};
 			initExtra = ''
+				setxkbmap -layout us -variant intl
 				tm() {
 					if [[ -n "$TMUX" ]]; then
-						# If inside a tmux session, just use the original tmux command
 						command tmux "$@"
 					elif [[ "$#" -eq 0 ]]; then
 						command tmux new-session -s "''${PWD##*/}"
@@ -37,6 +42,20 @@
 					else
 						command tmux "$@"
 				    fi
+				}
+				bgs() {
+					if [[ "$#" -eq 1 && "$1" != -* ]]; then
+						command nix-shell -p brightnessctl --run "brightnessctl set $1"
+					else
+						command nix-shell -p brightnessctl --run "brightnessctl set 100"
+					fi
+				}
+				vol() {
+					if [[ "$#" -eq 1 && "$1" != -* ]]; then
+						command pactl set-sink-volume 0 $1%
+					else
+						command pactl set-sink-volume 0 0%
+					fi
 				}
 				fzf-tmux-session() {
 					local session
@@ -48,22 +67,17 @@
 				}
 				alias ts='fzf-tmux-session'
 				function cdd() {
-					# Use fzf to select a file and get its directory name
 				    local dir_path="$(dirname "$(find . -type f | fzf)")"
 				    
-				    # Exit if no file (and thus no directory) was selected
 				    if [[ -z "$dir_path" ]]; then
 				        echo "No file selected."
 				        return
 				    fi
 				
-				    # Get the absolute path if not already
 				    dir_path=$(realpath "$dir_path")
 				
-				    # Use the name of the directory as the session name
 				    local session_name="$(basename "$dir_path")"
 				
-				    # Create or re-attach to a tmux session with the name of the directory
 				    if tmux has-session -t "$session_name" 2>/dev/null; then
 				        echo "Reattaching to existing session named $session_name"
 				        tmux attach -t "$session_name"
@@ -86,20 +100,20 @@
 			enable = true;
 			enableZshIntegration = true;
 			tmux.enableShellIntegration = true;
-			colors = {
-				"bg+" = "#414559";
-				bg = "#303446";
-				spinner = "#f2d5cf";
-				hl = "#e78284";
-				fg = "#c6d0f5";
-				header = "#e78284";
-				info = "#ca9ee6";
-				pointer = "#f2d5cf";
-				marker = "#f2d5cf";
-				"fg+" = "#c6d0f5";
-				prompt = "#ca9ee6";
-				"hl+" = "#e78284";
-			};
+		#	colors = {
+				#"bg+" = "#414559";
+			#	bg = "#303446";
+			#	spinner = "#f2d5cf";
+			#	hl = "#e78284";
+				#fg = "#c6d0f5";
+			#	header = "#e78284";
+			#	info = "#ca9ee6";
+			#	pointer = "#f2d5cf";
+			#	marker = "#f2d5cf";
+				#"fg+" = "#c6d0f5";
+			#	prompt = "#ca9ee6";
+			#	"hl+" = "#e78284";
+			#};
 		};
 
 		starship = {
@@ -164,6 +178,7 @@
 				};
 				os.symbols = {
 					NixOS = " ";
+					Ubuntu = " ";
 				};
 			};
 		};
