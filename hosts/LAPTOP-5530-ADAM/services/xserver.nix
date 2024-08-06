@@ -5,11 +5,13 @@
 		enable = true;
 		displayManager.gdm.enable = true;
 		desktopManager.gnome.enable = true;
-    layout = "us";
-    xkbVariant = "intl";
-		libinput = {
-			enable = true;
-			mouse.accelProfile = "flat";
+		xkb = {
+			layout = "us";
+			variant = "intl";
 		};
-  };
+	};
+	services.libinput = {
+		enable = true;
+		mouse.accelProfile = "flat";
+	};
 }

@@ -12,6 +12,10 @@
 				efiSupport = true;
 				device = "nodev";
 				useOSProber = true;
+				catppuccin = {
+					enable = true;
+					flavor = "frappe";
+				};
 			};
 	};
 	};

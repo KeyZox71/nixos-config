@@ -23,8 +23,10 @@
 	users.users.adjoly = {
 		shell = pkgs.zsh;
 		isNormalUser = true;
-		extraGroups = [ "audio" "video" "input" "networkmanager" "wheel" "sudo" ];
+		extraGroups = [ "docker" "audio" "video" "input" "networkmanager" "wheel" "sudo" ];
 	};
+
+	virtualisation.docker.enable = true;
 
 	environment.systemPackages = with pkgs; [
 		vim 
@@ -32,19 +34,22 @@
 		curl
 		git
 		gh
+		inputs.yosyo.packages."${pkgs.system}".pogit
 		zsh
+		docker-compose
 		btop
+		cider
 		gnome3.gnome-tweaks
 		unzip
 		wl-clipboard
 	];
 
-	home-manager = {
-		useGlobalPkgs = true;
-		useUserPackages = true;
-		extraSpecialArgs = { inherit inputs; };
-		users.adjoly = import ../../home/adjoly/home.nix;
-	};
+#	home-manager = {
+#		useGlobalPkgs = true;
+#		useUserPackages = true;
+#		extraSpecialArgs = { inherit inputs; };
+#		users.adjoly = import ../../home/adjoly/home.nix;
+#	};
 	nixpkgs.config.permittedInsecurePackages = [
 		"electron-25.9.0"
 	];
@@ -56,6 +61,5 @@
 	# this value at the release version of the first install of this system.
 	# Before changing this value read the documentation for this option
 	# (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
-	system.stateVersion = "23.11"; # Did you read the comment?
-
+	system.stateVersion = "24.05"; # Did you read the comment?
 }

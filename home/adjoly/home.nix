@@ -48,9 +48,8 @@
 			molotov
 			vivaldi
 			vivaldi-ffmpeg-codecs
-			signal-desktop
 			discord
-			inputs.yosyo.packages."${pkgs.system}".pogit
+			ripgrep
 			tmux
 			plex-media-player
 			beeper
@@ -58,6 +57,6 @@
 			nextcloud-client
 			neovim
 		];
-		stateVersion = "23.11";
+		stateVersion = "24.05";
 	};
 }

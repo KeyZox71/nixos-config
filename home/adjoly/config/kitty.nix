@@ -15,6 +15,6 @@
 			#package = pkgs.nerdfonts;
 		};
 
-		theme = "Catppuccin-Frappe";
+		catppuccin.enable = true;
 	};
 }
