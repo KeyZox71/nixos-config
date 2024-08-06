@@ -12,6 +12,7 @@
 			./services/network.nix
 			./boot.nix
 			./env.nix
+			./hyprland.nix
 		];
 
 	nixpkgs.config.allowUnfree = true;

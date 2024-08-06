@@ -15,6 +15,9 @@
 			#package = pkgs.nerdfonts;
 		};
 
-		catppuccin.enable = true;
+		catppuccin = {
+			enable = true;
+			flavor = "frappe";
+		};
 	};
 }

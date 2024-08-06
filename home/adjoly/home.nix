@@ -4,6 +4,7 @@
 	imports = [
 
 		./dev.nix
+		./wm/hyprland.nix
 
 		./config/kitty.nix
 		./config/zsh.nix
