@@ -1,6 +1,20 @@
-{
+{ pkgs, ... }:
 
-	programs.hyprland.enable = true;
-# Optional, hint electron apps to use wayland:
-	environment.sessionVariables.NIXOS_OZONE_WL = "1";
+{
+	xdg.portal = {
+		enable = true;
+		#extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
+	};
+	programs.hyprland = {
+		enable = true;
+		#nvidiaPatches = true;
+	};
+	environment.sessionVariables = {
+		WLR_NO_HARDWARE_CURSORS = "1";
+		NIXOS_OZONE_WL = "1";
+	};
+	hardware = {
+		opengl.enable = true;
+		#nvidia.modesetting.enable = true;
+	};
 }

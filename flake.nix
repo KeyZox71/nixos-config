@@ -15,6 +15,8 @@
 		unstablepkgs.url = "github:nixos/nixpkgs/nixos-unstable";
 		
 		yosyo.url = "github:y-syo/.nixos-config/ReiAyanami";
+
+		stylix.url = "github:danth/stylix/release-24.05";
 	};
 
 	outputs = inputs@{ self, nixpkgs, catppuccin, home-manager, nixos-hardware, ... }:
