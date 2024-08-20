@@ -5,7 +5,6 @@
 
 		./dev.nix
 
-		./config/kitty.nix
 		./config/zsh.nix
 		./config/tmux.nix
 
@@ -49,9 +48,6 @@
 			neovim
 			ncdu
 		];
-#		sessionVariables = {
-#			SHELL = "${pkgs.zsh}/bin/zsh";
-#		};
 		stateVersion = "24.05";
 		username = "adjoly";
 		homeDirectory = "/nfs/homes/adjoly";

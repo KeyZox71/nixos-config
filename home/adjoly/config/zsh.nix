@@ -29,9 +29,10 @@
 				kty-latte = "kitty +kitten themes Catppuccin-Latte";
 				kbus = "setxkbmap -layout us -variant intl";
 				powershell = "nix-shell -p powershell --run pwsh";
+				code = "flatpak run com.visualstudio.code";
 			};
 			initExtra = ''
-				setxkbmap -layout us -variant intl
+				#setxkbmap -layout us -variant intl
 				tm() {
 					if [[ -n "$TMUX" ]]; then
 						command tmux "$@"

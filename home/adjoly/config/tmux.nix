@@ -20,7 +20,7 @@
 				plugin = tmuxPlugins.continuum;
 				extraConfig = ''
 					set -g @continuum-restore 'on'
-					set -g @continuum-save-interval '15' # minutes
+					set -g @continuum-save-interval '5' # minutes
 				'';
 			}
 			{
@@ -36,6 +36,5 @@
 			bind -n M-H previous-window
 			bind -n M-L next-window
 		''; 
-		shell = "${pkgs.zsh}/bin/zsh";
 	};
 }
