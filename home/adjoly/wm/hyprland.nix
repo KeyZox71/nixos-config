@@ -1,13 +1,37 @@
 { config, pkgs, ... }:
 
 {
+	imports = [
+		./hyprpaper.nix
+		./swaylock.nix
+		./dunst.nix
+		./waybar.nix
+		./tofi.nix
+	];
 	wayland.windowManager.hyprland = {
 		enable = true;
 		xwayland.enable = true;
+	#	catppuccin = {
+	#		enable = true;
+	#		flavor = "frappe";
+	#	};
 		settings = {
+			general = {
+				border_size = "2";
+				gaps_in = "4";
+				gaps_out = "8";
+			};
+			gestures.workspace_swipe = "on";
 			"$mod" = "ALT";
+			"$win" = "SUPER";
 			bind = [
-				"$mod, B, exec, vivaldi"
+				"$mod, P, exec, tofi-drun --drun=true"
+				"$mod, space, exec, tofi-drun --drun=true"
+				"$mod, O, exec, vivaldi"
+				"CONTROLALT, delete, exec, hyprctl dispatch exit"
+				"$mod, return, exec, kitty"
+				"$mod, Q, killactive"
+				"$win, L, exec, swaylock"
 			]
 			++ (
 				builtins.concatLists (builtins.genList (
@@ -23,15 +47,42 @@
 				)
 				10)
 			);
+			env = "XCURSOR_SIZE,30";
+			bindl = [
+			# media controls
+				", XF86AudioPlay, exec, playerctl play-pause"
+				", XF86AudioPrev, exec, playerctl previous"
+				", XF86AudioNext, exec, playerctl next"
+
+			# volume
+				", XF86AudioMute, exec, wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"
+				", XF86AudioMicMute, exec, wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle"
+			];
+
+			bindle = [
+			# volume
+				", XF86AudioRaiseVolume, exec, wpctl set-volume -l '1.0' @DEFAULT_AUDIO_SINK@ 6%+"
+				", XF86AudioLowerVolume, exec, wpctl set-volume -l '1.0' @DEFAULT_AUDIO_SINK@ 6%-"
+
+			# backlight
+				", XF86MonBrightnessUp, exec, brightnessctl s 5%+"
+				", XF86MonBrightnessDown, exec, brightnessctl s 5%-"
+			];
+			monitor = [
+				"eDP-1, 1920x1080, 0x0, 1"
+			];
+			animation = [
+				"global, 1, 0.8, default"
+			];
 			input = {
 				kb_layout = "us";
-				kb_variant = "intl";
-				
+				kb_variant = "intl";	
 				follow_mouse = "1";
-
-				touchpad.natural_scroll = "no";
-				
-				sensitivity = "0";
+				touchpad = {
+					natural_scroll = "yes";
+					tap-and-drag = true;
+				};
+				sensitivity = "0.8";
 				accel_profile = "flat";
 			};
 		};

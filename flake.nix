@@ -16,7 +16,7 @@
 		
 		yosyo.url = "github:y-syo/.nixos-config/ReiAyanami";
 
-		stylix.url = "github:danth/stylix/release-24.05";
+#		nvimzox.url = "github:keyzox71/nvim/master";
 	};
 
 	outputs = inputs@{ self, nixpkgs, catppuccin, home-manager, nixos-hardware, ... }:

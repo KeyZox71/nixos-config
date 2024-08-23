@@ -12,6 +12,7 @@
 
 		font = {
 			name = "JetBrainsMono Nerd Font Mono";
+			size = 13;
 			#package = pkgs.nerdfonts;
 		};
 

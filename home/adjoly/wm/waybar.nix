@@ -2,9 +2,6 @@
 
 {
 	programs.waybar = {
-		catppuccin = {
-			enable = true;
-			flavor = "frappe";
-		}
+		enable = true;
 	};
 }

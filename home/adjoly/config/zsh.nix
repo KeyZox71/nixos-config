@@ -84,12 +84,14 @@
 
 		fzf = {
 			enable = true;
+			catppuccin.flavor = "latte";
 			enableZshIntegration = true;
 			tmux.enableShellIntegration = true;
 		};
 
 		starship = {
 			enable = true;
+			catppuccin.enable = false;
 			enableZshIntegration = true;
 			settings = {
 				add_newline = false;

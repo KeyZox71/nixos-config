@@ -9,9 +9,20 @@
 		./config/kitty.nix
 		./config/zsh.nix
 		./config/tmux.nix
+		./config/nvim.nix
 
 	];
 
+	catppuccin = {
+		enable = true;
+		flavor = "frappe";
+		accent = "lavender";
+		pointerCursor = {
+			enable = true;
+			accent = "lavender";
+			flavor = "frappe";
+		};
+	};
 	programs = {
 		git = {
 			enable = true;

@@ -3,16 +3,15 @@
 {
 	imports =
 		[ 
-			inputs.home-manager.nixosModules.home-manager
-			
+			./programs/hyprland.nix
 			./hardware/nvidia.nix
 			./hardware/hardware-configuration.nix
 			./services/sound.nix
 			./services/xserver.nix
 			./services/network.nix
+			./services/sddm.nix
 			./boot.nix
 			./env.nix
-			./hyprland.nix
 		];
 
 	nixpkgs.config.allowUnfree = true;
@@ -29,6 +28,17 @@
 
 	virtualisation.docker.enable = true;
 
+	catppuccin = {
+		enable = true;
+		flavor = "frappe";
+		accent = "lavender";
+	#	pointerCursor = {
+	#		enable = true;
+	#		accent = "lavender";
+	#		flavor = "frappe";
+	#	};
+	};
+
 	environment.systemPackages = with pkgs; [
 		vim 
 		wget
@@ -40,17 +50,16 @@
 		docker-compose
 		btop
 		cider
-		gnome3.gnome-tweaks
+		brightnessctl
+		bluetuith
 		unzip
+		xfce.thunar
+		xfce.thunar-volman
+		xfce.thunar-archive-plugin
+		xfce.thunar-media-tags-plugin
 		wl-clipboard
 	];
 
-#	home-manager = {
-#		useGlobalPkgs = true;
-#		useUserPackages = true;
-#		extraSpecialArgs = { inherit inputs; };
-#		users.adjoly = import ../../home/adjoly/home.nix;
-#	};
 	nixpkgs.config.permittedInsecurePackages = [
 		"electron-25.9.0"
 	];
