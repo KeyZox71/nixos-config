@@ -7,6 +7,8 @@
 		./wm/hyprland.nix
 
 		./config/kitty.nix
+		./config/pogit.nix
+		./config/flameshot.nix
 		./config/zsh.nix
 		./config/tmux.nix
 		./config/nvim.nix
@@ -68,6 +70,7 @@
 			nerdfonts
 			nextcloud-client
 			neovim
+			parsec-bin
 		];
 		stateVersion = "24.05";
 	};

@@ -19,6 +19,13 @@
 	nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
 	programs.zsh.enable = true;
+	
+	programs.ssh.startAgent = true;
+	programs.seahorse.enable = true;
+	services.gnome.gnome-keyring.enable = true;
+	
+	hardware.bluetooth.enable = true; # enables support for Bluetooth
+	hardware.bluetooth.powerOnBoot = true; # powers up the default Bluetooth controller on boot
 
 	users.users.adjoly = {
 		shell = pkgs.zsh;
@@ -27,6 +34,13 @@
 	};
 
 	virtualisation.docker.enable = true;
+
+	fonts.fontconfig = {
+		enable = true;
+		defaultFonts = {
+			emoji = [ "Noto Color Emoji" ];
+		};
+	};
 
 	catppuccin = {
 		enable = true;
@@ -40,24 +54,25 @@
 	};
 
 	environment.systemPackages = with pkgs; [
+		gh
+		git
+		zsh
 		vim 
 		wget
 		curl
-		git
-		gh
-		inputs.yosyo.packages."${pkgs.system}".pogit
-		zsh
-		docker-compose
 		btop
 		cider
-		brightnessctl
-		bluetuith
 		unzip
+		bluetuith
 		xfce.thunar
+		wl-clipboard
+		brightnessctl
+		docker-compose
 		xfce.thunar-volman
 		xfce.thunar-archive-plugin
 		xfce.thunar-media-tags-plugin
-		wl-clipboard
+		inputs.hyprland-contrib.packages.${pkgs.system}.grimblast
+		inputs.pogit.packages.${pkgs.system}.default
 	];
 
 	nixpkgs.config.permittedInsecurePackages = [

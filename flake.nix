@@ -1,6 +1,10 @@
 {
 	description = "KeyZox's config";
 	inputs = {
+		nixpkgs.url = "github:nixos/nixpkgs/nixos-24.05";
+
+		unstablepkgs.url = "github:nixos/nixpkgs/nixos-unstable";
+
 		nixos-hardware.url = "github:NixOS/nixos-hardware/master";
 
 		catppuccin.url = "github:catppuccin/nix";
@@ -10,13 +14,15 @@
 			inputs.nixpkgs.follows = "nixpkgs";
 		};
 
-		nixpkgs.url = "github:nixos/nixpkgs/nixos-24.05";
-
-		unstablepkgs.url = "github:nixos/nixpkgs/nixos-unstable";
+		pogit = {
+			url = "github:y-syo/pogit";
+			inputs.nixpkgs.follows = "nixpkgs"; # to use your nixpkgs instance instead of the provided one
+		};
 		
-		yosyo.url = "github:y-syo/.nixos-config/ReiAyanami";
-
-#		nvimzox.url = "github:keyzox71/nvim/master";
+		hyprland-contrib = {
+			url = "github:hyprwm/contrib";
+			inputs.nixpkgs.follows = "nixpkgs";
+		};
 	};
 
 	outputs = inputs@{ self, nixpkgs, catppuccin, home-manager, nixos-hardware, ... }:
@@ -36,15 +42,6 @@
 					catppuccin.nixosModules.catppuccin
 					nixos-hardware.nixosModules.dell-precision-5530
 					nixos-hardware.nixosModules.common-gpu-nvidia-disable
-					home-manager.nixosModules.home-manager
-					{
-						home-manager.users.adjoly= {
-							imports = [
-								./home/adjoly/home.nix
-								catppuccin.homeManagerModules.catppuccin
-							];
-						};
-					}
 				];
 			};
 			homeConfigurations.adjoly = home-manager.lib.homeManagerConfiguration {

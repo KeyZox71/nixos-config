@@ -19,7 +19,8 @@
 			general = {
 				border_size = "2";
 				gaps_in = "4";
-				gaps_out = "8";
+				#gaps_out = "8";
+				gaps_out = "8,8,8,8";
 			};
 			gestures.workspace_swipe = "on";
 			"$mod" = "ALT";
@@ -32,6 +33,7 @@
 				"$mod, return, exec, kitty"
 				"$mod, Q, killactive"
 				"$win, L, exec, swaylock"
+				"$win + SHIFT,  S, exec, grimblast --notify copysave area"
 			]
 			++ (
 				builtins.concatLists (builtins.genList (
@@ -61,8 +63,8 @@
 
 			bindle = [
 			# volume
-				", XF86AudioRaiseVolume, exec, wpctl set-volume -l '1.0' @DEFAULT_AUDIO_SINK@ 6%+"
-				", XF86AudioLowerVolume, exec, wpctl set-volume -l '1.0' @DEFAULT_AUDIO_SINK@ 6%-"
+				", XF86AudioRaiseVolume, exec, wpctl set-volume -l '1.0' @DEFAULT_AUDIO_SINK@ 5%+"
+				", XF86AudioLowerVolume, exec, wpctl set-volume -l '1.0' @DEFAULT_AUDIO_SINK@ 5%-"
 
 			# backlight
 				", XF86MonBrightnessUp, exec, brightnessctl s 5%+"
@@ -70,6 +72,19 @@
 			];
 			monitor = [
 				"eDP-1, 1920x1080, 0x0, 1"
+				"DP-3, 1920x1080, auto, 1"
+			];
+			workspace = [
+				"1, monitor:DP-3"
+				"2, monitor:eDP-1"
+				"3, monitor:DP-3"
+				"4, monitor:eDP-1"
+				"5, monitor:DP-3"
+				"6, monitor:eDP-1"
+				"7, monitor:DP-3"
+				"8, monitor:eDP-1"
+				"9, monitor:DP-3"
+				"10, monitor:eDP-1"
 			];
 			animation = [
 				"global, 1, 0.8, default"
