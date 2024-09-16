@@ -86,6 +86,10 @@
 				"9, monitor:DP-3"
 				"10, monitor:eDP-1"
 			];
+			misc = {
+				focus_on_activate = true;
+				initial_workspace_tracking = "2";
+			};
 			animation = [
 				"global, 1, 0.8, default"
 			];

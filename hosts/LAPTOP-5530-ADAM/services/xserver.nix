@@ -8,6 +8,7 @@
 		enable = true;
 		#displayManager.gdm.enable = true;
 		#desktopManager.gnome.enable = true;
+		videoDrivers = [ "intel" ];
 		xkb = {
 			layout = "us";
 			variant = "intl";

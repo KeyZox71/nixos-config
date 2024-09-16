@@ -12,7 +12,6 @@
 		./config/zsh.nix
 		./config/tmux.nix
 		./config/nvim.nix
-
 	];
 
 	catppuccin = {
@@ -67,7 +66,6 @@
 			tmux
 			plex-media-player
 			beeper
-			nerdfonts
 			nextcloud-client
 			neovim
 			parsec-bin

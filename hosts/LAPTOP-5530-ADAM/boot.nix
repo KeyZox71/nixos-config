@@ -17,6 +17,9 @@
 					flavor = "frappe";
 				};
 			};
-	};
+		};
+		blacklistedKernelModules = [
+			"nouveau"
+		];
 	};
 }

@@ -12,11 +12,20 @@
 			./services/sddm.nix
 			./boot.nix
 			./env.nix
+			./fonts.nix
 		];
 
 	nixpkgs.config.allowUnfree = true;
  
 	nix.settings.experimental-features = [ "nix-command" "flakes" ];
+
+	environment.variables = {
+		LIBVA_DRIVER_NAME = "iHD";
+		GDK_BACKEND = "wayland";
+		NIXOS_OZONE_WL = "1";
+		CLUTTER_BACKEND = "wayland";
+		KITTY_ENABLE_WAYLAND = "1";
+	};
 
 	programs.zsh.enable = true;
 	
@@ -61,7 +70,6 @@
 		wget
 		curl
 		btop
-		cider
 		unzip
 		bluetuith
 		xfce.thunar

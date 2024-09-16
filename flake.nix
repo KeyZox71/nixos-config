@@ -40,6 +40,8 @@
 					./hosts/LAPTOP-5530-ADAM/default.nix
 
 					catppuccin.nixosModules.catppuccin
+
+					nixos-hardware.nixosModules.common-gpu-intel
 					nixos-hardware.nixosModules.dell-precision-5530
 					nixos-hardware.nixosModules.common-gpu-nvidia-disable
 				];
