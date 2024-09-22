@@ -13,6 +13,8 @@
 			./boot.nix
 			./env.nix
 			./fonts.nix
+
+			inputs.home-manager.nixosModules.home-manager
 		];
 
 	nixpkgs.config.allowUnfree = true;
@@ -80,13 +82,18 @@
 		xfce.thunar-archive-plugin
 		xfce.thunar-media-tags-plugin
 		inputs.hyprland-contrib.packages.${pkgs.system}.grimblast
-		inputs.pogit.packages.${pkgs.system}.default
 	];
 
 	nixpkgs.config.permittedInsecurePackages = [
 		"electron-25.9.0"
 	];
 
+	home-manager = {
+		useGlobalPkgs = true;
+		useUserPackages = true;
+		extraSpecialArgs = { inherit inputs; };
+		users.adjoly = import ../../home/adjoly/home.nix;
+	};
 
 	# This value determines the NixOS release from which the default
 	# settings for stateful data, like file locations and database versions

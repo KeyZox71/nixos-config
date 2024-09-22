@@ -1,25 +1,31 @@
-{ ... }:
+{ lib, config, ... }:
 {
 	programs.tofi = {
 		enable = true;
-	#	catppuccin = {
-	#		enable = true;
-	#		flavor = "frappe";
-	#	};
-		settings = {
-			width = "40%";
-			height = "40%";
+		catppuccin = {
+			enable = true;
+			flavor = "frappe";
+		};
+		settings = lib.mkForce {
+			width = "100%";
+			height = "100%";
 
 			prompt-text = "> ";
+			hide-cursor = "true";
 
 			border-width = "0";
 			outline-width = "0";
-			#padding-left = "40%";
-			#padding-top = "20%";
+			padding-left = "33%";
+			padding-top = "20%";
 
+			text-color = "#babbf1";
+			selection-color = "#e78284";
+			prompt-color = "#eebebe";
 			result-spacing = "15";
 
-			#num-results = "10";
+			background-color = "#303446df";
+
+			num-results = "10";
 
 			terminal = "kitty";
 		};

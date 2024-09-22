@@ -6,8 +6,7 @@
 			enable = true;
 			autosuggestion.enable = true;
 			enableCompletion = true;
-			plugins = 
-			[
+			plugins = [
 			  {
 			    name = "zsh-z";
 			    src = pkgs.fetchFromGitHub {
@@ -24,6 +23,7 @@
 			    re = "sudo nixos-rebuild switch";
 			    update = "sudo nix flake update && sudo nixos-rebuild switch";
 			    grep = "grep --color=auto";
+				lock = "swaylock & systemctl suspend";
 			};
 			initExtra = ''
 				tm() {

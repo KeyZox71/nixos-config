@@ -12,7 +12,9 @@
 		./config/zsh.nix
 		./config/tmux.nix
 		./config/nvim.nix
-	];
+
+		inputs.catppuccin.homeManagerModules.catppuccin
+];
 
 	catppuccin = {
 		enable = true;
@@ -36,7 +38,6 @@
 				git_protocol = "ssh";
 			};
 		};
-		home-manager.enable = true;
 	};
 
 	services.nextcloud-client = {
