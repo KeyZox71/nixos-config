@@ -34,7 +34,7 @@
 				"$mod, Q, killactive"
 				"$win, L, exec, swaylock"
 				"$win + SHIFT, S, exec, grimblast --notify copysave area"
-				"CTRL_SHIFT, K, sendshortcut, CTRL, E, ^(vivaldi-stable)$"
+				"CTRL_SHIFT, K, sendshortcut, CTRL, K, ^(Beeper)$"
 			]
 			++ (
 				builtins.concatLists (builtins.genList (

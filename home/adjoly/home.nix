@@ -54,22 +54,24 @@
 
 	home = {
 		packages = with pkgs; [
-			obsidian
-			onlyoffice-bin
 			vlc
-			prismlauncher
-			tradingview
+			tmux
+			neovim
+			beeper
+			ripgrep
 			molotov
 			vivaldi
-			vivaldi-ffmpeg-codecs
 			discord
-			ripgrep
-			tmux
-			plex-media-player
-			beeper
-			nextcloud-client
-			neovim
+			obsidian
+			playerctl
 			parsec-bin
+			tradingview
+			prismlauncher
+			onlyoffice-bin
+			nextcloud-client
+			plex-media-player
+			lua-language-server
+			vivaldi-ffmpeg-codecs
 		];
 		stateVersion = "24.05";
 	};
