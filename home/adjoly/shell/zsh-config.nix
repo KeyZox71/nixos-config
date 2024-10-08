@@ -17,14 +17,6 @@
 			    };
 			  }
 			];
-			shellAliases = {
-				l = "ls -lA --color=auto";
-		  	    ls = "ls -A --color=auto";
-			    re = "sudo nixos-rebuild switch";
-			    update = "sudo nix flake update && sudo nixos-rebuild switch";
-			    grep = "grep --color=auto";
-				lock = "swaylock & systemctl suspend";
-			};
 			initExtra = ''
 				tm() {
 					if [[ -n "$TMUX" ]]; then
@@ -73,7 +65,6 @@
 				        tmux attach -t "$session_name"
 				    fi
 				}
-				path+=('/home/adjoly/.local/bin')
 			'';
 		};
 
@@ -96,7 +87,7 @@
 			settings = {
 				add_newline = false;
 				format = lib.concatStrings [ 
-					"$os$directory$git_branch $git_status"
+					"$directory$git_branch $git_status"
 					"[➜](bold green) "
 				];
 				right_format = lib.concatStrings [
@@ -149,9 +140,6 @@
 					truncation_length = 4;
 					truncation_symbol = "…/";
 					style = "bold green";
-				};
-				os.symbols = {
-					NixOS = " ";
 				};
 			};
 		};

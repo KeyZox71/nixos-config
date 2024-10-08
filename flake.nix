@@ -28,7 +28,7 @@
 	outputs = inputs@{ self, nixpkgs, catppuccin, home-manager, nixos-hardware, ... }:
 	 let
 		inherit (self) outputs;
-		systems = [ "x86_64-linux" ];
+		systems = [ "x86_64-linux" "x86_64-darwin" ];
 		forSystems = nixpkgs.lib.genAttrs systems;
 	in
 	{
@@ -39,19 +39,28 @@
 				modules = [
 					./hosts/LAPTOP-5530-ADAM/default.nix
 
-					catppuccin.nixosModules.catppuccin
+						catppuccin.nixosModules.catppuccin
 
-					nixos-hardware.nixosModules.common-gpu-intel
-					nixos-hardware.nixosModules.dell-precision-5530
-					nixos-hardware.nixosModules.common-gpu-nvidia-disable
+						nixos-hardware.nixosModules.common-gpu-intel
+						nixos-hardware.nixosModules.dell-precision-5530
+						nixos-hardware.nixosModules.common-gpu-nvidia-disable
 				];
 			};
-			/*homeConfigurations.adjoly = home-manager.lib.homeManagerConfiguration {
-				pkgs = nixpkgs.legacyPackages.x86_64-linux;
+		};
+		homeManagerConfigurations = {
+			"42adjoly" = home-manager.lib.homeManagerConfiguration {
+				pkgs = nixpkgs.legacyPackages."x86_64-linux";
 				modules = [
-					./home/adjoly/home.nix
+					./home/adjoly/home42.nix
+					{
+						home = {
+							homeDirectory = "/nfs/homes/adjoly";
+							username = "adjoly";
+						};
+					}
 				];
-			};*/
+				extraSpecialArgs = { inherit inputs outputs; };
+			};
 		};
 	};
 }

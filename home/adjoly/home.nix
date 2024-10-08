@@ -2,16 +2,18 @@
 
 {
 	imports = [
-
-		./dev.nix
 		./wm/hyprland.nix
 
+		./config/dev.nix
 		./config/kitty.nix
-		./config/pogit.nix
 		./config/flameshot.nix
-		./config/zsh.nix
 		./config/tmux.nix
 		./config/nvim.nix
+
+		./shell/zsh.nix
+		./services/nextcloud.nix
+		./programs/pogit.nix
+		./programs/git.nix
 
 		inputs.catppuccin.homeManagerModules.catppuccin
 ];
