@@ -1,4 +1,4 @@
-{ config, ... }:
+{ config, lib,... }:
 
 {
 	programs.kitty = {
@@ -7,7 +7,7 @@
 		shellIntegration.enableZshIntegration = true;
 
 		environment = {
-	  	"KITTY_ENABLE_WAYLAND" = "1";
+		  	"KITTY_ENABLE_WAYLAND" = "1";
 		};
 
 		font = {
@@ -16,9 +16,8 @@
 			#package = pkgs.nerdfonts;
 		};
 
-		catppuccin = {
-			enable = true;
-			flavor = "latte";
-		};
+		extraConfig = "include ~/.config/kitty/current-theme.conf";
+
+		catppuccin.enable = true;
 	};
 }

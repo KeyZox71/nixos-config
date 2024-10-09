@@ -5,8 +5,8 @@
 		./hyprpaper.nix
 		./swaylock.nix
 		./dunst.nix
-		./waybar.nix
 		./tofi.nix
+		./xdg.nix
 	];
 	wayland.windowManager.hyprland = {
 		enable = true;
@@ -33,7 +33,7 @@
 				"$mod, return, exec, kitty"
 				"$mod, Q, killactive"
 				"$win, L, exec, swaylock"
-				"$win + SHIFT, S, exec, grimblast --notify copysave area"
+				"$win + SHIFT, S, exec, grimblast --notify copysave area \"$HOME/Nextcloud/Images/Captures d’écran/Capture d’écran $(date +%F-%H%M%S).png\""
 				"CTRL_SHIFT, K, sendshortcut, CTRL, K, ^(Beeper)$"
 			]
 			++ (

@@ -17,8 +17,20 @@
 			inputs.home-manager.nixosModules.home-manager
 		];
 
-	nixpkgs.config.allowUnfree = true;
+	nixpkgs.config = {
+		allowUnfree = true;
+		packageOverrides = pkgs: {
+			intel-vaapi-driver = pkgs.intel-vaapi-driver.override { enableHybridCodec = true; };
+		};
+	};
  
+	xdg.portal.config = {
+		common = {
+			"org.freedesktop.impl.portal.Settings" = [
+				"darkman"
+			];
+		};
+	};
 	nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
 	environment.variables = {

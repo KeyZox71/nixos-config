@@ -2,13 +2,13 @@
 
 {
 	imports = [
-		./config/dev.nix
 
-		./shell/zsh42.nix
-		./config/tmux.nix
 
 		./programs/git.nix
+		./programs/tmux.nix
 		./programs/pogit.nix
+		./programs/direnv.nix
+		./programs/shell/zsh42.nix
 
 		inputs.catppuccin.homeManagerModules.catppuccin
 	];

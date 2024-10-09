@@ -39,11 +39,11 @@
 				modules = [
 					./hosts/LAPTOP-5530-ADAM/default.nix
 
-						catppuccin.nixosModules.catppuccin
+					catppuccin.nixosModules.catppuccin
 
-						nixos-hardware.nixosModules.common-gpu-intel
-						nixos-hardware.nixosModules.dell-precision-5530
-						nixos-hardware.nixosModules.common-gpu-nvidia-disable
+					nixos-hardware.nixosModules.common-gpu-intel
+					nixos-hardware.nixosModules.dell-precision-5530
+					nixos-hardware.nixosModules.common-gpu-nvidia-disable
 				];
 			};
 		};

@@ -2,6 +2,10 @@
 {
 	imports = [
 		./zsh-config.nix
+		./thefuck.nix
+		./starship.nix
+		./fzf.nix
+		./zoxide.nix
 	];
 	programs.zsh = {
 		shellAliases = {

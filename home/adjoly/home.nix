@@ -2,18 +2,18 @@
 
 {
 	imports = [
+		./gtk.nix
 		./wm/hyprland.nix
 
-		./config/dev.nix
-		./config/kitty.nix
-		./config/flameshot.nix
-		./config/tmux.nix
-		./config/nvim.nix
-
-		./shell/zsh.nix
 		./services/nextcloud.nix
-		./programs/pogit.nix
+		./services/darkman.nix
+
 		./programs/git.nix
+		./programs/tmux.nix
+		./programs/pogit.nix
+		./programs/kitty.nix
+		./programs/direnv.nix
+		./programs/shell/zsh.nix
 
 		inputs.catppuccin.homeManagerModules.catppuccin
 ];
@@ -42,15 +42,10 @@
 		};
 	};
 
-	services.nextcloud-client = {
-		enable = true;
-		startInBackground = true;
-	};
-
 	nixpkgs = {
 		config = {
-			allowUnfree = true;
-			allowUnfreePredicate = (_: true);
+			allowunfree = true;
+			allowunfreepredicate = (_: true);
 		};
 	};
 
