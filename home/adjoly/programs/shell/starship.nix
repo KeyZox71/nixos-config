@@ -10,22 +10,6 @@
 				"$directory$git_branch $git_status"
 				"[➜](bold green) "
 			];
-			right_format = lib.concatStrings [
-				"$time"
-			];
-			os = {
-				format = "[$symbol]($style)";
-				style = "#abcdef";
-				disabled = false;
-			};
-			time = {
-				disabled = false;
-				time_format = "%R";
-				format = "[$time](fg:#8DFBD2)";
-			};
-			cmd_duration = {
-				format = "last command: [$duration](bold yellow)";
-			};
 			directory = {
 				truncation_length = 3;
 				fish_style_pwd_dir_length = 2;
