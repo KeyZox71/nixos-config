@@ -1,8 +1,7 @@
-{ inputs, outputs, lib, config, pkgs, theme, ... }:
+{ inputs, outputs, lib, config, pkgs, theme, nixgl, ... }:
 
 {
 	imports = [
-
 
 		./programs/git.nix
 		./programs/tmux.nix
@@ -29,7 +28,7 @@
 
 	home = {
 		packages = with pkgs; [
-			#obsidian
+			obsidian
 			starship
 			ripgrep
 			vivaldi
@@ -38,7 +37,6 @@
 			beeper
 			neovim
 			ncdu
-			#libclang
 		];
 		stateVersion = "24.05";
 	};

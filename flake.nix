@@ -23,6 +23,7 @@
 			url = "github:hyprwm/contrib";
 			inputs.nixpkgs.follows = "nixpkgs";
 		};
+
 	};
 
 	outputs = inputs@{ self, nixpkgs, catppuccin, home-manager, nixos-hardware, ... }:
