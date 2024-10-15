@@ -23,11 +23,10 @@
 				style = "bold green";
 			};
 			git_status = {
-				format = "([$all_status$ahead_behind](bold red)) ";
+				format = "([$all_status$ahead_behind ]($style))";
 				staged = "•";
 				modified = "~";
 				untracked = "+";
-				up_to_date = "(bold green)";
 			};
 		};
 	};
