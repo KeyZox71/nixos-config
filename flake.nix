@@ -28,15 +28,16 @@
 
 	outputs = inputs@{ self, nixpkgs, catppuccin, home-manager, nixos-hardware, ... }:
 	 let
-		inherit (self) outputs;
-		systems = [ "x86_64-linux" "x86_64-darwin" ];
-		forSystems = nixpkgs.lib.genAttrs systems;
+		supportedSystems = [ "x86_64-linux" "aarch64-linux" "x86_64-darwin" "aarch64-darwin" ];
+		forEachSupportedSystem = f: nixpkgs.lib.genAttrs supportedSystems (system: f {
+			pkgs = import nixpkgs { inherit system; };
+		});
 	in
 	{
 		nixosConfigurations = {
 			LAPTOP-5530-ADAM = nixpkgs.lib.nixosSystem {
 				system = "x86_64-linux";
-				specialArgs = { inherit inputs outputs; };
+				specialArgs = { inherit inputs; };
 				modules = [
 					./hosts/LAPTOP-5530-ADAM/default.nix
 
@@ -60,8 +61,17 @@
 						};
 					}
 				];
-				extraSpecialArgs = { inherit inputs outputs; };
+				extraSpecialArgs = { inherit inputs; };
 			};
 		};
+		devShells = forEachSupportedSystem ({ pkgs }: {
+			default = pkgs.mkShell.override
+			{}
+			{
+				packages = with pkgs; [
+					nil
+				];
+			};
+		});
 	};
 }

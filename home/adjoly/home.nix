@@ -13,6 +13,7 @@
 		./programs/pogit.nix
 		./programs/kitty.nix
 		./programs/direnv.nix
+		./programs/fastfetch.nix
 		./programs/shell/zsh.nix
 
 		inputs.catppuccin.homeManagerModules.catppuccin
