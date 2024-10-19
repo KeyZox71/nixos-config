@@ -1,5 +1,4 @@
-{ inputs, outputs, lib, config, pkgs, theme, ... }:
-
+{ inputs, pkgs, ... }:
 {
 	imports = [
 		./gtk.nix
@@ -12,12 +11,13 @@
 		./programs/tmux.nix
 		./programs/pogit.nix
 		./programs/kitty.nix
+		./programs/neovim.nix
 		./programs/direnv.nix
 		./programs/fastfetch.nix
 		./programs/shell/zsh.nix
 
 		inputs.catppuccin.homeManagerModules.catppuccin
-];
+	];
 
 	catppuccin = {
 		enable = true;
@@ -45,8 +45,8 @@
 
 	nixpkgs = {
 		config = {
-			allowunfree = true;
-			allowunfreepredicate = (_: true);
+			allowUnfree = true;
+			allowUnfreepredicate = (_: true);
 		};
 	};
 
@@ -54,7 +54,6 @@
 		packages = with pkgs; [
 			vlc
 			tmux
-			neovim
 			beeper
 			ripgrep
 			molotov

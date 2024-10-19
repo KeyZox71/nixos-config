@@ -1,4 +1,4 @@
-{ config, pkgs, inputs, lib, outputs, ... }:
+{ pkgs, inputs, ... }:
 
 {
 	imports =
@@ -17,10 +17,12 @@
 			inputs.home-manager.nixosModules.home-manager
 		];
 
-	nixpkgs.config = {
-		allowUnfree = true;
-		packageOverrides = pkgs: {
-			intel-vaapi-driver = pkgs.intel-vaapi-driver.override { enableHybridCodec = true; };
+	nixpkgs = {
+		config = {
+			allowUnfree = true;
+			packageOverrides = pkgs: {
+				intel-vaapi-driver = pkgs.intel-vaapi-driver.override { enableHybridCodec = true; };
+			};
 		};
 	};
  
@@ -80,6 +82,7 @@
 		gh
 		git
 		zsh
+		nil
 		vim 
 		wget
 		curl
@@ -101,7 +104,7 @@
 	];
 
 	home-manager = {
-		useGlobalPkgs = true;
+		#useGlobalPkgs = true;
 		useUserPackages = true;
 		extraSpecialArgs = { inherit inputs; };
 		users.adjoly = import ../../home/adjoly/home.nix;
