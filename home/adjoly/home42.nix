@@ -36,7 +36,6 @@
 			vivaldi-ffmpeg-codecs
 			discord
 			beeper
-			neovim
 			ncdu
 		];
 		stateVersion = "24.05";
