@@ -29,14 +29,13 @@
 
 	home = {
 		packages = with pkgs; [
+			beeper
+			vivaldi
+			discord
 			obsidian
 			starship
-			ripgrep
-			vivaldi
+			ticktick
 			vivaldi-ffmpeg-codecs
-			discord
-			beeper
-			ncdu
 		];
 		stateVersion = "24.05";
 	};

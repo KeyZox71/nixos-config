@@ -14,7 +14,12 @@
 			inputs.nixpkgs.follows = "nixpkgs";
 		};
 
-		keyznvim.url = "github:keyzox71/nvim";
+		home-unstable = {
+			url = "github:nix-community/home-manager/master";
+			inputs.nixpkgs.follows = "unstablepkgs";
+		};
+
+		keyznvim.url = "github:keyzox71/nvim/indev";
 
 		pogit = {
 			url = "github:y-syo/pogit";
@@ -25,9 +30,10 @@
 			url = "github:hyprwm/contrib";
 			inputs.nixpkgs.follows = "nixpkgs";
 		};
+		nixgl.url = "github:nix-community/nixGL";
 	};
 
-	outputs = inputs@{ self, keyznvim, nixpkgs, catppuccin, home-manager, nixos-hardware, ... }:
+	outputs = inputs@{ nixpkgs, unstablepkgs, catppuccin, home-unstable, nixos-hardware, nixgl, ... }:
 	 let
 		supportedSystems = [ "x86_64-linux" "aarch64-linux" "x86_64-darwin" "aarch64-darwin" ];
 		forEachSupportedSystem = f: nixpkgs.lib.genAttrs supportedSystems (system: f {
@@ -53,8 +59,11 @@
 			};
 		};
 		homeManagerConfigurations = {
-			"42adjoly" = home-manager.lib.homeManagerConfiguration {
-				pkgs = nixpkgs.legacyPackages."x86_64-linux";
+			"42adjoly" = home-unstable.lib.homeManagerConfiguration {
+				pkgs = import unstablepkgs {
+					system = "x86_64-linux";
+					overlays = [ nixgl.overlay ];
+				};
 				modules = [
 					./home/adjoly/home42.nix
 					{
@@ -64,7 +73,7 @@
 						};
 					}
 				];
-				extraSpecialArgs = { inherit inputs; };
+				extraSpecialArgs = { inherit inputs nixgl; };
 			};
 		};
 		devShells = forEachSupportedSystem ({ pkgs }: {
