@@ -30,10 +30,9 @@
 			url = "github:hyprwm/contrib";
 			inputs.nixpkgs.follows = "nixpkgs";
 		};
-		nixgl.url = "github:nix-community/nixGL";
 	};
 
-	outputs = inputs@{ nixpkgs, unstablepkgs, catppuccin, home-unstable, nixos-hardware, nixgl, ... }:
+	outputs = inputs@{ nixpkgs, unstablepkgs, catppuccin, home-unstable, nixos-hardware, ... }:
 	 let
 		supportedSystems = [ "x86_64-linux" "aarch64-linux" "x86_64-darwin" "aarch64-darwin" ];
 		forEachSupportedSystem = f: nixpkgs.lib.genAttrs supportedSystems (system: f {
@@ -44,7 +43,7 @@
 	in
 	{
 		nixosConfigurations = {
-			LAPTOP-5530-ADAM = nixpkgs.lib.nixosSystem {
+			LAPTOP-5530-ADAM = unstablepkgs.lib.nixosSystem {
 				system = "x86_64-linux";
 				specialArgs = { inherit inputs; };
 				modules = [
@@ -62,7 +61,6 @@
 			"42adjoly" = home-unstable.lib.homeManagerConfiguration {
 				pkgs = import unstablepkgs {
 					system = "x86_64-linux";
-					overlays = [ nixgl.overlay ];
 				};
 				modules = [
 					./home/adjoly/home42.nix
@@ -73,7 +71,7 @@
 						};
 					}
 				];
-				extraSpecialArgs = { inherit inputs nixgl; };
+				extraSpecialArgs = { inherit inputs; };
 			};
 		};
 		devShells = forEachSupportedSystem ({ pkgs }: {

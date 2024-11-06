@@ -1,4 +1,4 @@
-{ pkgs, lib, config, inputs, outputs, ... }:
+{ ... }:
 
 {
 	services.displayManager = {
@@ -6,8 +6,6 @@
 	};
 	services.xserver = {
 		enable = true;
-		#displayManager.gdm.enable = true;
-		#desktopManager.gnome.enable = true;
 		videoDrivers = [ "intel" ];
 		xkb = {
 			layout = "us";

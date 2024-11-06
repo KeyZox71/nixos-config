@@ -23,6 +23,7 @@
 				gaps_out = "8,8,8,8";
 			};
 			gestures.workspace_swipe = "on";
+			exec-once = "hyprpaper";
 			"$mod" = "ALT";
 			"$win" = "SUPER";
 			bind = [
@@ -50,7 +51,10 @@
 				)
 				10)
 			);
-			env = "XCURSOR_SIZE,30";
+			env = [
+				"XCURSOR_SIZE,30"
+				"XDG_CURRENT_DESKTOP,Hyprland"
+			];
 			bindl = [
 			# media controls
 				", XF86AudioPlay, exec, playerctl play-pause"

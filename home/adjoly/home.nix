@@ -50,6 +50,8 @@
 		};
 	};
 
+	nix.nixPath = [ "nixpkgs=${inputs.unstablepkgs}" ];
+
 	home = {
 		packages = with pkgs; [
 			vlc
@@ -61,6 +63,7 @@
 			discord
 			obsidian
 			playerctl
+			hyprpaper
 			parsec-bin
 			tradingview
 			prismlauncher

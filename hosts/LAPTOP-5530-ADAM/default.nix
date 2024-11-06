@@ -3,36 +3,26 @@
 {
 	imports =
 		[ 
-			./programs/hyprland.nix
-			./hardware/nvidia.nix
-			./hardware/hardware-configuration.nix
+			./env.nix
+			./boot.nix
+			./fonts.nix
+			./services/ly.nix
 			./services/sound.nix
+			./hardware/nvidia.nix
 			./services/xserver.nix
 			./services/network.nix
-			./services/sddm.nix
-			./boot.nix
-			./env.nix
-			./fonts.nix
+			./programs/hyprland.nix
+			./hardware/hardware-configuration.nix
 
-			inputs.home-manager.nixosModules.home-manager
+			inputs.home-unstable.nixosModules.home-manager
 		];
 
 	nixpkgs = {
 		config = {
 			allowUnfree = true;
-			packageOverrides = pkgs: {
-				intel-vaapi-driver = pkgs.intel-vaapi-driver.override { enableHybridCodec = true; };
-			};
 		};
 	};
  
-	xdg.portal.config = {
-		common = {
-			"org.freedesktop.impl.portal.Settings" = [
-				"darkman"
-			];
-		};
-	};
 	nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
 	environment.variables = {
@@ -104,7 +94,6 @@
 	];
 
 	home-manager = {
-		#useGlobalPkgs = true;
 		useUserPackages = true;
 		extraSpecialArgs = { inherit inputs; };
 		users.adjoly = import ../../home/adjoly/home.nix;

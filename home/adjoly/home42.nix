@@ -20,6 +20,7 @@
 			allowUnfreePredicate = (_: true);
 		};
 	};
+	nix.nixPath = [ "nixpkgs=${inputs.unstablepkgs}" ];
 
 	catppuccin = {
 		enable = true;
