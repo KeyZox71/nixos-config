@@ -12,21 +12,21 @@
 	wayland.windowManager.hyprland = {
 		enable = true;
 		xwayland.enable = true;
-	#	catppuccin = {
-	#		enable = true;
-	#		flavor = "frappe";
-	#	};
 		settings = {
 			general = {
-				border_size = "2";
+				border_size = "0";
 				gaps_in = "4";
-				#gaps_out = "8";
 				gaps_out = "8,8,8,8";
+				"col.active_border" = "#ffbabbf1";
+				"col.inactive_border" = "#ff303446";
+			};
+			decoration = {
+				rounding = 8;
 			};
 			gestures.workspace_swipe = "on";
 			exec-once = [
 				"hyprpaper"
-				"${pkgs.waybar}/bin/waybar"
+				"waybar"
 			];
 			"$mod" = "ALT";
 			"$win" = "SUPER";

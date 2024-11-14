@@ -63,6 +63,7 @@
 			vlc
 			tmux
 			beeper
+			zenity
 			ripgrep
 			molotov
 			discord
@@ -75,7 +76,6 @@
 			prismlauncher
 			nextcloud-client
 			unstable.vivaldi
-			plex-media-player
 			vivaldi-ffmpeg-codecs
 		];
 		stateVersion = "24.05";

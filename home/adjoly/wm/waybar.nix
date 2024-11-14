@@ -1,93 +1,117 @@
 { ... }:
 
 {
-  programs.waybar = {
-    enable = true;
-	catppuccin.enable = true;
-    settings = {
-      bar = {
-        margin-top = 8;
-        margin-bottom = 0;
-        margin-right = 8;
-        margin-left = 8;
-        layer = "top";
-        modules-left = [ "hyprland/workspaces" ];
-        modules-center = [ "clock" ];
-        modules-right = [ "mpris" "custom/prev" "custom/playpause" "custom/next" "network" "battery" ];
-        output = [ "eDP-1" ];
+	programs.waybar = {
+		enable = true;
+		catppuccin.enable = true;
+		settings = {
+			bar = {
+				margin-top = 8;
+				margin-bottom = 0;
+				margin-right = 8;
+				margin-left = 8;
+				layer = "top";
+				modules-left = [ "hyprland/workspaces" "hyprland/window" ];
+				modules-center = [ "clock" ];
+				modules-right = [ "mpris" "pulseaudio" "custom/prev" "custom/playpause" "custom/next" "network" "battery" ];
+				output = [ "eDP-1" ];
 
-        # ---------------------------------------------------------
+				# ---------------------------------------------------------
 
-        "hyprland/workspaces" = {
-          format = "{icon}";
-          tooltip = false;
-          "persistent-workspaces" = {
-            "eDP-1" = [ 1 2 3 4 5 6 7 8 9 10 ];
-          };
-          format-icons = {
-            "1" = "◆";
-            "2" = "◆";
-            "3" = "◆";
-            "4" = "◆";
-            "5" = "◆";
-            "6" = "◆";
-            "7" = "◆";
-            "8" = "◆";
-            "9" = "◆";
-            "10" = "◆";
-          };
-        };
+				"hyprland/workspaces" = {
+					format = "{icon}";
+					tooltip = false;
+					"persistent-workspaces" = {
+						"eDP-1" = [ 1 2 3 4 5 6 7 8 9 10 ];
+					};
+					format-icons = {
+						"1" = "◆";
+						"2" = "◆";
+						"3" = "◆";
+						"4" = "◆";
+						"5" = "◆";
+						"6" = "◆";
+						"7" = "◆";
+						"8" = "◆";
+						"9" = "◆";
+						"10" = "◆";
+						"active" = "";
+					};
+				};
 
-        # ---------------------------------------------------------
+				"hyprland/window" = {
+					format = "{title}";
+					tooltip = false;
+					icon = true;
+					icon-size = 16;
+					max-length = 20;
+				};
 
-        clock = {
-          format = "{:%a %d %b | %H : %M}";
-          tooltip = true;
-        };
+				# -------------------------:--------------------------------
 
-        # ---------------------------------------------------------
+				clock = {
+					format = "{:%a %d %b | %H : %M}";
+					tooltip = false;
+					on-click = "zenity --calendar";
+				};
 
-        "custom/next" = {
-          format =  "󰒭";
-          on-click = "playerctl  next";
-          tooltip = false;
-        };
-        "custom/playpause" = {
-          format =  "󰐊";
-          on-click = "playerctl play-pause";
-          tooltip = false;
-        };
-        "custom/prev" = {
-          format =  "󰒮";
-          on-click = "playerctl previous";
-          tooltip = false;
-        };
-        mpris = {
-          format = "{dynamic}";
-          title-len = 50;
-          dynamic-len = 50;
-          dynamic-order = [ "title" ];
-          tooltip = false;
-        };
-        network = {
-          #interface = "wlo1";
-          format = "{ifname}";
-          format-wifi = "{essid}";
-          format-ethernet = "ethernet";
-          format-disconnected = "no network";
-          tooltip = false;
-        };
-        battery = {
-          format = "{icon} {capacity} %";
-          format-icons = [ "󰂎" "󰁺" "󰁻" "󰁼" "󰁽" "󰁾" "󰁿" "󰂀" "󰂁" "󰂂" "󰁹"];
-          format-charging = "󰂄 {capacity} %";
-          tooltip = false;
-        };
+				# ---------------------------------------------------------
 
-      };
-    };
+				"custom/next" = {
+					format =  "󰒭";
+					on-click = "playerctl next";
+					tooltip = false;
+				};
+				"custom/playpause" = {
+					format =  "󰐊";
+					on-click = "playerctl play-pause";
+					tooltip = false;
+				};
+				"custom/prev" = {
+					format =  "󰒮";
+					on-click = "playerctl previous";
+					tooltip = false;
+				};
+				pulseaudio = {
+					format = "{icon} {volume:2}%";
+					format-bluetooth = "{icon} {volume}% ";
+					format-muted = "MUTE {volume:2}%";
+					format-icons = {
+						headphones = "";
+						default = [ "" "" ];
+					};
+					reverse-mouse-scrolling = true;
+					on-click = "wpctl set-mute @DEFAULT_SINK@ toggle";
+					tooltip = false;
+				};
+				mpris = {
+					format = "{dynamic}";
+					format-paused = " {dynamic}";
+					title-len = 50;
+					dynamic-len = 50;
+					dynamic-order = [ "title" ];
+					tooltip = false;
+				};
+				network = {
+					format = "{ifname}";
+					format-wifi = "{essid}";
+					format-ethernet = "ethernet";
+					format-disconnected = "no network";
+					on-click = "kitty -- nmtui";
+					on-click-right = "kitty -- bluetuith";
+					tooltip = false;
+				};
+				battery = {
+					format = "{icon} {capacity} %";
+					format-icons = [ "󰂎" "󰁺" "󰁻" "󰁼" "󰁽" "󰁾" "󰁿" "󰂀" "󰂁" "󰂂" "󰁹"];
+					format-charging = "󰂄 {capacity} %";
+					tooltip = false;
+				};
 
-    style = ''
+			};
+		};
+
+		style = ''
 * {
   all: unset;
   font-family: "JetBrainsMono Nerd Font Mono";
@@ -95,90 +119,102 @@
 }
 
 window#waybar {
-  color: #DCD7BA;
-  background: @base00;
-  border: 2px solid @base03;
+  background: #292c3c;
+  border: 2px solid transparent;
+  border-radius: 10px;
+}
+window#waybar.empty #window {
+  background-color: transparent;
+  border: transparent;
 }
 
-#custom-distro, #workspaces, #custom-prev, #custom-playpause, #custom-next, #mpris, #battery, #network, #clock, #pulseaudio-slider {
+#mpris, #battery, #network, #clock, #pulseaudio, #window {
+  color: #c6d0f5;
   margin: 6px 4px;
   padding: 2px 8px;
-  border-radius: 0px;
-  background-color: @base01;
-  border: 2px solid @base02;
+  border-radius: 8px;
+  background-color: #303446;
+  border: 2px solid transparent;
 }
 
-#custom-distro {
+#workspaces {
   margin-left: 8px;
-  padding: 0px 10px 0px 5px;
-  font-size: 16px;
-  color: @base08;
+  margin: 6px 4px;
+  padding: 2px 8px;
+  border-radius: 8px;
+  background-color: #303446;
+  border: 2px solid transparent;
 }
-
-.modules-left #workspaces {padding: 0px;}
+.modules-left #workspaces {
+  padding: 2px 8px;
+  margin-left: 8px;
+}
 .modules-left #workspaces button {
+  color: #c6d0f5;
   padding: 0px 4px;
   border-bottom: 0px solid transparent;
 }
 .modules-left #workspaces button.empty {
-  color: @base03;
-  border-bottom: 0px solid transparent;
-}
-.modules-left #workspaces button.visible {
-  color: @base05;
-  font-weight: 900;
+  color: #414559;
   border-bottom: 0px solid transparent;
 }
 .modules-left #workspaces button.active,
 .modules-left #workspaces button.focused {
-  color: @base08;
-  font-weight: 900;
-  border-bottom: 3px solid transparent;
-}
-.modules-left #workspaces button.urgent {
-  color: @base0E;
-  font-weight: 900;
   border-bottom: 0px solid transparent;
 }
 
 #custom-prev {
+  border-radius: 8px 0px 0px 8px;
+  padding: 2px 8px;
+  margin: 6px 4px;
+  border: 2px solid transparent;
   margin-right: 0px;
   border-right: 0px;
-}
-#custom-playpause {
-  margin-right: 0px;
-  border-right: 0px;
-  margin-left: 0px;
-  border-left: 0px;
+  background-color: #303446;
+  color: #c6d0f5;
 }
 #custom-next {
+  border-radius: 0px 8px 8px 0px;
+  color: #c6d0f5;
+  padding: 2px 8px;
+  margin: 6px 4px;
+  border: 2px solid transparent;
   margin-left: 0px;
   border-left: 0px;
+  background-color: #303446;
+}
+#custom-playpause {
+  color: #c6d0f5;
+  border-radius: 0px 0px 0px 0px;
+  padding: 2px 8px;
+  margin: 6px 4px;
+  border: 2px solid transparent;
+  margin-right: 0px;
+  border-right: 0px;
+  margin-left: 0px;
+  border-left: 0px;
+  background-color: #303446;
 }
 
 #network.disconnected {
-  color: @base08;
+  color: #ca9ee6
 }
-
 #network.ethernet {
-  color: @base0D;
+  color: #c6d0f5;
 }
-
 #network.wifi {
-  color: @base0B;
+  color: #c6d0f5;
 }
 
 #battery {
   margin-right: 8px;
 }
-
 #battery.charging, #battery.plugged {
-  color: @base0B;
+  color: #babbf1;
 }
-
 #battery.critical:not(.charging) {
-  color: @base08;
+  color: #e78284;
 }
-    '';
-  };
+		'';
+	};
 }
