@@ -19,6 +19,14 @@
 			allowUnfree = true;
 			allowUnfreePredicate = (_: true);
 		};
+		overlays = [
+			(final: prev: {
+				unstable = import inputs.unstablepkgs {
+					system = pkgs.system;
+					config.allowUnfree = true;
+				};
+			})
+		];
 	};
 	nix.nixPath = [ "nixpkgs=${inputs.unstablepkgs}" ];
 
@@ -31,11 +39,11 @@
 	home = {
 		packages = with pkgs; [
 			beeper
-			vivaldi
 			discord
 			obsidian
 			starship
 			ticktick
+			unstable.vivaldi
 			vivaldi-ffmpeg-codecs
 		];
 		stateVersion = "24.05";

@@ -19,7 +19,10 @@
 			inputs.nixpkgs.follows = "unstablepkgs";
 		};
 
-		keyznvim.url = "github:keyzox71/nvim/indev";
+		keyznvim = {
+			url = "github:keyzox71/nvim/indev";
+			inputs.nixpkgs.follows = "unstablepkgs";
+		};
 
 		pogit = {
 			url = "github:y-syo/pogit";
@@ -32,20 +35,17 @@
 		};
 	};
 
-	outputs = inputs@{ nixpkgs, unstablepkgs, catppuccin, home-unstable, nixos-hardware, ... }:
+	outputs = inputs@{ self, nixpkgs, unstablepkgs, catppuccin, home-manager, nixos-hardware, ... }:
 	 let
-		supportedSystems = [ "x86_64-linux" "aarch64-linux" "x86_64-darwin" "aarch64-darwin" ];
-		forEachSupportedSystem = f: nixpkgs.lib.genAttrs supportedSystems (system: f {
-			pkgs = import nixpkgs {
-				inherit system; 
-			};
-		});
+		supportedSystems = [ "x86_64-linux" "x86_64-darwin" ];
+		forSystems = nixpkgs.lib.genAttrs supportedSystems;
+		inherit (self) outputs;
 	in
 	{
 		nixosConfigurations = {
 			LAPTOP-5530-ADAM = unstablepkgs.lib.nixosSystem {
 				system = "x86_64-linux";
-				specialArgs = { inherit inputs; };
+				specialArgs = { inherit inputs outputs; };
 				modules = [
 					./hosts/LAPTOP-5530-ADAM/default.nix
 
@@ -58,10 +58,7 @@
 			};
 		};
 		homeManagerConfigurations = {
-			"42adjoly" = home-unstable.lib.homeManagerConfiguration {
-				pkgs = import unstablepkgs {
-					system = "x86_64-linux";
-				};
+			"42adjoly" = home-manager.lib.homeManagerConfiguration {
 				modules = [
 					./home/adjoly/home42.nix
 					{
@@ -71,17 +68,8 @@
 						};
 					}
 				];
-				extraSpecialArgs = { inherit inputs; };
+				extraSpecialArgs = { inherit inputs outputs; };
 			};
 		};
-		devShells = forEachSupportedSystem ({ pkgs }: {
-			default = pkgs.mkShell.override
-			{}
-			{
-				packages = with pkgs; [
-					nil
-				];
-			};
-		});
 	};
 }

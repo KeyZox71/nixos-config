@@ -1,4 +1,4 @@
-{ pkgs, inputs, ... }:
+{ pkgs, inputs, outputs, ... }:
 
 {
 	imports =
@@ -6,7 +6,8 @@
 			./env.nix
 			./boot.nix
 			./fonts.nix
-			./services/ly.nix
+			#./services/ly.nix
+			./services/sddm.nix
 			./services/sound.nix
 			./hardware/nvidia.nix
 			./services/xserver.nix
@@ -23,9 +24,18 @@
 		};
 	};
  
+	qt = {
+		enable = true;
+		platformTheme = "qt5ct";
+	};
+
+	programs.dconf.enable = true;
+
 	nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
 	environment.variables = {
+		QT_STYLE_OVERRIDE = "Fusion";
+		QT_QPA_PLATFORM = "wayland";
 		LIBVA_DRIVER_NAME = "iHD";
 		GDK_BACKEND = "wayland";
 		NIXOS_OZONE_WL = "1";
@@ -95,7 +105,7 @@
 
 	home-manager = {
 		useUserPackages = true;
-		extraSpecialArgs = { inherit inputs; };
+		extraSpecialArgs = { inherit inputs outputs; };
 		users.adjoly = import ../../home/adjoly/home.nix;
 	};
 

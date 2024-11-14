@@ -48,9 +48,15 @@
 			allowUnfree = true;
 			allowUnfreepredicate = (_: true);
 		};
+		overlays = [
+			(final: prev: {
+				unstable = import inputs.unstablepkgs {
+					system = pkgs.system;
+					config.allowUnfree = true;
+				};
+			})
+		];
 	};
-
-	nix.nixPath = [ "nixpkgs=${inputs.unstablepkgs}" ];
 
 	home = {
 		packages = with pkgs; [
@@ -59,18 +65,17 @@
 			beeper
 			ripgrep
 			molotov
-			vivaldi
 			discord
 			obsidian
 			playerctl
 			hyprpaper
 			parsec-bin
+			libreoffice
 			tradingview
 			prismlauncher
-			onlyoffice-bin
 			nextcloud-client
+			unstable.vivaldi
 			plex-media-player
-			lua-language-server
 			vivaldi-ffmpeg-codecs
 		];
 		stateVersion = "24.05";

@@ -2,11 +2,12 @@
 
 {
 	imports = [
-		./hyprpaper.nix
-		./swaylock.nix
-		./dunst.nix
 		./tofi.nix
-		./xdg.nix
+		./dunst.nix
+		./waybar.nix
+		./swaylock.nix
+		./hyprpaper.nix
+		#		./xdg.nix
 	];
 	wayland.windowManager.hyprland = {
 		enable = true;
@@ -23,7 +24,10 @@
 				gaps_out = "8,8,8,8";
 			};
 			gestures.workspace_swipe = "on";
-			exec-once = "hyprpaper";
+			exec-once = [
+				"hyprpaper"
+				"${pkgs.waybar}/bin/waybar"
+			];
 			"$mod" = "ALT";
 			"$win" = "SUPER";
 			bind = [
