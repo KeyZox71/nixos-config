@@ -59,6 +59,9 @@
 				"XCURSOR_SIZE,30"
 				"XDG_CURRENT_DESKTOP,Hyprland"
 			];
+			cursor = {
+				no_hardware_cursors = true;
+			};
 			bindl = [
 			# media controls
 				", XF86AudioPlay, exec, playerctl play-pause"
@@ -97,7 +100,6 @@
 			];
 			misc = {
 				focus_on_activate = true;
-				initial_workspace_tracking = "2";
 			};
 			animation = [
 				"global, 1, 0.8, default"
@@ -106,11 +108,14 @@
 				kb_layout = "us";
 				kb_variant = "intl";	
 				follow_mouse = "1";
+				scroll_factor = "0.7";
+				#force_no_accel = true;
 				touchpad = {
 					natural_scroll = "yes";
 					tap-and-drag = true;
+					scroll_factor = "0.5";
 				};
-				sensitivity = "0.8";
+				sensitivity = "0.7";
 				accel_profile = "flat";
 			};
 		};

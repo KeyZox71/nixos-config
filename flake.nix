@@ -5,7 +5,7 @@
 
 		unstablepkgs.url = "github:nixos/nixpkgs/nixos-unstable";
 
-		nixos-hardware.url = "github:NixOS/nixos-hardware/master";
+		nixos-hardware.url = "github:keyzox71/nixos-hardware/master";
 
 		catppuccin.url = "github:catppuccin/nix";
 
@@ -51,9 +51,7 @@
 
 					catppuccin.nixosModules.catppuccin
 					
-					nixos-hardware.nixosModules.common-gpu-intel
 					nixos-hardware.nixosModules.dell-precision-5530
-					nixos-hardware.nixosModules.common-gpu-nvidia-disable
 				];
 			};
 		};

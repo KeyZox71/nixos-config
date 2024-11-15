@@ -25,6 +25,8 @@
 
 			background-color = "#303446df";
 
+			font = "monospace";
+
 			num-results = "10";
 
 			terminal = "kitty";

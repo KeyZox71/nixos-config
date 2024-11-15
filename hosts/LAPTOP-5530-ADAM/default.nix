@@ -6,12 +6,11 @@
 			./env.nix
 			./boot.nix
 			./fonts.nix
-			#./services/ly.nix
+			./virtualbox.nix
 			./services/sddm.nix
 			./services/sound.nix
-			./hardware/nvidia.nix
-			./services/xserver.nix
 			./services/network.nix
+			./services/xserver.nix
 			./programs/hyprland.nix
 			./hardware/hardware-configuration.nix
 
@@ -36,7 +35,6 @@
 	environment.variables = {
 		QT_STYLE_OVERRIDE = "Fusion";
 		QT_QPA_PLATFORM = "wayland";
-		LIBVA_DRIVER_NAME = "iHD";
 		GDK_BACKEND = "wayland";
 		NIXOS_OZONE_WL = "1";
 		CLUTTER_BACKEND = "wayland";
@@ -55,17 +53,10 @@
 	users.users.adjoly = {
 		shell = pkgs.zsh;
 		isNormalUser = true;
-		extraGroups = [ "docker" "audio" "video" "input" "networkmanager" "wheel" "sudo" ];
+		extraGroups = [ "docker" "audio" "video" "input" "networkmanager" "wheel" "sudo" "vboxusers" ];
 	};
 
 	virtualisation.docker.enable = true;
-
-	fonts.fontconfig = {
-		enable = true;
-		defaultFonts = {
-			emoji = [ "Noto Color Emoji" ];
-		};
-	};
 
 	catppuccin = {
 		enable = true;

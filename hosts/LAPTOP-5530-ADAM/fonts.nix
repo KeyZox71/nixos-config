@@ -1,22 +1,25 @@
 { pkgs, ... }:
 
 {
-
 	fonts = {
 		enableDefaultPackages = true;
 		packages = with pkgs; [
 			(nerdfonts.override { fonts = [ "JetBrainsMono" ]; })
+
 			jetbrains-mono
-			noto-fonts
+			noto-fonts-emoji
+			vistafonts
+			corefonts
 		];
 		fontconfig = {
+			enable = true;
 			defaultFonts = {
 				serif = [
-					"JetBrains Mono"
+					"Noto Serif"
 					"Noto Color Emoji"
 				];
 				sansSerif = [
-					"JetBrains Mono"
+					"Noto Sans"
 					"Noto Color Emoji"
 				];
 				monospace = [

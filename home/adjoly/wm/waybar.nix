@@ -13,7 +13,7 @@
 				layer = "top";
 				modules-left = [ "hyprland/workspaces" "hyprland/window" ];
 				modules-center = [ "clock" ];
-				modules-right = [ "mpris" "pulseaudio" "custom/prev" "custom/playpause" "custom/next" "network" "battery" ];
+				modules-right = [ "tray" "mpris" "pulseaudio" "custom/prev" "custom/playpause" "custom/next" "network" "battery" ];
 				output = [ "eDP-1" ];
 
 				# ---------------------------------------------------------
@@ -87,10 +87,13 @@
 				mpris = {
 					format = "{dynamic}";
 					format-paused = " {dynamic}";
-					title-len = 50;
-					dynamic-len = 50;
+					title-len = 20;
+					dynamic-len = 20;
 					dynamic-order = [ "title" ];
 					tooltip = false;
+				};
+				tray = {
+					icon-size = 16;
 				};
 				network = {
 					format = "{ifname}";
@@ -100,12 +103,16 @@
 					on-click = "kitty -- nmtui";
 					on-click-right = "kitty -- bluetuith";
 					tooltip = false;
-				};
+				};#f5a97f
 				battery = {
 					format = "{icon} {capacity} %";
 					format-icons = [ "󰂎" "󰁺" "󰁻" "󰁼" "󰁽" "󰁾" "󰁿" "󰂀" "󰂁" "󰂂" "󰁹"];
 					format-charging = "󰂄 {capacity} %";
 					tooltip = false;
+					states = {
+						warning = 30;
+						critical = 15;
+					};
 				};
 
 			};
@@ -119,7 +126,7 @@
 }
 
 window#waybar {
-  background: #292c3c;
+  background: @mantle;
   border: 2px solid transparent;
   border-radius: 10px;
 }
@@ -128,12 +135,12 @@ window#waybar.empty #window {
   border: transparent;
 }
 
-#mpris, #battery, #network, #clock, #pulseaudio, #window {
-  color: #c6d0f5;
+#mpris, #battery, #network, #clock, #pulseaudio, #window, #tray, #tray menu {
+  color: @text;
   margin: 6px 4px;
   padding: 2px 8px;
   border-radius: 8px;
-  background-color: #303446;
+  background-color: @base;
   border: 2px solid transparent;
 }
 
@@ -150,12 +157,12 @@ window#waybar.empty #window {
   margin-left: 8px;
 }
 .modules-left #workspaces button {
-  color: #c6d0f5;
+  color: @text;
   padding: 0px 4px;
   border-bottom: 0px solid transparent;
 }
 .modules-left #workspaces button.empty {
-  color: #414559;
+  color: @surface0;
   border-bottom: 0px solid transparent;
 }
 .modules-left #workspaces button.active,
@@ -170,21 +177,21 @@ window#waybar.empty #window {
   border: 2px solid transparent;
   margin-right: 0px;
   border-right: 0px;
-  background-color: #303446;
-  color: #c6d0f5;
+  background-color: @base;
+  color: @text;
 }
 #custom-next {
   border-radius: 0px 8px 8px 0px;
-  color: #c6d0f5;
+  color: @text;
   padding: 2px 8px;
   margin: 6px 4px;
   border: 2px solid transparent;
   margin-left: 0px;
   border-left: 0px;
-  background-color: #303446;
+  background-color: @base;
 }
 #custom-playpause {
-  color: #c6d0f5;
+  color: @text;
   border-radius: 0px 0px 0px 0px;
   padding: 2px 8px;
   margin: 6px 4px;
@@ -193,27 +200,30 @@ window#waybar.empty #window {
   border-right: 0px;
   margin-left: 0px;
   border-left: 0px;
-  background-color: #303446;
+  background-color: @base;
 }
 
 #network.disconnected {
-  color: #ca9ee6
+  color: @mauve;
 }
 #network.ethernet {
-  color: #c6d0f5;
+  color: @text;
 }
 #network.wifi {
-  color: #c6d0f5;
+  color: @text;
 }
 
 #battery {
   margin-right: 8px;
 }
 #battery.charging, #battery.plugged {
-  color: #babbf1;
+  color: @lavender;
 }
 #battery.critical:not(.charging) {
-  color: #e78284;
+  color: @red;
+}
+#battery.warning:not(.charging) {
+  color: @peach;
 }
 		'';
 	};

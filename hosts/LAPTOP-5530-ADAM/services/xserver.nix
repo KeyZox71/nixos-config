@@ -6,7 +6,7 @@
 	};
 	services.xserver = {
 		enable = true;
-		videoDrivers = [ "intel" ];
+		videoDrivers = [ "intel" "nvidia" ];
 		xkb = {
 			layout = "us";
 			variant = "intl";
