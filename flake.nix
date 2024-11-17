@@ -51,7 +51,8 @@
 
 					catppuccin.nixosModules.catppuccin
 					
-					nixos-hardware.nixosModules.dell-precision-5530
+					/home/adjoly/workspace/nixos-hardware/dell/precision/5530/default.nix
+					#nixos-hardware.nixosModules.dell-precision-5530
 				];
 			};
 		};

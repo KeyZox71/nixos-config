@@ -6,6 +6,7 @@
 			./env.nix
 			./boot.nix
 			./fonts.nix
+			./wireguard.nix
 			./virtualbox.nix
 			./services/sddm.nix
 			./services/sound.nix
@@ -27,6 +28,8 @@
 		enable = true;
 		platformTheme = "qt5ct";
 	};
+	
+	security.pam.services.hyprlock = {};
 
 	programs.dconf.enable = true;
 
@@ -80,6 +83,7 @@
 		btop
 		unzip
 		bluetuith
+		cifs-utils
 		xfce.thunar
 		wl-clipboard
 		brightnessctl

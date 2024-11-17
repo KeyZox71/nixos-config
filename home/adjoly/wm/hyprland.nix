@@ -5,7 +5,8 @@
 		./tofi.nix
 		./dunst.nix
 		./waybar.nix
-		./swaylock.nix
+		#./swaylock.nix
+		./hyprlock.nix
 		./hyprpaper.nix
 		#		./xdg.nix
 	];
@@ -37,7 +38,7 @@
 				"CONTROLALT, delete, exec, hyprctl dispatch exit"
 				"$mod, return, exec, kitty"
 				"$mod, Q, killactive"
-				"$win, L, exec, swaylock"
+				"$win, L, exec, hyprlock"
 				"$win + SHIFT, S, exec, grimblast --notify copysave area \"$HOME/Nextcloud/Images/Captures d’écran/Capture d’écran $(date +%F-%H%M%S).png\""
 				"CTRL_SHIFT, K, sendshortcut, CTRL, K, ^(Beeper)$"
 			]

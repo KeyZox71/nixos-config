@@ -52,7 +52,7 @@
 				clock = {
 					format = "{:%a %d %b | %H : %M}";
 					tooltip = false;
-					on-click = "zenity --calendar";
+					on-click = "GSK_RENDERER=gl zenity --calendar";
 				};
 
 				# ---------------------------------------------------------
@@ -113,6 +113,8 @@
 						warning = 30;
 						critical = 15;
 					};
+					on-click-right = "hyprlock & systemctl suspend";
+					on-click-middle = "hyprlock & systemctl hibernate";
 				};
 
 			};

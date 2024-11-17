@@ -67,12 +67,13 @@
 			ripgrep
 			molotov
 			discord
-			obsidian
+			obsidian 
 			playerctl
 			hyprpaper
 			parsec-bin
 			libreoffice
 			tradingview
+			qbittorrent
 			prismlauncher
 			nextcloud-client
 			unstable.vivaldi

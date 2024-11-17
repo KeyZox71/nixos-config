@@ -7,19 +7,17 @@
 			(nerdfonts.override { fonts = [ "JetBrainsMono" ]; })
 
 			jetbrains-mono
-			noto-fonts-emoji
-			vistafonts
-			corefonts
+			noto-fonts
 		];
 		fontconfig = {
 			enable = true;
 			defaultFonts = {
 				serif = [
-					"Noto Serif"
+					"Noto Sans Mono"
 					"Noto Color Emoji"
 				];
 				sansSerif = [
-					"Noto Sans"
+					"JetBrains Mono"
 					"Noto Color Emoji"
 				];
 				monospace = [
