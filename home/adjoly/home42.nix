@@ -28,7 +28,6 @@
 			})
 		];
 	};
-	nix.nixPath = [ "nixpkgs=${inputs.unstablepkgs}" ];
 
 	catppuccin = {
 		enable = true;
