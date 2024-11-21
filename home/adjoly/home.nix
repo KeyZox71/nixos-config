@@ -3,6 +3,9 @@
 	imports = [
 		./gtk.nix
 		./wm/hyprland.nix
+		./theme/catppuccin.nix
+
+		./unstable-overlay.nix
 
 		./services/nextcloud.nix
 		./services/darkman.nix
@@ -19,16 +22,6 @@
 		inputs.catppuccin.homeManagerModules.catppuccin
 	];
 
-	catppuccin = {
-		enable = true;
-		flavor = "frappe";
-		accent = "lavender";
-		pointerCursor = {
-			enable = true;
-			accent = "lavender";
-			flavor = "frappe";
-		};
-	};
 	programs = {
 		git = {
 			enable = true;
@@ -41,21 +34,6 @@
 				git_protocol = "ssh";
 			};
 		};
-	};
-
-	nixpkgs = {
-		config = {
-			allowUnfree = true;
-			allowUnfreepredicate = (_: true);
-		};
-		overlays = [
-			(final: prev: {
-				unstable = import inputs.unstablepkgs {
-					system = pkgs.system;
-					config.allowUnfree = true;
-				};
-			})
-		];
 	};
 
 	home = {

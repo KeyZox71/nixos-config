@@ -1,50 +1,32 @@
 { inputs, pkgs, ... }:
 
 {
-	imports = [
+  imports = [
 
-		./programs/git.nix
-		./programs/tmux.nix
-		./programs/pogit.nix
-		./programs/neovim.nix
-		./programs/direnv.nix
-		./programs/shell/zsh42.nix
+	./unstable-overlay.nix
 
-		inputs.catppuccin.homeManagerModules.catppuccin
-	];
-	programs.home-manager.enable = true;
+    ./themes/catppuccin.nix
 
-	nixpkgs = {
-		config = {
-			allowUnfree = true;
-			allowUnfreePredicate = (_: true);
-		};
-		overlays = [
-			(final: prev: {
-				unstable = import inputs.unstablepkgs {
-					system = pkgs.system;
-					config.allowUnfree = true;
-				};
-			})
-		];
-	};
+    ./programs/git.nix
+    ./programs/tmux.nix
+    ./programs/pogit.nix
+    ./programs/neovim.nix
+    ./programs/direnv.nix
+    ./programs/shell/zsh42.nix
 
-	catppuccin = {
-		enable = true;
-		flavor = "frappe";
-		accent = "lavender";
-	};
+    inputs.catppuccin.homeManagerModules.catppuccin
+  ];
+  programs.home-manager.enable = true;
 
-	home = {
-		packages = with pkgs; [
-			beeper
-			discord
-			obsidian
-			starship
-			ticktick
-			unstable.vivaldi
-			vivaldi-ffmpeg-codecs
-		];
-		stateVersion = "24.05";
-	};
+  home = {
+    packages = with pkgs; [
+      beeper
+      discord
+      obsidian
+      starship
+      ticktick
+      inputs.fastclass.packages.${pkgs.system}.fastclass
+    ];
+    stateVersion = "24.05";
+  };
 }

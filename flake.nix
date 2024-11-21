@@ -14,6 +14,8 @@
 			inputs.nixpkgs.follows = "nixpkgs";
 		};
 
+		fastclass.url = "github:seekrs/fastclass/nixxing";
+
 		home-unstable = {
 			url = "github:nix-community/home-manager/master";
 			inputs.nixpkgs.follows = "unstablepkgs";
