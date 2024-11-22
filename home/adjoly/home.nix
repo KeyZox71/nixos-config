@@ -2,6 +2,7 @@
 {
 	imports = [
 		./gtk.nix
+		./cli-app.nix
 		./wm/hyprland.nix
 		./theme/catppuccin.nix
 
@@ -39,14 +40,11 @@
 	home = {
 		packages = with pkgs; [
 			vlc
-			tmux
 			beeper
 			zenity
-			ripgrep
 			molotov
 			discord
 			obsidian 
-			playerctl
 			hyprpaper
 			parsec-bin
 			libreoffice

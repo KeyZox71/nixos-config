@@ -3,6 +3,7 @@
 {
   imports = [
 
+	./cli-app.nix
 	./unstable-overlay.nix
 
     ./themes/catppuccin.nix
@@ -23,7 +24,6 @@
       beeper
       discord
       obsidian
-      starship
       ticktick
       inputs.fastclass.packages.${pkgs.system}.fastclass
     ];
