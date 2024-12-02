@@ -6,26 +6,8 @@
 		autosuggestion.enable = true;
 		enableCompletion = true;
 		initExtra = ''
-tm() {
-	if [[ -n "$TMUX" ]]; then
-		command tmux "$@"
-	elif [[ "$#" -eq 0 ]]; then
-		command tmux new-session -s "''${PWD##*/}"
-	elif [[ "$#" -eq 1 && "$1" != -* ]]; then
-		command tmux new-session -s "$1"
-	else
-		command tmux "$@"
-	fi
-}
-fzf-tmux-session() {
-	local session
-	session=$(tmux list-sessions -F "#{session_name}" | fzf)
-
-	if [ ! -z "$session" ]; then
-		tmux attach -t "$session"
-	fi
-}
-alias ts='fzf-tmux-session'
+alias tm="timmy create"
+alias ts="timmy search"
 function cdd() {
 	local dir_path="$(dirname "$(find . -type f | fzf)")"
 	if [[ -z "$dir_path" ]]; then

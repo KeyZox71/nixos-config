@@ -3,8 +3,8 @@
 {
   imports = [
 
-	./cli-app.nix
-	./unstable-overlay.nix
+    ./cli-app.nix
+    ./unstable-overlay.nix
 
     ./themes/catppuccin.nix
 

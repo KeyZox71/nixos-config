@@ -1,7 +1,7 @@
 {
 	description = "KeyZox's config";
 	inputs = {
-		nixpkgs.url = "github:nixos/nixpkgs/nixos-24.05";
+		nixpkgs.url = "github:nixos/nixpkgs/nixos-24.11";
 
 		unstablepkgs.url = "github:nixos/nixpkgs/nixos-unstable";
 
@@ -10,7 +10,7 @@
 		catppuccin.url = "github:catppuccin/nix";
 
 		home-manager = {
-			url = "github:nix-community/home-manager/release-24.05";
+			url = "github:nix-community/home-manager/release-24.11";
 			inputs.nixpkgs.follows = "nixpkgs";
 		};
 
@@ -22,7 +22,7 @@
 		};
 
 		keyznvim = {
-			url = "github:keyzox71/nvim/indev";
+			url = "path:/nfs/homes/adjoly/Documents/nvim";
 			inputs.nixpkgs.follows = "unstablepkgs";
 		};
 
@@ -35,6 +35,8 @@
 			url = "github:hyprwm/contrib";
 			inputs.nixpkgs.follows = "nixpkgs";
 		};
+
+		timmy.url = "github:keyzox71/timmy";
 	};
 
 	outputs = inputs@{ self, nixpkgs, unstablepkgs, catppuccin, home-manager, nixos-hardware, ... }:
@@ -45,7 +47,7 @@
 	in
 	{
 		nixosConfigurations = {
-			LAPTOP-5530-ADAM = unstablepkgs.lib.nixosSystem {
+			LAPTOP-5530-ADAM = nixpkgs.lib.nixosSystem {
 				system = "x86_64-linux";
 				specialArgs = { inherit inputs outputs; };
 				modules = [
