@@ -4,7 +4,7 @@
 		./gtk.nix
 		./cli-app.nix
 		./wm/hyprland.nix
-		./theme/catppuccin.nix
+		./themes/catppuccin.nix
 
 		./unstable-overlay.nix
 
@@ -23,20 +23,6 @@
 		inputs.catppuccin.homeManagerModules.catppuccin
 	];
 
-	programs = {
-		git = {
-			enable = true;
-			userName = "adjoly";
-			userEmail = "adamjly@proton.me";
-		};
-		gh = {
-			enable = true;
-			settings = {
-				git_protocol = "ssh";
-			};
-		};
-	};
-
 	home = {
 		packages = with pkgs; [
 			vlc
@@ -50,6 +36,7 @@
 			libreoffice
 			tradingview
 			qbittorrent
+			rquickshare
 			prismlauncher
 			nextcloud-client
 			unstable.vivaldi

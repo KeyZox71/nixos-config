@@ -22,8 +22,8 @@
 		};
 
 		keyznvim = {
-			url = "path:/nfs/homes/adjoly/Documents/nvim";
-			inputs.nixpkgs.follows = "unstablepkgs";
+			url = "github:keyzox71/nvim/indev";
+			inputs.nixpkgs.follows = "nixpkgs";
 		};
 
 		pogit = {
@@ -39,7 +39,7 @@
 		timmy.url = "github:keyzox71/timmy";
 	};
 
-	outputs = inputs@{ self, nixpkgs, unstablepkgs, catppuccin, home-manager, nixos-hardware, ... }:
+	outputs = inputs@{ self, nixpkgs, catppuccin, home-manager, nixos-hardware, ... }:
 	 let
 		supportedSystems = [ "x86_64-linux" "x86_64-darwin" ];
 		forSystems = nixpkgs.lib.genAttrs supportedSystems;
@@ -55,8 +55,7 @@
 
 					catppuccin.nixosModules.catppuccin
 					
-					/home/adjoly/workspace/nixos-hardware/dell/precision/5530/default.nix
-					#nixos-hardware.nixosModules.dell-precision-5530
+					nixos-hardware.nixosModules.dell-precision-5530
 				];
 			};
 		};

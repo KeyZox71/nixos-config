@@ -86,7 +86,7 @@ in
 					position = "0, 100";
 					halign = "center";
 					valign = "botton";
-					color = "rgba(81, 87, 109, 0.5)";
+					color = "rgba(35, 38, 52, 0.7)";
 					rounding = 10;
 				}
 			];

@@ -2,7 +2,7 @@
 
 let
 	source = pkgs.fetchurl {
-		url = "https://keyzox.duckdns.org/s/e9Hqxi85gsSoZg5/download/DSC_4763.jpg";
+		url = "https://drive.keyzox.me/s/e9Hqxi85gsSoZg5/download/DSC_4763.jpg";
 		sha256 = "0s4qavjcs9kf1g8vllqlb43i7si9vk6b9338rbpkqc87k6a794hi";
 	};
 in

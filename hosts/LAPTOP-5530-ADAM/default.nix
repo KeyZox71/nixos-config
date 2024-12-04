@@ -15,7 +15,7 @@
 			./programs/hyprland.nix
 			./hardware/hardware-configuration.nix
 
-			inputs.home-unstable.nixosModules.home-manager
+			inputs.home-manager.nixosModules.home-manager
 		];
 
 	nixpkgs = {
@@ -82,6 +82,7 @@
 		curl
 		btop
 		unzip
+		wluma
 		bluetuith
 		cifs-utils
 		xfce.thunar
