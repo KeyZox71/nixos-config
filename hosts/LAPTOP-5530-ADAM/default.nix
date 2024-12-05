@@ -73,7 +73,6 @@
 	};
 
 	environment.systemPackages = with pkgs; [
-		gh
 		git
 		zsh
 		nil
