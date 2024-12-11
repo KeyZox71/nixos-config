@@ -24,8 +24,6 @@
       beeper
       discord
       obsidian
-      ticktick
-      inputs.fastclass.packages.${pkgs.system}.fastclass
     ];
     stateVersion = "24.05";
   };
