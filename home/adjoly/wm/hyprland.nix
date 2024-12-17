@@ -34,7 +34,6 @@
 			bind = [
 				"$mod, P, exec, tofi-drun --drun=true"
 				"$mod, space, exec, tofi-drun --drun=true"
-				"$mod, O, exec, vivaldi"
 				"CONTROLALT, delete, exec, hyprctl dispatch exit"
 				"$mod, return, exec, kitty"
 				"$mod, Q, killactive"
