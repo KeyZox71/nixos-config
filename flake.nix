@@ -36,7 +36,15 @@
 			inputs.nixpkgs.follows = "nixpkgs";
 		};
 
-		timmy.url = "github:keyzox71/timmy";
+		zen-browser = {
+			url = "github:keyzox71/zen-browser-flake";
+			inputs.nixpkgs.follows = "nixpkgs";
+		};
+
+		timmy = {
+			url = "github:keyzox71/timmy";
+			inputs.nixpkgs.follows = "nixpkgs";
+		};
 	};
 
 	outputs = inputs@{ self, nixpkgs, catppuccin, home-manager, nixos-hardware, ... }:

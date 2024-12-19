@@ -42,6 +42,7 @@
 		NIXOS_OZONE_WL = "1";
 		CLUTTER_BACKEND = "wayland";
 		KITTY_ENABLE_WAYLAND = "1";
+		MOZ_ENABLE_WAYLAND = 1;
 	};
 
 	programs.zsh.enable = true;
@@ -82,6 +83,7 @@
 		btop
 		unzip
 		wluma
+		firefox
 		bluetuith
 		cifs-utils
 		xfce.thunar
@@ -91,6 +93,7 @@
 		xfce.thunar-volman
 		xfce.thunar-archive-plugin
 		xfce.thunar-media-tags-plugin
+		inputs.zen-browser.packages.${pkgs.system}.specific
 		inputs.hyprland-contrib.packages.${pkgs.system}.grimblast
 	];
 
