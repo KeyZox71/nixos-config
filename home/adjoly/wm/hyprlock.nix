@@ -13,7 +13,6 @@ in
 {
 	programs.hyprlock = {
 		enable = true;
-		catppuccin.enable = false;
 		settings = {
 			general = {
 				disable_loading_bar = true;

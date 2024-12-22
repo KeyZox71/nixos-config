@@ -4,6 +4,7 @@
 	imports =
 		[ 
 			./env.nix
+			./game.nix
 			./boot.nix
 			./fonts.nix
 			./wireguard.nix
@@ -66,6 +67,9 @@
 		enable = true;
 		flavor = "frappe";
 		accent = "lavender";
+		grub = {
+			enable = true;
+		};
 	#	pointerCursor = {
 	#		enable = true;
 	#		accent = "lavender";

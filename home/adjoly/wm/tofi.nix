@@ -2,10 +2,6 @@
 {
 	programs.tofi = {
 		enable = true;
-		catppuccin = {
-			enable = true;
-			flavor = "frappe";
-		};
 		settings = lib.mkForce {
 			width = "100%";
 			height = "100%";

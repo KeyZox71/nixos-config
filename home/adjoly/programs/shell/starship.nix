@@ -3,7 +3,6 @@
 {
 	programs.starship = {
 		enable = true;
-		catppuccin.enable = false;
 		enableZshIntegration = true;
 		settings = {
 			add_newline = false;

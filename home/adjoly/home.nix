@@ -39,8 +39,7 @@
 			rquickshare
 			prismlauncher
 			nextcloud-client
-			unstable.vivaldi
-			vivaldi-ffmpeg-codecs
+			unstable.ankama-launcher
 		];
 		stateVersion = "24.05";
 	};

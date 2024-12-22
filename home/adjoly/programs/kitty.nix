@@ -15,7 +15,5 @@
 		};
 
 		extraConfig = "include ~/.config/kitty/current-theme.conf";
-
-		catppuccin.enable = true;
 	};
 }

@@ -3,10 +3,17 @@
     enable = true;
     flavor = "frappe";
     accent = "lavender";
-    pointerCursor = {
+    cursors = {
       enable = true;
       accent = "lavender";
       flavor = "frappe";
     };
+    tmux.enable = true;
+    kitty.enable = true;
+    tofi.enable = true;
+    fzf.enable = true;
+    hyprlock.enable = false;
+	starship.enable = false;
+	waybar.enable = true;
   };
 }
