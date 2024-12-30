@@ -1,121 +1,127 @@
-{ pkgs, inputs, outputs, ... }:
+{
+  pkgs,
+  inputs,
+  outputs,
+  ...
+}:
 
 {
-	imports =
-		[ 
-			./env.nix
-			./game.nix
-			./boot.nix
-			./fonts.nix
-			./wireguard.nix
-			./virtualbox.nix
-			./services/sddm.nix
-			./services/sound.nix
-			./services/network.nix
-			./services/xserver.nix
-			./programs/hyprland.nix
-			./hardware/hardware-configuration.nix
+  imports = [
+    ./env.nix
+    ./game.nix
+    ./boot.nix
+    ./fonts.nix
+    ./wireguard.nix
+    ./virtualbox.nix
+    ./services/sddm.nix
+    ./services/sound.nix
+    ./services/network.nix
+    ./services/xserver.nix
+    ./programs/hyprland.nix
+    ./hardware/hardware-configuration.nix
 
-			inputs.home-manager.nixosModules.home-manager
-		];
+    inputs.home-manager.nixosModules.home-manager
+  ];
 
-	nixpkgs = {
-		config = {
-			allowUnfree = true;
-		};
-	};
- 
-	qt = {
-		enable = true;
-		platformTheme = "qt5ct";
-	};
-	
-	security.pam.services.hyprlock = {};
+  nixpkgs = {
+    config = {
+      allowUnfree = true;
+    };
+  };
 
-	programs.dconf.enable = true;
+  qt = {
+    enable = true;
+    platformTheme = "qt5ct";
+  };
 
-	nix.settings.experimental-features = [ "nix-command" "flakes" ];
+  security.pam.services.hyprlock = { };
 
-	environment.variables = {
-		QT_STYLE_OVERRIDE = "Fusion";
-		QT_QPA_PLATFORM = "wayland";
-		GDK_BACKEND = "wayland";
-		NIXOS_OZONE_WL = "1";
-		CLUTTER_BACKEND = "wayland";
-		KITTY_ENABLE_WAYLAND = "1";
-		MOZ_ENABLE_WAYLAND = 1;
-	};
+  environment.variables = {
+    QT_STYLE_OVERRIDE = "Fusion";
+    QT_QPA_PLATFORM = "wayland";
+    GDK_BACKEND = "wayland";
+    NIXOS_OZONE_WL = "1";
+    CLUTTER_BACKEND = "wayland";
+    KITTY_ENABLE_WAYLAND = "1";
+    MOZ_ENABLE_WAYLAND = 1;
+  };
+  programs.dconf.enable = true;
 
-	programs.zsh.enable = true;
-	
-	programs.ssh.startAgent = true;
-	programs.seahorse.enable = true;
-	services.gnome.gnome-keyring.enable = true;
-	
-	hardware.bluetooth.enable = true; # enables support for Bluetooth
-	hardware.bluetooth.powerOnBoot = true; # powers up the default Bluetooth controller on boot
+  nix.settings.experimental-features = [
+    "nix-command"
+    "flakes"
+  ];
 
-	users.users.adjoly = {
-		shell = pkgs.zsh;
-		isNormalUser = true;
-		extraGroups = [ "docker" "audio" "video" "input" "networkmanager" "wheel" "sudo" "vboxusers" ];
-	};
+  programs.zsh.enable = true;
 
-	virtualisation.docker.enable = true;
+  environment.systemPackages = with pkgs; [
+    git
+    zsh
+    nil
+    vim
+    wget
+    curl
+    btop
+    unzip
+    wluma
+    firefox
+    bluetuith
+    cifs-utils
+    xfce.thunar
+    wl-clipboard
+    brightnessctl
+    docker-compose
+    xfce.thunar-volman
+    xfce.thunar-archive-plugin
+    xfce.thunar-media-tags-plugin
+    inputs.zen-browser.packages.${pkgs.system}.specific
+    inputs.hyprland-contrib.packages.${pkgs.system}.grimblast
+  ];
+  programs.ssh.startAgent = true;
+  programs.seahorse.enable = true;
+  services.gnome.gnome-keyring.enable = true;
 
-	catppuccin = {
-		enable = true;
-		flavor = "frappe";
-		accent = "lavender";
-		grub = {
-			enable = true;
-		};
-	#	pointerCursor = {
-	#		enable = true;
-	#		accent = "lavender";
-	#		flavor = "frappe";
-	#	};
-	};
+  hardware.bluetooth.enable = true; # enables support for Bluetooth
+  hardware.bluetooth.powerOnBoot = true; # powers up the default Bluetooth controller on boot
 
-	environment.systemPackages = with pkgs; [
-		git
-		zsh
-		nil
-		vim 
-		wget
-		curl
-		btop
-		unzip
-		wluma
-		firefox
-		bluetuith
-		cifs-utils
-		xfce.thunar
-		wl-clipboard
-		brightnessctl
-		docker-compose
-		xfce.thunar-volman
-		xfce.thunar-archive-plugin
-		xfce.thunar-media-tags-plugin
-		inputs.zen-browser.packages.${pkgs.system}.specific
-		inputs.hyprland-contrib.packages.${pkgs.system}.grimblast
-	];
+  users.users.adjoly = {
+    shell = pkgs.zsh;
+    isNormalUser = true;
+    extraGroups = [
+      "docker"
+      "audio"
+      "video"
+      "input"
+      "networkmanager"
+      "wheel"
+      "sudo"
+      "vboxusers"
+    ];
+  };
 
-	nixpkgs.config.permittedInsecurePackages = [
-		"electron-25.9.0"
-	];
+  virtualisation.docker.enable = true;
 
-	home-manager = {
-		useUserPackages = true;
-		extraSpecialArgs = { inherit inputs outputs; };
-		users.adjoly = import ../../home/adjoly/home.nix;
-	};
+  catppuccin = {
+    enable = true;
+    flavor = "frappe";
+    accent = "lavender";
+  };
 
-	# This value determines the NixOS release from which the default
-	# settings for stateful data, like file locations and database versions
-	# on your system were taken. It‘s perfectly fine and recommended to leave
-	# this value at the release version of the first install of this system.
-	# Before changing this value read the documentation for this option
-	# (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
-	system.stateVersion = "24.05"; # Did you read the comment?
+  nixpkgs.config.permittedInsecurePackages = [
+    "electron-25.9.0"
+  ];
+
+  home-manager = {
+    useUserPackages = true;
+    extraSpecialArgs = { inherit inputs outputs; };
+    users.adjoly = import ../../home/adjoly/home.nix;
+  };
+
+  # This value determines the NixOS release from which the default
+  # settings for stateful data, like file locations and database versions
+  # on your system were taken. It‘s perfectly fine and recommended to leave
+  # this value at the release version of the first install of this system.
+  # Before changing this value read the documentation for this option
+  # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
+  system.stateVersion = "24.05"; # Did you read the comment?
 }

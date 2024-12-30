@@ -19,8 +19,6 @@
 			code = "flatpak run com.visualstudio.code";
 			powershell = "nix-shell -p powershell --run pwsh";
 			kbus = "setxkbmap -layout us -variant intl";
-			light-theme = "kitten themes --reload-in=all Catppuccin-latte && gsettings set org.gnome.desktop.interface color-scheme prefer-light && gsettings set org.gnome.desktop.interface gtk-theme Adwaita";
-			dark-theme = "kitten themes --reload-in=all Catppuccin-frappe && gsettings set org.gnome.desktop.interface color-scheme prefer-dark && gsettings set org.gnome.desktop.interface gtk-theme Adwaita-dark";
 		};
 		initExtraFirst = ''
 bgs() {
