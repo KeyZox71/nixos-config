@@ -9,7 +9,7 @@
       flavor = "frappe";
     };
     tmux.enable = true;
-    kitty.enable = true;
+    kitty.enable = false;
     tofi.enable = true;
     fzf.enable = true;
     hyprlock.enable = false;

@@ -24,7 +24,7 @@
 
   programs.kitty.font = {
     name = "JetBrainsMono Nerd Font Mono";
-    size = 12;
+    size = 11;
   };
 
   home = {
