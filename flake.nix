@@ -66,6 +66,14 @@
 					nixos-hardware.nixosModules.dell-precision-5530
 				];
 			};
+			NIXOS-SERVER = nixpkgs.lib.nixosSystem {
+				system = "x86_64-linux";
+				specialArgs = { inherit inputs outputs; };
+				modules = [
+					<nixos-hardware/common/cpu/intel>
+					./hosts/NIXOS-SERVER/default.nix
+				];
+			}
 		};
 		homeManagerConfigurations = {
 			"42adjoly" = home-manager.lib.homeManagerConfiguration {
