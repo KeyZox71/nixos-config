@@ -72,6 +72,7 @@
 				modules = [
 					<nixos-hardware/common/cpu/intel>
 					./hosts/NIXOS-SERVER/default.nix
+					./hardware-configuration.nix
 				];
 			}
 		};
