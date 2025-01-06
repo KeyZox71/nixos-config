@@ -1,21 +1,21 @@
-{ disko }:
+{ disko, ... }:
 
 {
 	disko.devices = {
 		disk = {
 			boot-disk = {
-				devices = "/dev/sda";
+				device = "/dev/sda";
 				type = "disk";
 				content = {
-					type = "GPT";
+					type = "gpt";
 					partitions = {
 						ESP = {
-							type = "EF00";
 							size = "500M";
+							type = "EF00";
 							content = {
 								type = "filesystem";
 								format = "vfat";
-								mountpoint = "boot";
+								mountpoint = "/boot";
 							};
 						};
 						root = {
@@ -24,12 +24,12 @@
 								type = "btrfs";
 								extraArgs = [ "-f" ];
 								mountpoint = "/";
-								mountOptions = [ "compress-zstd" "noatime" ];
+								mountOptions = [ "compress=zstd" "noatime" ];
 							};
 						};
 					};
 				};
-			}
-		}
-	}
+			};
+		};
+	};
 }

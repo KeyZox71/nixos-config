@@ -3,5 +3,4 @@
 	imports = [
 		./disk-part.nix
 	];
-
 }

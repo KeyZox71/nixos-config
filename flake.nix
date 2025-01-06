@@ -45,6 +45,10 @@
 			url = "github:keyzox71/timmy";
 			inputs.nixpkgs.follows = "nixpkgs";
 		};
+
+		disko = {
+			url = "github:nix-community/disko";
+		};
 	};
 
 	outputs = inputs@{ self, nixpkgs, catppuccin, home-manager, nixos-hardware, ... }:
@@ -70,7 +74,7 @@
 				system = "x86_64-linux";
 				specialArgs = { inherit inputs outputs; };
 				modules = [
-					<nixos-hardware/common/cpu/intel>
+					inputs.disko.nixosModules.disko
 					./hosts/NIXOS-SERVER/default.nix
 					./hardware-configuration.nix
 				];

@@ -7,11 +7,13 @@
 
 {
   imports = [
+	./zfs
+	./virt
+	./services
 	./hardware
 
 	./env.nix
 	./boot.nix
-	./virt.nix
 
     inputs.home-manager.nixosModules.home-manager
   ];
@@ -39,6 +41,7 @@
     vim
     wget
     curl
+	sudo
     btop
     unzip
     cifs-utils
@@ -47,6 +50,7 @@
   users.users.adjoly = {
     shell = pkgs.zsh;
     isNormalUser = true;
+	initialPassword = "alpine";
     extraGroups = [
       "sudo"
       "input"

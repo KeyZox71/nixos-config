@@ -8,9 +8,9 @@
 				efiSysMountPoint = "/boot";
 			};
 			grub = {
+				device = "nodev";
 				enable = true;
 				efiSupport = true;
-				device = "nodev";
 				useOSProber = true;
 			};
 		};
