@@ -74,7 +74,7 @@
 					./hosts/NIXOS-SERVER/default.nix
 					./hardware-configuration.nix
 				];
-			}
+			};
 		};
 		homeManagerConfigurations = {
 			"42adjoly" = home-manager.lib.homeManagerConfiguration {
