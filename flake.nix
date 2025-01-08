@@ -70,13 +70,12 @@
 					nixos-hardware.nixosModules.dell-precision-5530
 				];
 			};
-			NIXOS-SERVER = nixpkgs.lib.nixosSystem {
+			nixos-server = nixpkgs.lib.nixosSystem {
 				system = "x86_64-linux";
 				specialArgs = { inherit inputs outputs; };
 				modules = [
 					inputs.disko.nixosModules.disko
 					./hosts/NIXOS-SERVER/default.nix
-					./hardware-configuration.nix
 				];
 			};
 		};

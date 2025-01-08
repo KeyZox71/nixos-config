@@ -3,6 +3,6 @@
 {
 	services.plex = {
 		enable = true;
-		dataDir = "/mnt/BigBoyy/config/plex";
+		dataDir = "/BigBoyy/config/plex";
 	};
 }

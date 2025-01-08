@@ -2,7 +2,7 @@
 
 {
 	imports = [
-		./traefik
+		./plex
 
 		./ssh.nix
 		./network.nix
