@@ -40,10 +40,13 @@
       url = "github:keyzox71/zen-browser-flake";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-
     timmy = {
       url = "github:keyzox71/timmy";
       inputs.nixpkgs.follows = "nixpkgs";
+    };
+
+    disko = {
+      url = "github:nix-community/disko";
     };
   };
 
@@ -80,6 +83,14 @@
             catppuccin.nixosModules.catppuccin
 
             nixos-hardware.nixosModules.dell-precision-5530
+          ];
+        };
+        nixos-server = nixpkgs.lib.nixosSystem {
+          system = "x86_64-linux";
+          specialArgs = { inherit inputs outputs; };
+          modules = [
+            inputs.disko.nixosModules.disko
+            ./hosts/NIXOS-SERVER/default.nix
           ];
         };
       };
