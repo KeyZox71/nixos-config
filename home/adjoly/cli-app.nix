@@ -8,10 +8,11 @@
     zoxide
     direnv
     ripgrep
-	thefuck
+    thefuck
     starship
     ripgrep-all
     unstable.yazi
+    bash-language-server
     inputs.timmy.packages.${pkgs.system}.timmy
   ];
 }

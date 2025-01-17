@@ -13,7 +13,7 @@
     tofi.enable = true;
     fzf.enable = true;
     hyprlock.enable = false;
-	starship.enable = false;
-	waybar.enable = true;
+    starship.enable = false;
+    waybar.enable = true;
   };
 }
