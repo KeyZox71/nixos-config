@@ -2,7 +2,7 @@
 
 {
 	networking = {
-		hostName = "VM-ADJOLY"; 
+		hostName = "vm-adjoly"; 
 		networkmanager.enable = true;
 		firewall = {
 			enable = false;

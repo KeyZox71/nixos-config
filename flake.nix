@@ -93,6 +93,16 @@
             ./hosts/NIXOS-SERVER/default.nix
           ];
         };
+        vm-adjoly = nixpkgs.lib.nixosSystem {
+          system = "x86_64-linux";
+          specialArgs = { inherit inputs outputs; };
+          modules = [
+            ./hosts/VIRTUAL-BOX-VM/default.nix
+
+            inputs.disko.nixosModules.disko
+            catppuccin.nixosModules.catppuccin
+          ];
+        };
       };
       homeManagerConfigurations = {
         "42adjoly" = home-manager.lib.homeManagerConfiguration {
