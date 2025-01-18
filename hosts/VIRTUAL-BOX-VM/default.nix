@@ -58,7 +58,7 @@
     cifs-utils
     wl-clipboard
     brightnessctl
-    inputs.zen-browser.packages.${pkgs.system}.specific
+    inputs.zen-browser.packages.${pkgs.system}.default
     inputs.hyprland-contrib.packages.${pkgs.system}.grimblast
   ];
   programs.ssh.startAgent = true;
