@@ -26,6 +26,13 @@
 				path = "/BigBoyy/plex";
 				"read only" = "no";
 			};
+			torrent = {
+				browseable = "yes";
+				comment = "torrent";
+				"guest ok" = "no";
+				path = "/BigBoyy/torrent";
+				"read only" = "no";
+			};
 		};
 		nmbd.enable = true;
 	};
