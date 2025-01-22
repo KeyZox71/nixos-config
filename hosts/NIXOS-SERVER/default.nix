@@ -22,6 +22,14 @@
     config = {
       allowUnfree = true;
     };
+	overlays = [
+      (final: prev: {
+        unstable = import inputs.unstablepkgs {
+          system = pkgs.system;
+          config.allowUnfree = true;
+        };
+      })
+    ];
   };
 
   environment.variables = {
