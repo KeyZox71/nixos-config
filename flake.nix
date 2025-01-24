@@ -64,6 +64,7 @@
       catppuccin,
       home-manager,
       nixos-hardware,
+      nixos-wsl,
       ...
     }:
     let
@@ -115,7 +116,7 @@
             catppuccin.nixosModules.catppuccin
           ];
 
-		}
+		};
       };
       homeManagerConfigurations = {
         "42adjoly" = home-manager.lib.homeManagerConfiguration {

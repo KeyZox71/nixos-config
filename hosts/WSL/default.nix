@@ -10,7 +10,6 @@
 	./wsl
 
 	./env.nix
-	./boot.nix
 
     inputs.home-manager.nixosModules.home-manager
   ];
