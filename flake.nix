@@ -3,6 +3,8 @@
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-24.11";
 
+	nixos-wsl.url = "github:nix-community/NixOS-WSL/main";
+
     unstablepkgs.url = "github:nixos/nixpkgs/nixos-unstable";
 
     nixos-hardware.url = "github:keyzox71/nixos-hardware/master";
@@ -103,6 +105,17 @@
             catppuccin.nixosModules.catppuccin
           ];
         };
+		wsl-adjoly = nixpkgs.lib.nixosSystem {
+          system = "x86_64-linux";
+          specialArgs = { inherit inputs outputs; };
+          modules = [
+            ./hosts/WSL/default.nix
+
+			nixos-wsl.nixosModules.default
+            catppuccin.nixosModules.catppuccin
+          ];
+
+		}
       };
       homeManagerConfigurations = {
         "42adjoly" = home-manager.lib.homeManagerConfiguration {
