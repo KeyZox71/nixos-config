@@ -13,10 +13,10 @@
     ./fonts.nix
 
     ./hardware
-    ./programs
+		#./programs
     ./services
 
-    inputs.home-manager.nixosModules.home-manager
+		#inputs.home-manager.nixosModules.home-manager
   ];
 
   nixpkgs = {
@@ -25,7 +25,7 @@
     };
   };
 
-  security.pam.services.hyprlock = { };
+	#  security.pam.services.hyprlock = { };
 
   environment.variables = {
     GDK_BACKEND = "wayland";
@@ -46,10 +46,10 @@
   environment.systemPackages = with pkgs; [
     git
     zsh
-    nil
+		#nil
     vim
     wget
-    curl
+		#curl
     btop
     unzip
     wluma
@@ -59,7 +59,7 @@
     wl-clipboard
     brightnessctl
     inputs.zen-browser.packages.${pkgs.system}.default
-    inputs.hyprland-contrib.packages.${pkgs.system}.grimblast
+		#inputs.hyprland-contrib.packages.${pkgs.system}.grimblast
   ];
   programs.ssh.startAgent = true;
   programs.seahorse.enable = true;
@@ -85,11 +85,11 @@
     accent = "lavender";
   };
 
-  home-manager = {
-    useUserPackages = true;
-    extraSpecialArgs = { inherit inputs outputs; };
-    users.adjoly = import ../../home/adjoly/home-lite.nix;
-  };
+	#  home-manager = {
+	#    useUserPackages = true;
+	#    extraSpecialArgs = { inherit inputs outputs; };
+	#    users.adjoly = import ../../home/adjoly/home-lite.nix;
+	#  };
 
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions

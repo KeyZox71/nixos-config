@@ -5,6 +5,7 @@
     git
     fzf
     tmux
+    btop
     zoxide
     direnv
     ripgrep

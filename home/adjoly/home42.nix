@@ -30,8 +30,6 @@
   home = {
     packages = with pkgs; [
       beeper
-      discord
-      obsidian
     ];
     stateVersion = "24.05";
   };
