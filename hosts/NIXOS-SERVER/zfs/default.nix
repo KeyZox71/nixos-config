@@ -3,10 +3,11 @@
 {
 	imports = [
 		./service.nix
+		./sanoid.nix
 	];
 	boot.zfs = {
 		package = pkgs.zfs_unstable;
-		extraPools = [ "BigBoyy" "FatBoyy" ];
+		extraPools = [ "BigBoyy" ];
 	};
 	boot = {
 		supportedFilesystems = [ "zfs" ];

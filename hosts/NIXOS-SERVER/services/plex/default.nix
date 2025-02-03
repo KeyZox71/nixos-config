@@ -2,7 +2,7 @@
 
 {
 	services.plex = {
-		enable = true;
+		enable = false;
 		package = pkgs.unstable.plex;
 		dataDir = "/BigBoyy/config/plex";
 	};

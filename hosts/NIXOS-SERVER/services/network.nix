@@ -11,6 +11,6 @@
 	};
 	services.tailscale = {
 		enable = true;
-		extraUpFlags = [ "--accept-routes" ];
+		extraUpFlags = [ "--ssh --accept-routes" ];
 	};
 }

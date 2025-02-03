@@ -17,6 +17,13 @@
 		inputs.catppuccin.homeManagerModules.catppuccin
 	];
 
+	catppuccin = {
+		kitty.enable = false;
+		tofi.enable = false;
+		cursors.enable = false;
+		waybar.enable = false;
+	};
+
 	home = {
 		packages = with pkgs; [
 		];

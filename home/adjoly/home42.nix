@@ -32,6 +32,12 @@
     size = 11;
   };
 
+	catppuccin = {
+		tofi.enable = false;
+		cursors.enable = false;
+		waybar.enable = false;
+	};
+
   home = {
     packages = with pkgs; [
       beeper

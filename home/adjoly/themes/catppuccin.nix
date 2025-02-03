@@ -1,19 +1,20 @@
+{ lib, ... }:
 {
   catppuccin = {
-    enable = true;
+    enable = lib.mkDefault true;
     flavor = "frappe";
     accent = "lavender";
     cursors = {
-      enable = true;
+      enable = lib.mkDefault true;
       accent = "lavender";
       flavor = "frappe";
     };
-    tmux.enable = true;
-    kitty.enable = false;
-    tofi.enable = true;
-    fzf.enable = true;
-    hyprlock.enable = false;
-    starship.enable = false;
-    waybar.enable = true;
+    tmux.enable = lib.mkDefault true;
+    kitty.enable = lib.mkDefault false;
+    tofi.enable = lib.mkDefault true;
+    fzf.enable = lib.mkDefault true;
+    hyprlock.enable = lib.mkDefault false;
+    starship.enable = lib.mkDefault false;
+    waybar.enable = lib.mkDefault true;
   };
 }
