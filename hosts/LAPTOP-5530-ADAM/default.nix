@@ -47,10 +47,15 @@
   };
   programs.dconf.enable = true;
 
-  nix.settings.experimental-features = [
-    "nix-command"
-    "flakes"
-  ];
+  nix.settings = {
+    trusted-users = [
+      "adjoly"
+    ];
+    experimental-features = [
+      "nix-command"
+      "flakes"
+    ];
+  };
 
   programs.zsh.enable = true;
 
@@ -74,7 +79,7 @@
     xfce.thunar-volman
     xfce.thunar-archive-plugin
     xfce.thunar-media-tags-plugin
-    inputs.zen-browser.packages.${pkgs.system}.specific
+    inputs.zen-browser.packages.${pkgs.system}.default
     inputs.hyprland-contrib.packages.${pkgs.system}.grimblast
   ];
   programs.ssh.startAgent = true;
