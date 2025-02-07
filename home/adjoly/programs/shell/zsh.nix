@@ -17,8 +17,8 @@
 			re = "sudo nixos-rebuild switch";
 			update = "sudo nix flake update && sudo nixos-rebuild switch";
 			grep = "grep --color=auto";
-			lock = "swaylock & systemctl suspend";
-			hibernate = "swaylock & systemctl hibernate";
+			lock = "hyprlock & systemctl suspend";
+			hibernate = "hyprlock & systemctl hibernate";
 		};
 	};
 }

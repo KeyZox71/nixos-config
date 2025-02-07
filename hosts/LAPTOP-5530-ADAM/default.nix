@@ -75,6 +75,8 @@
     xfce.thunar
     wl-clipboard
     brightnessctl
+		chiaki-ng
+		plexamp
     docker-compose
     xfce.thunar-volman
     xfce.thunar-archive-plugin
