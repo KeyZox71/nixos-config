@@ -19,6 +19,9 @@
 			code = "flatpak run com.visualstudio.code";
 			powershell = "nix-shell -p powershell --run pwsh";
 			kbus = "setxkbmap -layout us -variant intl";
+			tailup = "docker compose -f ~/workspace/test-tailscale/docker-compose.yml up -d && docker logs tailscale-42";
+			tailscale = "docker exec -it tailscale-42 tailscale";
+			tailscale-sh = "docker exec -it tailscale-42 sh";
 		};
 		initExtraFirst = ''
 bgs() {
