@@ -1,4 +1,4 @@
-{ ... }:
+{ config, ... }:
 {
   imports = [
     ./disk-part.nix
@@ -6,9 +6,14 @@
   ];
 
   hardware = {
-		nvidia.package = "config.boot.kernelPackages.nvidiaPackages.stable";
+    nvidia-container-toolkit.enable = true;
+    nvidia = {
+			package = config.boot.kernelPackages.nvidiaPackages.stable;
+			open = false;
+		};
     graphics = {
       enable = true;
     };
   };
+  services.xserver.videoDrivers = [ "nvidia" ];
 }
