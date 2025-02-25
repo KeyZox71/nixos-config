@@ -8,5 +8,6 @@
 		./smb.nix
 		./network.nix
 		./ollama.nix
+		./homepage.nix
 	];
 }

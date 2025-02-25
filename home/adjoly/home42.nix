@@ -18,7 +18,7 @@
     ./programs/git.nix
     ./programs/tmux.nix
     ./programs/pogit.nix
-    ./programs/kitty.nix
+./programs/kitty.nix
     ./programs/neovim.nix
     ./programs/direnv.nix
     ./programs/shell/zsh42.nix

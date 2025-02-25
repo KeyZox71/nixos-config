@@ -11,7 +11,7 @@
 		shellAliases = {
 			l = "ls -lA --color=auto";
 			ls = "ls -A --color=auto";
-			re = "~/home-manager";
+			re = "nix run nixpkgs#home-manager -- --flake ~/workspace/nixos-config#42adjoly switch";
 			grep = "grep --color=auto";
 			lock = "ft-lock";
 			kty-frappe = "kitten themes --reload-in=all Catppuccin-frappe";
@@ -38,6 +38,7 @@ vol() {
 		command pactl set-sink-volume 0 0%
 	fi
 }
+PATH+=":/home/adjoly/.local/kitty.app/bin"
 		'';
 	};
 

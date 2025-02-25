@@ -117,14 +117,14 @@
 
 		};
       };
-      homeManagerConfigurations = {
+      homeConfigurations = {
         "42adjoly" = home-manager.lib.homeManagerConfiguration {
           pkgs = nixpkgs.legacyPackages."x86_64-linux";
           modules = [
             ./home/adjoly/home42.nix
             {
               home = {
-                homeDirectory = "/nfs/homes/adjoly";
+                homeDirectory = "/home/adjoly";
                 username = "adjoly";
               };
             }
