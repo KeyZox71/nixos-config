@@ -9,6 +9,11 @@
       accent = "lavender";
       flavor = "frappe";
     };
+    btop = {
+      enable = lib.mkDefault true;
+      flavor = lib.mkDefault "frappe";
+    };
+
     tmux.enable = lib.mkDefault true;
     kitty.enable = lib.mkDefault false;
     tofi.enable = lib.mkDefault true;

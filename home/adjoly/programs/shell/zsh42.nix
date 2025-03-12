@@ -22,6 +22,7 @@
 			tailup = "docker compose -f ~/workspace/test-tailscale/docker-compose.yml up -d && docker logs tailscale-42";
 			tailscale = "docker exec -it tailscale-42 tailscale";
 			tailscale-sh = "docker exec -it tailscale-42 sh";
+			portup = "docker run -d -p 8000:8000 -p 9443:9443 --name portainer --restart=always -v /run/user/101479/docker.sock:/var/run/docker.sock -v portainer_data:/data portainer/portainer-ce:lts";
 		};
 		initExtraFirst = ''
 bgs() {

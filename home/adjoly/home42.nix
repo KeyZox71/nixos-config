@@ -18,7 +18,7 @@
     ./programs/git.nix
     ./programs/tmux.nix
     ./programs/pogit.nix
-./programs/kitty.nix
+    ./programs/kitty.nix
     ./programs/neovim.nix
     ./programs/direnv.nix
     ./programs/shell/zsh42.nix
@@ -32,15 +32,14 @@
     size = 11;
   };
 
-	catppuccin = {
-		tofi.enable = false;
-		cursors.enable = false;
-		waybar.enable = false;
-	};
+  catppuccin = {
+    tofi.enable = false;
+    cursors.enable = false;
+    waybar.enable = false;
+  };
 
   home = {
     packages = with pkgs; [
-      beeper
     ];
     stateVersion = "24.05";
   };
