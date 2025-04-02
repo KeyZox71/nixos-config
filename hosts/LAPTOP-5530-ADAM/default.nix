@@ -8,17 +8,13 @@
 {
   imports = [
     ./env.nix
-    ./game.nix
     ./boot.nix
     ./fonts.nix
-    ./wireguard.nix
-    ./virtualbox.nix
-    ./services/sddm.nix
-    ./services/sound.nix
-    ./services/network.nix
-    ./services/xserver.nix
-    ./programs/hyprland.nix
-    ./hardware/hardware-configuration.nix
+
+    ./hardware
+    ./programs
+    ./services
+    ./virtualisation
 
     inputs.home-manager.nixosModules.home-manager
   ];
@@ -69,14 +65,14 @@
     btop
     unzip
     wluma
+    plexamp
     firefox
+    chiaki-ng
     bluetuith
     cifs-utils
     xfce.thunar
     wl-clipboard
     brightnessctl
-		chiaki-ng
-		plexamp
     docker-compose
     xfce.thunar-volman
     xfce.thunar-archive-plugin

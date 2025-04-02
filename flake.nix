@@ -3,7 +3,7 @@
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-24.11";
 
-	nixos-wsl.url = "github:nix-community/NixOS-WSL/main";
+    nixos-wsl.url = "github:nix-community/NixOS-WSL/main";
 
     unstablepkgs.url = "github:nixos/nixpkgs/nixos-unstable";
 
@@ -52,10 +52,10 @@
     };
   };
 
-	#  nixConfig = {
-	#    substituters = [ "https://catppuccin.cachix.org" ];
-	#    trusted-public-keys = [ "catppuccin.cachix.org-1:noG/4HkbhJb+lUAdKrph6LaozJvAeEEZj4N732IysmU=" ];
-	#  };
+  #  nixConfig = {
+  #    substituters = [ "https://catppuccin.cachix.org" ];
+  #    trusted-public-keys = [ "catppuccin.cachix.org-1:noG/4HkbhJb+lUAdKrph6LaozJvAeEEZj4N732IysmU=" ];
+  #  };
 
   outputs =
     inputs@{
@@ -83,8 +83,8 @@
           modules = [
             ./hosts/LAPTOP-5530-ADAM/default.nix
 
+            inputs.disko.nixosModules.disko
             catppuccin.nixosModules.catppuccin
-
             nixos-hardware.nixosModules.dell-precision-5530
           ];
         };
@@ -92,8 +92,9 @@
           system = "x86_64-linux";
           specialArgs = { inherit inputs outputs; };
           modules = [
-            inputs.disko.nixosModules.disko
             ./hosts/NIXOS-SERVER/default.nix
+
+            inputs.disko.nixosModules.disko
           ];
         };
         vm-adjoly = nixpkgs.lib.nixosSystem {
@@ -105,17 +106,17 @@
             catppuccin.nixosModules.catppuccin
           ];
         };
-		wsl-adjoly = nixpkgs.lib.nixosSystem {
+        wsl-adjoly = nixpkgs.lib.nixosSystem {
           system = "x86_64-linux";
           specialArgs = { inherit inputs outputs; };
           modules = [
             ./hosts/WSL/default.nix
 
-			nixos-wsl.nixosModules.default
+            nixos-wsl.nixosModules.default
             catppuccin.nixosModules.catppuccin
           ];
 
-		};
+        };
       };
       homeConfigurations = {
         "42adjoly" = home-manager.lib.homeManagerConfiguration {
