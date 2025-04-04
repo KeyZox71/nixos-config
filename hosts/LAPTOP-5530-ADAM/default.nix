@@ -90,6 +90,7 @@
   users.users.adjoly = {
     shell = pkgs.zsh;
     isNormalUser = true;
+		initialPassword = "test";
     extraGroups = [
       "docker"
       "audio"

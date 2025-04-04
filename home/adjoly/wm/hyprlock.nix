@@ -2,7 +2,7 @@
 
 let
 	source = pkgs.fetchurl {
-		url = "https://drive.keyzox.me/s/Ednt9KMCy83rMnp/download/hyprlock.png";
+		url = "https://drive.kanel.ovh/s/kS7b2Gpip6TkyGY/download/hyprlock.png";
 		sha256 = "mRpFtFyEbZjH3y501UrA/O+jhBNvtlD/6VwkCwYlITQ=";
 	};
 	bsky-profile = pkgs.fetchurl {

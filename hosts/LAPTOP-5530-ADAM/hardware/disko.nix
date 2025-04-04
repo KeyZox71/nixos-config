@@ -4,7 +4,7 @@
   disko.devices = {
     disk = {
       boot-disk = {
-        device = "/dev/sda";
+        device = "/dev/nvme0n1";
         type = "disk";
         content = {
           type = "gpt";
@@ -16,6 +16,7 @@
                 type = "filesystem";
                 format = "vfat";
                 mountpoint = "/boot";
+                mountOptions = [ "umask=0077" ];
               };
             };
             root = {

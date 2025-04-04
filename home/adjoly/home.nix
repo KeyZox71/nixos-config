@@ -39,7 +39,7 @@
 			rquickshare
 			prismlauncher
 			nextcloud-client
-			unstable.ankama-launcher
+			#unstable.ankama-launcher
 		];
 		stateVersion = "24.05";
 	};
