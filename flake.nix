@@ -125,7 +125,7 @@
             ./home/adjoly/home42.nix
             {
               home = {
-                homeDirectory = "/home/adjoly";
+                homeDirectory = "/nfs/homes/adjoly";
                 username = "adjoly";
               };
             }

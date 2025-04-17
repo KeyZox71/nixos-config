@@ -11,20 +11,20 @@
 		clock24 = true;
 		plugins = with pkgs; [
 			tmuxPlugins.tmux-fzf
-			{
-				plugin = tmuxPlugins.resurrect;
-				extraConfig = ''
-					set -g @resurrect-capture-pane-contents 'on'
-				'';
-			}
-			{
-				plugin = tmuxPlugins.continuum;
-				extraConfig = ''
-					set -g @continuum-boot 'on'
-					set -g @continuum-restore 'on'
-					set -g @continuum-save-interval '5' # minutes
-				'';
-			}
+			# {
+			# 	plugin = tmuxPlugins.resurrect;
+			# 	extraConfig = ''
+			# 		set -g @resurrect-capture-pane-contents 'on'
+			# 	'';
+			# }
+			# {
+			# 	plugin = tmuxPlugins.continuum;
+			# 	extraConfig = ''
+			# 		set -g @continuum-boot 'on'
+			# 		set -g @continuum-restore 'on'
+			# 		set -g @continuum-save-interval '5' # minutes
+			# 	'';
+			# }
 			tmuxPlugins.vim-tmux-navigator
 			tmuxPlugins.sensible
 		];

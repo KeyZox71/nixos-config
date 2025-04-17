@@ -13,7 +13,7 @@
       enable = lib.mkDefault true;
       flavor = lib.mkDefault "frappe";
     };
-
+	gh-dash.enable = lib.mkDefault true;
     tmux.enable = lib.mkDefault true;
     kitty.enable = lib.mkDefault false;
     tofi.enable = lib.mkDefault true;
