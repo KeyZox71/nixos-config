@@ -6,6 +6,6 @@
 		acceleration = "cuda";
 		home = "/BigBoyy/config/ollama/ollama";
 		host = "[::]";
-		loadModels = [ "mistral" "codestral" ];
+		loadModels = [ "mistral" ];
 	};
 }
