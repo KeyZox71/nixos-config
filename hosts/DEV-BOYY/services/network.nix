@@ -2,7 +2,7 @@
 
 {
 	networking = {
-		hostName = "vm-adjoly"; 
+		hostName = "LAPTOP-5530-ADAM"; 
 		networkmanager.enable = true;
 		firewall = {
 			enable = false;

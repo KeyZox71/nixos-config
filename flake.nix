@@ -1,5 +1,81 @@
 {
   description = "KeyZox's config";
+
+  outputs =
+    inputs@{
+      self,
+      nixpkgs,
+      catppuccin,
+      home-manager,
+      nixos-hardware,
+      nixos-wsl,
+      disko,
+      ...
+    }:
+    let
+      inherit (self) outputs;
+    in
+    {
+      nixosConfigurations = {
+        DEV-BOYY = nixpkgs.lib.nixosSystem {
+          system = "x86_64-linux";
+          specialArgs = { inherit inputs outputs; };
+          modules = [
+            ./hosts/DEV-BOYY/default.nix
+
+            disko.nixosModules.disko
+            catppuccin.nixosModules.catppuccin
+          ];
+        };
+        LAPTOP-5530-ADAM = nixpkgs.lib.nixosSystem {
+          system = "x86_64-linux";
+          specialArgs = { inherit inputs outputs; };
+          modules = [
+            ./hosts/LAPTOP-5530-ADAM/default.nix
+
+            disko.nixosModules.disko
+            catppuccin.nixosModules.catppuccin
+            nixos-hardware.nixosModules.dell-precision-5530
+          ];
+        };
+        nixos-server = nixpkgs.lib.nixosSystem {
+          system = "x86_64-linux";
+          specialArgs = { inherit inputs outputs; };
+          modules = [
+            ./hosts/NIXOS-SERVER/default.nix
+
+            inputs.disko.nixosModules.disko
+          ];
+        };
+        wsl-adjoly = nixpkgs.lib.nixosSystem {
+          system = "x86_64-linux";
+          specialArgs = { inherit inputs outputs; };
+          modules = [
+            ./hosts/WSL/default.nix
+
+            nixos-wsl.nixosModules.default
+            catppuccin.nixosModules.catppuccin
+          ];
+
+        };
+      };
+      homeConfigurations = {
+        "42adjoly" = home-manager.lib.homeManagerConfiguration {
+          pkgs = nixpkgs.legacyPackages."x86_64-linux";
+          modules = [
+            ./home/adjoly/home42.nix
+            {
+              home = {
+                homeDirectory = "/home/adjoly";
+                username = "adjoly";
+              };
+            }
+          ];
+          extraSpecialArgs = { inherit inputs outputs; };
+        };
+      };
+    };
+
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-24.11";
 
@@ -30,7 +106,7 @@
 
     pogit = {
       url = "github:y-syo/pogit";
-      inputs.nixpkgs.follows = "nixpkgs"; # to use your nixpkgs instance instead of the provided one
+      inputs.nixpkgs.follows = "nixpkgs";
     };
 
     hyprland-contrib = {
@@ -52,86 +128,4 @@
     };
   };
 
-  #  nixConfig = {
-  #    substituters = [ "https://catppuccin.cachix.org" ];
-  #    trusted-public-keys = [ "catppuccin.cachix.org-1:noG/4HkbhJb+lUAdKrph6LaozJvAeEEZj4N732IysmU=" ];
-  #  };
-
-  outputs =
-    inputs@{
-      self,
-      nixpkgs,
-      catppuccin,
-      home-manager,
-      nixos-hardware,
-      nixos-wsl,
-      ...
-    }:
-    let
-      supportedSystems = [
-        "x86_64-linux"
-        "x86_64-darwin"
-      ];
-      forSystems = nixpkgs.lib.genAttrs supportedSystems;
-      inherit (self) outputs;
-    in
-    {
-      nixosConfigurations = {
-        LAPTOP-5530-ADAM = nixpkgs.lib.nixosSystem {
-          system = "x86_64-linux";
-          specialArgs = { inherit inputs outputs; };
-          modules = [
-            ./hosts/LAPTOP-5530-ADAM/default.nix
-
-            inputs.disko.nixosModules.disko
-            catppuccin.nixosModules.catppuccin
-            nixos-hardware.nixosModules.dell-precision-5530
-          ];
-        };
-        nixos-server = nixpkgs.lib.nixosSystem {
-          system = "x86_64-linux";
-          specialArgs = { inherit inputs outputs; };
-          modules = [
-            ./hosts/NIXOS-SERVER/default.nix
-
-            inputs.disko.nixosModules.disko
-          ];
-        };
-        vm-adjoly = nixpkgs.lib.nixosSystem {
-          system = "x86_64-linux";
-          specialArgs = { inherit inputs outputs; };
-          modules = [
-            ./hosts/VIRTUAL-BOX-VM/default.nix
-
-            catppuccin.nixosModules.catppuccin
-          ];
-        };
-        wsl-adjoly = nixpkgs.lib.nixosSystem {
-          system = "x86_64-linux";
-          specialArgs = { inherit inputs outputs; };
-          modules = [
-            ./hosts/WSL/default.nix
-
-            nixos-wsl.nixosModules.default
-            catppuccin.nixosModules.catppuccin
-          ];
-
-        };
-      };
-      homeConfigurations = {
-        "42adjoly" = home-manager.lib.homeManagerConfiguration {
-          pkgs = nixpkgs.legacyPackages."x86_64-linux";
-          modules = [
-            ./home/adjoly/home42.nix
-            {
-              home = {
-                homeDirectory = "/nfs/homes/adjoly";
-                username = "adjoly";
-              };
-            }
-          ];
-          extraSpecialArgs = { inherit inputs outputs; };
-        };
-      };
-    };
 }

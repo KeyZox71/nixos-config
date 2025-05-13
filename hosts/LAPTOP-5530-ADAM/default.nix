@@ -10,11 +10,9 @@
     ./env.nix
     ./boot.nix
     ./fonts.nix
-
     ./hardware
-    ./programs
-    ./services
-    ./virtualisation
+	./programs
+	./virtualisation/
 
     inputs.home-manager.nixosModules.home-manager
   ];
@@ -90,7 +88,6 @@
   users.users.adjoly = {
     shell = pkgs.zsh;
     isNormalUser = true;
-		initialPassword = "test";
     extraGroups = [
       "docker"
       "audio"
