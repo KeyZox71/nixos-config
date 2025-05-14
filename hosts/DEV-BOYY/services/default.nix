@@ -2,8 +2,8 @@
 
 {
 	imports = [
-		./ly.nix
-		#./sddm.nix
+		#./ly.nix
+		./sddm.nix
 		./sound.nix
 		./network.nix
 		./xserver.nix

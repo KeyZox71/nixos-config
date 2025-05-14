@@ -2,7 +2,7 @@
 
 {
 	networking = {
-		hostName = "LAPTOP-5530-ADAM"; 
+		hostName = "DEV-BOYY"; 
 		networkmanager.enable = true;
 		firewall = {
 			enable = false;

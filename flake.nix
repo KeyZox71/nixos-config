@@ -23,10 +23,9 @@
           modules = [
             ./hosts/DEV-BOYY/default.nix
 
-            disko.nixosModules.disko
             catppuccin.nixosModules.catppuccin
-			(import nixos-hardware + "/common/cpu/amd")
-			(import nixos-hardware + "/common/gpu/nvidia/turing")
+			# (import nixos-hardware + "/common/cpu/amd")
+			# (import nixos-hardware + "/common/gpu/nvidia/turing")
           ];
         };
         LAPTOP-5530-ADAM = nixpkgs.lib.nixosSystem {
