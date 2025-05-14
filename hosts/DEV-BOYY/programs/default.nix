@@ -4,6 +4,7 @@
   imports = [
     # ./game.nix
     ./hyprland.nix
-	# ./android-studio.nix
+    ./uwsm.nix
+    # ./android-studio.nix
   ];
 }

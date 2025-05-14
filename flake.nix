@@ -24,8 +24,8 @@
             ./hosts/DEV-BOYY/default.nix
 
             catppuccin.nixosModules.catppuccin
-			# (import nixos-hardware + "/common/cpu/amd")
-			# (import nixos-hardware + "/common/gpu/nvidia/turing")
+            # (import nixos-hardware + "/common/cpu/amd")
+            # (import nixos-hardware + "/common/gpu/nvidia/turing")
           ];
         };
         LAPTOP-5530-ADAM = nixpkgs.lib.nixosSystem {
@@ -116,7 +116,7 @@
     };
 
     zen-browser = {
-      url = "github:keyzox71/zen-browser-flake";
+      url = "github:0xc000022070/zen-browser-flake";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     timmy = {

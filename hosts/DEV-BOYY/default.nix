@@ -23,6 +23,11 @@
     };
   };
 
+  qt = {
+    enable = true;
+    platformTheme = "qt5ct";
+  };
+
   security.pam.services.hyprlock = { };
 
   environment.variables = {
@@ -47,7 +52,7 @@
   };
 
   programs.zsh.enable = true;
-  programs.fish.enable = true;
+  #  programs.fish.enable = true;
 
   environment.systemPackages = with pkgs; [
     git
@@ -55,13 +60,16 @@
     nil
     vim
     wget
+    solaar
     curl
     btop
+    ddcui
+    ddcutil
     unzip
-    wluma
+    #wluma
     plexamp
     firefox
-    chiaki-ng
+    #chiaki-ng
     bluetuith
     cifs-utils
     xfce.thunar
@@ -94,6 +102,7 @@
       "networkmanager"
       "wheel"
       "sudo"
+      "i2c"
       "vboxusers"
     ];
   };
@@ -108,7 +117,7 @@
   home-manager = {
     useUserPackages = true;
     extraSpecialArgs = { inherit inputs outputs; };
-    users.adjoly = import ../../home/adjoly/home.nix;
+    users.adjoly = import ../../home/adjoly/home-desktop.nix;
   };
 
   # This value determines the NixOS release from which the default

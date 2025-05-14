@@ -1,4 +1,4 @@
-{ ... }:
+{ lib, ... }:
 
 {
 	programs.waybar = {
@@ -13,16 +13,16 @@
 				modules-left = [ "hyprland/workspaces" "hyprland/window" ];
 				modules-center = [ "clock" ];
 				modules-right = [ "tray" "mpris" "pulseaudio" "custom/prev" "custom/playpause" "custom/next" "network" "battery" ];
-				output = [ "eDP-1" ];
+				#output = [ "eDP-1" ];
 
 				# ---------------------------------------------------------
 
 				"hyprland/workspaces" = {
 					format = "{icon}";
 					tooltip = false;
-					"persistent-workspaces" = {
-						"eDP-1" = [ 1 2 3 4 5 6 7 8 9 10 ];
-					};
+					# "persistent-workspaces" = lib.mkDefault {
+					# 	"eDP-1" = [ 1 2 3 4 5 6 7 8 9 10 ];
+					# };
 					format-icons = {
 						"1" = "◆";
 						"2" = "◆";
@@ -102,7 +102,7 @@
 					on-click = "kitty -- nmtui";
 					on-click-right = "kitty -- bluetuith";
 					tooltip = false;
-				};#f5a97f
+				};
 				battery = {
 					format = "{icon} {capacity} %";
 					format-icons = [ "󰂎" "󰁺" "󰁻" "󰁼" "󰁽" "󰁾" "󰁿" "󰂀" "󰂁" "󰂂" "󰁹"];

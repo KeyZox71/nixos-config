@@ -3,10 +3,11 @@
 {
 	imports = [
 		#./ly.nix
-		./sddm.nix
+		./gdm.nix
+		#./sddm.nix
 		./sound.nix
 		./network.nix
 		./xserver.nix
-		./wireguard.nix
+		#./wireguard.nix
 	];
 }

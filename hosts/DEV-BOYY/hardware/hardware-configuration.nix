@@ -22,8 +22,14 @@
     "uas"
     "sd_mod"
   ];
+  services.udev.extraRules = ''
+    KERNEL=="i2c-[0-9]*", GROUP="i2c", MODE="0660"
+  '';
   boot.initrd.kernelModules = [ ];
-  boot.kernelModules = [ "kvm-amd" ];
+  boot.kernelModules = [
+    "kvm-amd"
+    "i2c-dev"
+  ];
   boot.extraModulePackages = [ ];
 
   fileSystems."/" = {

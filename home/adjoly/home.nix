@@ -4,6 +4,7 @@
 		./gtk.nix
 		./cli-app.nix
 		./wm/hyprland.nix
+		./wm/monitor-laptop.nix
 		./themes/catppuccin.nix
 
 		./unstable-overlay.nix

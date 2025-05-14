@@ -2,11 +2,11 @@
 
 {
 	services.displayManager = {
-		defaultSession = "hyprland";
+		defaultSession = "hyprland-uwsm";
 	};
 	services.xserver = {
 		enable = true;
-		videoDrivers = [ "modesetting" "nvidia" ];
+		videoDrivers = [ "nvidia" ];
 		xkb = {
 			layout = "us";
 			variant = "intl";

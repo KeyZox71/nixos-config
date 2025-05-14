@@ -10,9 +10,9 @@
       "KITTY_ENABLE_WAYLAND" = "1";
     };
 
-    font = lib.mkDefault {
-      name = "JetBrainsMono Nerd Font Mono";
-      size = 13;
+    font = {
+      name = lib.mkDefault "JetBrainsMono Nerd Font Mono";
+      size = lib.mkDefault 13;
     };
   };
   xdg.configFile."kitty/light-theme.auto.conf".source = "${pkgs.kitty-themes}/share/kitty-themes/themes/Catppuccin-Latte.conf";
