@@ -65,17 +65,19 @@
     wluma
     plexamp
     firefox
+	gearlever
     chiaki-ng
     bluetuith
     cifs-utils
     xfce.thunar
+	appimage-run
     wl-clipboard
     brightnessctl
     docker-compose
     xfce.thunar-volman
     xfce.thunar-archive-plugin
     xfce.thunar-media-tags-plugin
-    inputs.zen-browser.packages.${pkgs.system}.default
+    #inputs.zen-browser.packages.${system}.twilight-official
     inputs.hyprland-contrib.packages.${pkgs.system}.grimblast
   ];
   programs.ssh.startAgent = true;

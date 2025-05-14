@@ -20,13 +20,13 @@
 		./programs/fastfetch.nix
 		./programs/shell/zsh.nix
 
-		inputs.catppuccin.homeManagerModules.catppuccin
+		inputs.catppuccin.homeModules.catppuccin
 	];
 
 	home = {
 		packages = with pkgs; [
 			vlc
-			beeper
+			#beeper
 			zenity
 			molotov
 			discord
