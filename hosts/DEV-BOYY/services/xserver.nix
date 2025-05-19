@@ -2,7 +2,7 @@
 
 {
 	services.displayManager = {
-		defaultSession = "hyprland-uwsm";
+		defaultSession = "hyprland";
 	};
 	services.xserver = {
 		enable = true;

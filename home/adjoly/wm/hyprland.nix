@@ -40,6 +40,10 @@
 				"$win, L, exec, hyprlock"
 				"$win + SHIFT, S, exec, grimblast --notify copysave area \"$HOME/Nextcloud/Images/Captures d’écran/Capture d’écran $(date +%F-%H%M%S).png\""
 				"CTRL_SHIFT, K, sendshortcut, CTRL, K, ^(Beeper)$"
+				"CTRL ALT, HOME, exec, adjust-brightness 1 +10"
+				"CTRL ALT, END, exec, adjust-brightness 1 -10"
+				"CTRL ALT, Next, exec, adjust-brightness 2 -10"
+				"CTRL ALT, Prior, exec, adjust-brightness 2 +10"
 			]
 			++ (
 				builtins.concatLists (builtins.genList (
@@ -93,7 +97,7 @@
 				kb_variant = "intl";	
 				follow_mouse = "1";
 				scroll_factor = "0.7";
-				#force_no_accel = true;
+				force_no_accel = true;
 				touchpad = {
 					natural_scroll = "yes";
 					tap-and-drag = true;

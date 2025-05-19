@@ -2,6 +2,7 @@
 {
   imports = [
     ./gtk.nix
+    ./adjust-brightness
     ./cli-app.nix
     ./wm/hyprland.nix
     ./wm/monitor-desktop.nix
@@ -29,16 +30,10 @@
       vlc
       #beeper
       zenity
-      molotov
       discord
-      obsidian
       gearlever
       hyprpaper
-      parsec-bin
       libreoffice
-      tradingview
-      qbittorrent
-      rquickshare
       nextcloud-client
     ];
     stateVersion = "24.05";

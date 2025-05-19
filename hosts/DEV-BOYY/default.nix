@@ -17,6 +17,8 @@
     inputs.home-manager.nixosModules.home-manager
   ];
 
+  powerManagement.enable = true;
+
   nixpkgs = {
     config = {
       allowUnfree = true;
@@ -60,13 +62,14 @@
     nil
     vim
     wget
-    solaar
     curl
     btop
     ddcui
-    ddcutil
+    sbctl
     unzip
     #wluma
+    solaar
+    ddcutil
     plexamp
     firefox
     #chiaki-ng
@@ -74,13 +77,25 @@
     cifs-utils
     xfce.thunar
     wl-clipboard
-    brightnessctl
+    appimage-run
+    #brightnessctl
     docker-compose
     xfce.thunar-volman
     xfce.thunar-archive-plugin
     xfce.thunar-media-tags-plugin
     inputs.zen-browser.packages.${pkgs.system}.default
     inputs.hyprland-contrib.packages.${pkgs.system}.grimblast
+  ];
+
+  hardware.i2c.enable = true;
+  hardware.logitech = {
+    wireless = {
+      enable = true;
+      enableGraphical = true;
+    };
+  };
+  services.udev.packages = with pkgs; [
+    ddcutil
   ];
 
   programs.ssh.startAgent = true;
@@ -106,7 +121,11 @@
       "vboxusers"
     ];
   };
+  users.groups.i2c = { };
   virtualisation.docker.enable = true;
+  services.udev.extraRules = ''
+    KERNEL=="i2c-[0-9]*", GROUP="i2c", MODE="0660"
+  '';
 
   catppuccin = {
     enable = true;

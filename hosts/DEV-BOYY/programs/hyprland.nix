@@ -7,7 +7,7 @@
 	};
 	programs.hyprland = {
 		enable = true;
-		withUWSM = true;
+		#		withUWSM = true;
 	};
 	environment.sessionVariables = {
 		WLR_NO_HARDWARE_CURSORS = "1";

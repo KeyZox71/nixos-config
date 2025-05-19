@@ -10,6 +10,7 @@
       nixos-hardware,
       nixos-wsl,
       disko,
+      lanzaboote,
       ...
     }:
     let
@@ -24,8 +25,7 @@
             ./hosts/DEV-BOYY/default.nix
 
             catppuccin.nixosModules.catppuccin
-            # (import nixos-hardware + "/common/cpu/amd")
-            # (import nixos-hardware + "/common/gpu/nvidia/turing")
+            lanzaboote.nixosModules.lanzaboote
           ];
         };
         LAPTOP-5530-ADAM = nixpkgs.lib.nixosSystem {
@@ -126,6 +126,10 @@
 
     disko = {
       url = "github:nix-community/disko";
+    };
+    lanzaboote = {
+      url = "github:nix-community/lanzaboote/v0.4.2";
+      inputs.nixpkgs.follows = "nixpkgs";
     };
   };
 

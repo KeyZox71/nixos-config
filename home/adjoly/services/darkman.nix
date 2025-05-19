@@ -2,22 +2,23 @@
 {
   services.darkman = {
     enable = true;
+    package = pkgs.unstable.darkman;
     lightModeScripts = {
       notification = ''
-dunstify --appname=darkman --urgency=low "switching to light mode" 
-        				'';
+        dunstify --appname=darkman --urgency=low "switching to light mode" 
+                				'';
       system-light = ''
-dconf write /org/gnome/desktop/interface/color-scheme "'prefer-light'"
-dconf write /org/gnome/desktop/interface/gtk-theme "'Adwaita'"
+        dconf write /org/gnome/desktop/interface/color-scheme "'prefer-light'"
+        dconf write /org/gnome/desktop/interface/gtk-theme "'Adwaita'"
       '';
     };
     darkModeScripts = {
       notification = ''
-dunstify --appname=darkman --urgency=low "switching to dark mode" 
-        				'';
+        dunstify --appname=darkman --urgency=low "switching to dark mode" 
+                				'';
       system-dark = ''
-dconf write /org/gnome/desktop/interface/color-scheme "'prefer-dark'"
-dconf write /org/gnome/desktop/interface/gtk-theme "'Adwaita-dark'"
+        dconf write /org/gnome/desktop/interface/color-scheme "'prefer-dark'"
+        dconf write /org/gnome/desktop/interface/gtk-theme "'Adwaita-dark'"
       '';
     };
     settings = {

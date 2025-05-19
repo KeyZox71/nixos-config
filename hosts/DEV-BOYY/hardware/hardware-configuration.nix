@@ -22,9 +22,6 @@
     "uas"
     "sd_mod"
   ];
-  services.udev.extraRules = ''
-    KERNEL=="i2c-[0-9]*", GROUP="i2c", MODE="0660"
-  '';
   boot.initrd.kernelModules = [ ];
   boot.kernelModules = [
     "kvm-amd"
@@ -56,7 +53,9 @@
     ];
   };
 
-  swapDevices = [
+  swapDevices = [ {
+		label = "SWAP";
+	}
   ];
 
   # Enables DHCP on each ethernet and wireless interface. In case of scripted networking

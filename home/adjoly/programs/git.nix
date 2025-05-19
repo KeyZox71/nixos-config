@@ -1,10 +1,6 @@
 { ... }:
 
 {
-	imports = [
-		./github-cli.nix
-	];
-
   programs = {
     git = {
       enable = true;
