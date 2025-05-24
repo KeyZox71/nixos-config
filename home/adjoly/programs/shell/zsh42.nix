@@ -23,7 +23,7 @@
 			tailscale-sh = "docker exec -it tailscale-42 sh";
 			portup = "docker run -d -p 8000:8000 -p 9443:9443 --name portainer --restart=always -v /run/user/101479/docker.sock:/var/run/docker.sock -v portainer_data:/data portainer/portainer-ce:lts";
 		};
-		initExtraFirst = ''
+		initContent = ''
 bgs() {
 	if [[ "$#" -eq 1 && "$1" != -* ]]; then
 		command nix-shell -p brightnessctl --run "brightnessctl set $1"

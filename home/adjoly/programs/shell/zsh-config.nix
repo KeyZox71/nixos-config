@@ -5,7 +5,7 @@
 		enable = true;
 		autosuggestion.enable = true;
 		enableCompletion = true;
-		initExtra = ''
+		initContent = ''
 alias tm="timmy create"
 alias ts="timmy search"
 function cdd() {

@@ -8,9 +8,6 @@
 		./zoxide.nix
 	];
 	programs.zsh = {
-		initExtraFirst = ''
-			path+=('/home/adjoly/.local/bin')
-		'';
 		shellAliases = {
 			l = "ls -lA --color=auto";
 			ls = "ls -A --color=auto";

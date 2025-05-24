@@ -17,6 +17,8 @@
     inputs.home-manager.nixosModules.home-manager
   ];
 
+  services.playerctld.enable = true;
+
   powerManagement.enable = true;
 
   nixpkgs = {
@@ -43,18 +45,29 @@
   };
   programs.dconf.enable = true;
 
-  nix.settings = {
-    trusted-users = [
-      "adjoly"
-    ];
-    experimental-features = [
-      "nix-command"
-      "flakes"
-    ];
+  nix = {
+    settings = {
+      trusted-users = [
+        "adjoly"
+      ];
+      experimental-features = [
+        "nix-command"
+        "flakes"
+      ];
+      auto-optimise-store = true;
+    };
   };
 
   programs.zsh.enable = true;
   #  programs.fish.enable = true;
+  programs.nh = {
+    enable = true;
+    clean = {
+      enable = true;
+      extraArgs = "--keep 5 --keep-since 3d";
+    };
+    flake = "/home/adjoly/nixos-config";
+  };
 
   environment.systemPackages = with pkgs; [
     git
@@ -83,6 +96,7 @@
     xfce.thunar-volman
     xfce.thunar-archive-plugin
     xfce.thunar-media-tags-plugin
+    inputs.nh.packages.${pkgs.system}.default
     inputs.zen-browser.packages.${pkgs.system}.default
     inputs.hyprland-contrib.packages.${pkgs.system}.grimblast
   ];

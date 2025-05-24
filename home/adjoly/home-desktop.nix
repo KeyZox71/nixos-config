@@ -28,6 +28,7 @@
   home = {
     packages = with pkgs; [
       vlc
+      slack
       #beeper
       zenity
       discord
@@ -39,6 +40,7 @@
     stateVersion = "24.05";
   };
 
+  services.mpris-proxy.enable = true;
   programs.kitty.font.size = 12;
 
   programs.waybar.settings.bar = {
