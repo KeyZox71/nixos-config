@@ -6,6 +6,7 @@
     packages = with pkgs; [
       nerd-fonts.jetbrains-mono
 
+      jetbrains-mono
       noto-fonts
     ];
     fontconfig = {
@@ -20,7 +21,7 @@
           "Noto Color Emoji"
         ];
         monospace = [
-          "JetBrains Mono"
+          "JetBrainsMono Nerd Font Mono"
           "Noto Emoji"
         ];
         emoji = [

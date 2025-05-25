@@ -8,7 +8,6 @@
 		#./swaylock.nix
 		./hyprlock.nix
 		./hyprpaper.nix
-		#		./xdg.nix
 	];
 	wayland.windowManager.hyprland = {
 		enable = true;
@@ -18,8 +17,8 @@
 				border_size = "0";
 				gaps_in = "4";
 				gaps_out = "8,8,8,8";
-				"col.active_border" = "#ffbabbf1";
-				"col.inactive_border" = "#ff303446";
+				"col.active_border" = "rgba(ffbabbf1)";
+				"col.inactive_border" = "rgba(ff303446)";
 			};
 			decoration = {
 				rounding = 8;

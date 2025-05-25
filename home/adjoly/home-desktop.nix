@@ -1,7 +1,6 @@
 { inputs, pkgs, ... }:
 {
   imports = [
-    ./gtk.nix
     ./adjust-brightness
     ./cli-app.nix
     ./wm/hyprland.nix
@@ -32,6 +31,7 @@
       #beeper
       zenity
       discord
+      kittysay
       gearlever
       hyprpaper
       libreoffice

@@ -11,7 +11,7 @@
 		shellAliases = {
 			l = "ls -lA --color=auto";
 			ls = "ls -A --color=auto";
-			re = "sudo nixos-rebuild switch";
+			re = "nh os switch /home/adjoly/nixos-config";
 			update = "sudo nix flake update && sudo nixos-rebuild switch";
 			grep = "grep --color=auto";
 			lock = "hyprlock & systemctl suspend";

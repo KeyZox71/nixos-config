@@ -2,7 +2,6 @@
 {
   programs.kitty = {
     enable = true;
-	package = pkgs.unstable.kitty;
 
     shellIntegration.enableZshIntegration = true;
 
@@ -15,7 +14,19 @@
       size = lib.mkDefault 13;
     };
   };
-  xdg.configFile."kitty/light-theme.auto.conf".source = "${pkgs.kitty-themes}/share/kitty-themes/themes/Catppuccin-Latte.conf";
-  xdg.configFile."kitty/dark-theme.auto.conf".source = "${pkgs.kitty-themes}/share/kitty-themes/themes/Catppuccin-Frappe.conf";
-  xdg.configFile."kitty/no-preference-theme.auto.conf".source = "${pkgs.kitty-themes}/share/kitty-themes/themes/Catppuccin-Frappe.conf";
+  xdg.configFile."kitty/light-theme.auto.conf" = {
+    text = ''
+      include ${pkgs.kitty-themes}/share/kitty-themes/themes/Catppuccin-Latte.conf
+'';
+  };
+  xdg.configFile."kitty/dark-theme.auto.conf" = {
+    text = ''
+include ${pkgs.kitty-themes}/share/kitty-themes/themes/Catppuccin-Frappe.conf
+'';
+  };
+  xdg.configFile."kitty/no-preference-theme.auto.conf" = {
+    text = ''
+include ${pkgs.kitty-themes}/share/kitty-themes/themes/Catppuccin-Frappe.conf
+'';
+  };
 }
