@@ -1,7 +1,9 @@
 { inputs, pkgs, ... }:
 {
   imports = [
-    ./adjust-brightness
+    ../../pkgs/adjust-brightness
+    ../../modules/home-manager
+
     ./cli-app.nix
     ./wm/hyprland.nix
     ./wm/monitor-desktop.nix
@@ -13,7 +15,6 @@
     ./services/darkman.nix
 
     ./programs/git.nix
-    ./programs/tmux.nix
     ./programs/pogit.nix
     ./programs/kitty.nix
     ./programs/neovim.nix
@@ -23,6 +24,8 @@
 
     inputs.catppuccin.homeModules.catppuccin
   ];
+
+  tmux.enable = true;
 
   home = {
     packages = with pkgs; [
@@ -34,7 +37,7 @@
       kittysay
       gearlever
       hyprpaper
-	  strawberry
+      strawberry
       libreoffice
       nextcloud-client
     ];

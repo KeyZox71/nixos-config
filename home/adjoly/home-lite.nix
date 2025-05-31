@@ -1,6 +1,8 @@
 { inputs, pkgs, ... }:
 {
 	imports = [
+		../../modules/home-manager
+
 		./gtk.nix
 		./cli-app.nix
 		./wm/hyprland.nix
@@ -12,7 +14,6 @@
 		./services/darkman.nix
 
 		./programs/git.nix
-		./programs/tmux.nix
 		./programs/pogit.nix
 		./programs/kitty.nix
 		./programs/neovim.nix
@@ -22,6 +23,8 @@
 
 		inputs.catppuccin.homeManagerModules.catppuccin
 	];
+
+	config.tmux.enable = true;
 
 	home = {
 		packages = with pkgs; [
