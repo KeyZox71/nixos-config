@@ -34,6 +34,7 @@
       zenity
       discord
       kittysay
+      localsend
       gearlever
       hyprpaper
       strawberry
