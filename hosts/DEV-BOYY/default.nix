@@ -86,7 +86,6 @@
     #wluma
     solaar
     ddcutil
-    plexamp
     firefox
     #chiaki-ng
     bluetuith
