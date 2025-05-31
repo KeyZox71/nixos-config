@@ -6,14 +6,7 @@
 }:
 {
   options.tmux = {
-    enable = lib.mkOption {
-      type = lib.types.bool;
-      description = ''
-        		Can be used to enable my tmux config
-                			'';
-      example = lib.literalExample true;
-      default = false;
-    };
+    enable = lib.mkEnableOption "Can be used to enable my tmux config";
   };
 
   config = lib.mkIf config.tmux.enable {
@@ -28,13 +21,11 @@
       keyMode = "vi";
       baseIndex = 1;
       clock24 = true;
-      plugins =
-        with pkgs;
-        [
-          tmuxPlugins.tmux-fzf
-          tmuxPlugins.vim-tmux-navigator
-          tmuxPlugins.sensible
-        ];
+      plugins = with pkgs; [
+        tmuxPlugins.tmux-fzf
+        tmuxPlugins.vim-tmux-navigator
+        tmuxPlugins.sensible
+      ];
       extraConfig = ''
         set-option -g renumber-windows on 
         bind-key -n C-x kill-pane

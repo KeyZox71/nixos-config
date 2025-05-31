@@ -14,7 +14,6 @@
     ./services/nextcloud.nix
     ./services/darkman.nix
 
-    ./programs/git.nix
     ./programs/pogit.nix
     ./programs/kitty.nix
     ./programs/neovim.nix
@@ -25,9 +24,7 @@
     inputs.catppuccin.homeModules.catppuccin
   ];
 
-  # tmux.enable = true;
   gui.enable = true;
-  # cli.enable = true;
 
   home = {
     packages = with pkgs; [
