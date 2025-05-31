@@ -15,6 +15,21 @@
     }:
     let
       inherit (self) outputs;
+      supportedSystems = [
+        "x86_64-linux"
+        "aarch64-linux"
+        "x86_64-darwin"
+        "aarch64-darwin"
+      ];
+      forEachSupportedSystem =
+        f:
+        nixpkgs.lib.genAttrs supportedSystems (
+          system:
+          f {
+            pkgs = import nixpkgs { inherit system; };
+          }
+        );
+
     in
     {
       nixosConfigurations = {
@@ -75,6 +90,17 @@
           extraSpecialArgs = { inherit inputs outputs; };
         };
       };
+      devShells = forEachSupportedSystem (
+        { pkgs }:
+        {
+          default = pkgs.mkShell {
+            packages = with pkgs; [
+              nixd
+              nixfmt-rfc-style
+            ];
+          };
+        }
+      );
     };
 
   inputs = {
@@ -91,11 +117,6 @@
     home-manager = {
       url = "github:nix-community/home-manager/release-25.05";
       inputs.nixpkgs.follows = "nixpkgs";
-    };
-
-    home-unstable = {
-      url = "github:nix-community/home-manager/master";
-      inputs.nixpkgs.follows = "unstablepkgs";
     };
 
     keyznvim = {

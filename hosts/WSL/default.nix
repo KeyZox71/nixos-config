@@ -7,18 +7,22 @@
 
 {
   imports = [
-	./wsl
+    ./wsl
 
-	./env.nix
+    ./env.nix
 
     inputs.home-manager.nixosModules.home-manager
   ];
 
+  programs.appimage = {
+    enable = true;
+    binfmt = true;
+  };
   nixpkgs = {
     config = {
       allowUnfree = true;
     };
-	overlays = [
+    overlays = [
       (final: prev: {
         unstable = import inputs.unstablepkgs {
           system = pkgs.system;
@@ -45,7 +49,7 @@
     vim
     wget
     curl
-	sudo
+    sudo
     btop
     unzip
     cifs-utils
@@ -54,15 +58,14 @@
   users.users.adjoly = {
     shell = pkgs.zsh;
     isNormalUser = true;
-	initialPassword = "alpine";
+    initialPassword = "alpine";
     extraGroups = [
       "sudo"
       "input"
       "wheel"
-	  "networkmanager"
+      "networkmanager"
     ];
   };
-
 
   nixpkgs.config.permittedInsecurePackages = [
   ];

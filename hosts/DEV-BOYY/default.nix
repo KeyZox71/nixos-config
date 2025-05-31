@@ -17,7 +17,10 @@
     inputs.home-manager.nixosModules.home-manager
   ];
 
-  services.playerctld.enable = true;
+  programs.appimage = {
+    enable = true;
+    binfmt = true;
+  };
 
   powerManagement.enable = true;
 
@@ -90,7 +93,6 @@
     cifs-utils
     xfce.thunar
     wl-clipboard
-    appimage-run
     #brightnessctl
     docker-compose
     xfce.thunar-volman

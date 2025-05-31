@@ -12,7 +12,7 @@
 				layer = "top";
 				modules-left = [ "hyprland/workspaces" "hyprland/window" ];
 				modules-center = [ "clock" ];
-				modules-right = [ "tray" "mpris" "pulseaudio" "custom/prev" "custom/playpause" "custom/next" "network" "battery" ];
+				modules-right = [ /*"tray"*/ "mpris" "pulseaudio" "custom/prev" "custom/playpause" "custom/next" "network" "battery" ];
 				#output = [ "eDP-1" ];
 
 				# ---------------------------------------------------------
@@ -115,7 +115,6 @@
 					on-click-right = "hyprlock & systemctl suspend";
 					on-click-middle = "hyprlock & systemctl hibernate";
 				};
-
 			};
 		};
 

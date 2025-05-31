@@ -8,6 +8,7 @@
 		#./swaylock.nix
 		./hyprlock.nix
 		./hyprpaper.nix
+		./wl-sunset.nix
 	];
 	wayland.windowManager.hyprland = {
 		enable = true;

@@ -28,12 +28,13 @@
     packages = with pkgs; [
       vlc
       slack
-      #beeper
+      # beeper
       zenity
       discord
       kittysay
       gearlever
       hyprpaper
+	  strawberry
       libreoffice
       nextcloud-client
     ];
