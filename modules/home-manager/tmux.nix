@@ -11,7 +11,7 @@
       description = ''
         		Can be used to enable my tmux config
                 			'';
-      example = lib.literalExample "true";
+      example = lib.literalExample true;
       default = false;
     };
   };

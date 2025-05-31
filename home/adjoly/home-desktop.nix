@@ -25,7 +25,9 @@
     inputs.catppuccin.homeModules.catppuccin
   ];
 
-  tmux.enable = true;
+  # tmux.enable = true;
+  gui.enable = true;
+  # cli.enable = true;
 
   home = {
     packages = with pkgs; [
