@@ -1,7 +1,7 @@
 {
   description = "KeyZox's config";
   inputs = {
-    nixpkgs.url = "github:nixos/nixpkgs/nixos-24.11";
+    nixpkgs.url = "github:nixos/nixpkgs/nixos-25.05";
 
     nixos-wsl.url = "github:nix-community/NixOS-WSL/main";
 
