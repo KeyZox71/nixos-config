@@ -1,11 +1,11 @@
-{ config, pkgs, ... }:
+{ lib, config, pkgs, ... }:
 
 {
 	programs.zsh = {
 		enable = true;
 		autosuggestion.enable = true;
 		enableCompletion = true;
-		initExtra = ''
+		initContent = lib.mkBefore ''
 alias tm="timmy create"
 alias ts="timmy search"
 function cdd() {

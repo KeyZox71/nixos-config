@@ -14,7 +14,7 @@
 		./programs/fastfetch.nix
 		./programs/shell/zsh.nix
 
-		inputs.catppuccin.homeManagerModules.catppuccin
+		inputs.catppuccin.homeModules.catppuccin
 	];
 
 	catppuccin = {

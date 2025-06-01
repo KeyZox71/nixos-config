@@ -6,8 +6,7 @@
 
 		./ssh.nix
 		./smb.nix
-		./network.nix
 		./ollama.nix
-		./homepage.nix
+		./network.nix
 	];
 }
