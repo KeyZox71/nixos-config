@@ -6,6 +6,7 @@
 		autosuggestion.enable = true;
 		enableCompletion = true;
 		initContent = ''
+export SSH_AUTH_SOCK=$HOME/.bitwarden-ssh-agent.sock
 alias tm="timmy create"
 alias ts="timmy search"
 function cdd() {

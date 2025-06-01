@@ -40,6 +40,7 @@
       strawberry
       libreoffice
       nextcloud-client
+      bitwarden-desktop
     ];
     stateVersion = "24.05";
   };
