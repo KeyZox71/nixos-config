@@ -17,13 +17,13 @@
         userEmail = lib.mkDefault "adamjly@proton.me";
         signing = {
           format = "ssh";
-          signByDefault = true;
-		  key = lib.mkDefault "~/.ssh/id_git.pub";
+          signByDefault = lib.mkDefault true;
+          key = lib.mkDefault "~/.ssh/id_git.pub";
         };
       };
     };
     services.ssh-agent = {
-      enable = true;
+      enable = lib.mkDefault true;
     };
   };
 }
