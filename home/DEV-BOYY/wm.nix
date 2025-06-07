@@ -1,10 +1,40 @@
-{ ... }:
+{
+  ...
+}:
 
 {
+  programs.waybar.settings.bar = {
+    "hyprland/workspaces" = {
+      "persistent-workspaces" = {
+        "DP-2" = [
+          1
+          2
+          3
+          4
+          5
+        ];
+        "DP-1" = [
+          6
+          7
+          8
+          9
+          10
+        ];
+      };
+    };
+    output = [
+      "DP-2"
+      "DP-1"
+    ];
+  };
+
   wayland.windowManager.hyprland = {
     settings = {
       bind = [
-		"CTRL ALT, L, exec, hyprlock & systemctl suspend"
+        "CTRL ALT, HOME, exec, adjust-brightness 1 +10"
+        "CTRL ALT, END, exec, adjust-brightness 1 -10"
+        "CTRL ALT, Next, exec, adjust-brightness 2 -10"
+        "CTRL ALT, Prior, exec, adjust-brightness 2 +10"
       ];
       env = [
         "LIBVA_DRIVER_NAME,nvidia"
@@ -26,7 +56,7 @@
         "9, monitor:DP-1"
         "10, monitor:DP-1"
       ];
+
     };
   };
-
 }

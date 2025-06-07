@@ -18,6 +18,11 @@ let
     kitty.enable = lib.mkDefault true;
     nextcloud.enable = lib.mkDefault true;
     darkman.enable = lib.mkDefault true;
+    dunst.enable = lib.mkDefault true;
+    hyprlock.enable = lib.mkDefault true;
+    hyprland.enable = lib.mkDefault true;
+    wl-sunset.enable = lib.mkDefault true;
+	gui-app.enable = lib.mkDefault true;
   };
 in
 {

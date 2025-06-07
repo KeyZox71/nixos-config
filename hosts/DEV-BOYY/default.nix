@@ -76,7 +76,6 @@
 
   environment.systemPackages = with pkgs; [
     git
-    zsh
     nil
     vim
     wget
@@ -86,13 +85,13 @@
     sbctl
     unzip
     #wluma
-    solaar
+    # solaar
     ddcutil
-    firefox
+    firefox # TODO: move it to home conf
     #chiaki-ng
     bluetuith
     cifs-utils
-    xfce.thunar
+    xfce.thunar # TODO: move it to home conf
     wl-clipboard
     #brightnessctl
     docker-compose
@@ -100,8 +99,9 @@
     xfce.thunar-archive-plugin
     xfce.thunar-media-tags-plugin
     inputs.nh.packages.${pkgs.system}.default
-    inputs.zen-browser.packages.${pkgs.system}.default
-    inputs.hyprland-contrib.packages.${pkgs.system}.grimblast
+    inputs.zen-browser.packages.${pkgs.system}.default # TODO: move it to home conf
+    inputs.hyprland-contrib.packages.${pkgs.system}.grimblast# TODO: move it to home conf
+
   ];
 
   hardware.i2c.enable = true;
@@ -153,7 +153,7 @@
   home-manager = {
     useUserPackages = true;
     extraSpecialArgs = { inherit inputs outputs self; };
-    users.adjoly = import ../../home/adjoly/home-desktop.nix;
+    users.adjoly = import ../../home/DEV-BOYY;
   };
 
   # This value determines the NixOS release from which the default
