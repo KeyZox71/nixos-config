@@ -84,24 +84,13 @@
     ddcui
     sbctl
     unzip
-    #wluma
-    # solaar
     ddcutil
-    firefox # TODO: move it to home conf
     #chiaki-ng
     bluetuith
     cifs-utils
-    xfce.thunar # TODO: move it to home conf
     wl-clipboard
-    #brightnessctl
     docker-compose
-    xfce.thunar-volman
-    xfce.thunar-archive-plugin
-    xfce.thunar-media-tags-plugin
     inputs.nh.packages.${pkgs.system}.default
-    inputs.zen-browser.packages.${pkgs.system}.default # TODO: move it to home conf
-    inputs.hyprland-contrib.packages.${pkgs.system}.grimblast# TODO: move it to home conf
-
   ];
 
   hardware.i2c.enable = true;
