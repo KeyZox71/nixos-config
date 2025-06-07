@@ -18,7 +18,6 @@
     ./services/nextcloud.nix
     ./services/darkman.nix
 
-    ./programs/pogit.nix
     ./programs/neovim.nix
     ./programs/direnv.nix
     ./programs/fastfetch.nix

@@ -6,6 +6,7 @@
 		./starship.nix
 		./fzf.nix
 		./zoxide.nix
+		./yazi.nix
 	];
 	programs.zsh = {
 		shellAliases = {

@@ -9,6 +9,7 @@
   options = {
     kitty.enable = lib.mkEnableOption "Can be used to enable my kitty config";
   };
+
   config = lib.mkIf config.kitty.enable {
     programs.kitty = {
       enable = true;

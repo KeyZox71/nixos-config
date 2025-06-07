@@ -1,6 +1,7 @@
 {
-	imports = [
-		./tmux.nix
-		./git.nix
-	];
+  imports = [
+    ./tmux.nix
+    ./git.nix
+    ./pogit.nix
+  ];
 }

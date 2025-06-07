@@ -1,12 +1,18 @@
-{ inputs, config, lib, ... }:
+{
+  inputs,
+  config,
+  lib,
+  ...
+}:
 let
   cli-conf = lib.mkIf config.cli.enable {
     tmux.enable = lib.mkDefault true;
     git.enable = lib.mkDefault true;
+    pogit.enable = lib.mkDefault true;
   };
   gui-conf = lib.mkIf config.gui.enable {
-    cli.enable = true;
-    kitty.enable = true;
+    cli.enable = lib.mkDefault true;
+    kitty.enable = lib.mkDefault true;
   };
 in
 {
@@ -14,6 +20,7 @@ in
     ./cli
     ./gui
     inputs.catppuccin.homeModules.catppuccin
+      inputs.pogit.homeManagerModules.default
   ];
 
   options = {
