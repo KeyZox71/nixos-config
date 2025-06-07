@@ -6,22 +6,18 @@
 }:
 {
   imports = [
-    ../../modules/home-manager
+    ../../modules/home-manager # import home-manager modules
 
-    ./cli-app.nix
     ./wm/hyprland.nix
     ./wm/monitor-desktop.nix
-    ./themes/catppuccin.nix
 
     ./nixpkgs-conf.nix
-
-    ./programs/neovim.nix
-    ./programs/direnv.nix
-    ./programs/fastfetch.nix
-    ./programs/shell/zsh.nix
   ];
 
   gui.enable = true;
+  shell.nixos.enable = true;
+  bitwarden-ssh-agent.enable = true;
+  theme.enable = true;
 
   home = {
     packages = with pkgs; [
@@ -41,8 +37,8 @@
     stateVersion = "24.05";
   };
 
-  services.mpris-proxy.enable = true;
-  programs.kitty.font.size = 12;
+  services.mpris-proxy.enable = true; # for waybar
+  programs.kitty.font.size = 12; # for kitty
 
   programs.waybar.settings.bar = {
     "hyprland/workspaces" = {
@@ -89,7 +85,6 @@
         "localsend_app --hidden"
         "solaar -w hide --restart-on-wake-up"
       ];
-
     };
   };
 }

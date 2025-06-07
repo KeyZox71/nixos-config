@@ -2,7 +2,7 @@
 {
 	programs.tofi = {
 		enable = true;
-		settings = lib.mkForce {
+		settings = {
 			width = "100%";
 			height = "100%";
 

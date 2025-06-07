@@ -9,10 +9,7 @@
 	];
 	programs.zsh = {
 		shellAliases = {
-			l = "ls -lA --color=auto";
-			ls = "ls -A --color=auto";
 			re = "home-manager --flake ~/Documents/nixos-config#42adjoly switch";
-			grep = "grep --color=auto";
 			kty-frappe = "kitten themes --reload-in=all Catppuccin-frappe";
 			kty-latte = "kitten themes --reload-in=all Catppuccin-latte";
 			code = "flatpak run com.visualstudio.code";

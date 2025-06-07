@@ -10,6 +10,8 @@ let
     tmux.enable = lib.mkDefault true;
     git.enable = lib.mkDefault true;
     pogit.enable = lib.mkDefault true;
+    shell.enable = lib.mkDefault true;
+    cli-app.enable = lib.mkDefault true;
   };
   gui-conf = lib.mkIf config.gui.enable {
     cli.enable = lib.mkDefault true;
@@ -22,6 +24,9 @@ in
   imports = [
     ./cli
     ./gui
+
+    ./catppuccin.nix
+
     inputs.catppuccin.homeModules.catppuccin
     inputs.pogit.homeManagerModules.default
   ];
