@@ -15,7 +15,6 @@
     ./services/darkman.nix
 
     ./programs/pogit.nix
-    ./programs/kitty.nix
     ./programs/neovim.nix
     ./programs/direnv.nix
     ./programs/fastfetch.nix
@@ -30,17 +29,16 @@
     packages = with pkgs; [
       vlc
       slack
-      # beeper
-      zenity
+      zenity # for the calendar popup in the bar
       discord
-      kittysay
+      obsidian
       localsend
-      gearlever
-      hyprpaper
-      strawberry
+      gearlever # for beeper cause the one from the nixpkgs seems bugged
+      hyprpaper # should be in the hyprland category
+      strawberry # for itunes lib and need to test if upload to ipod works
       libreoffice
-      nextcloud-client
-      bitwarden-desktop
+      bitwarden-desktop # nessacary for my ssh keys (can't use git otherwise)
+      nextcloud-talk-desktop
     ];
     stateVersion = "24.05";
   };

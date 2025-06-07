@@ -6,6 +6,7 @@ let
   };
   gui-conf = lib.mkIf config.gui.enable {
     cli.enable = true;
+		kitty.enable = true;
   };
 in
 {

@@ -14,7 +14,7 @@
       git = {
         enable = true;
         userName = lib.mkDefault "adjoly";
-        userEmail = lib.mkDefault "adamjly@proton.me";
+        userEmail = lib.mkDefault "contact@adjoly.fr";
         signing = {
           format = "ssh";
           signByDefault = lib.mkDefault true;

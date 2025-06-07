@@ -35,6 +35,7 @@
     platformTheme = "qt5ct";
   };
 
+  security.polkit.enable = true;
   security.pam.services.hyprlock = { };
 
   environment.variables = {
