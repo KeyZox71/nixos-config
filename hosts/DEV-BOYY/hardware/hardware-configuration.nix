@@ -30,13 +30,13 @@
   boot.extraModulePackages = [ ];
 
   fileSystems."/" = {
-    device = "/dev/nvme0n1p6";
+    device = "/dev/disk/by-label/NIX_ROOT";
     fsType = "btrfs";
     options = [ "compress=zstd" ];
   };
 
   fileSystems."/boot" = {
-    device = "/dev/nvme0n1p5";
+    device = "/dev/disk/by-label/NIX_BOOT";
     fsType = "vfat";
     options = [
       "fmask=0022"

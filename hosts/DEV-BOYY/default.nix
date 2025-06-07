@@ -2,6 +2,7 @@
   pkgs,
   inputs,
   outputs,
+  self,
   ...
 }:
 
@@ -114,7 +115,7 @@
     ddcutil
   ];
 
-  programs.ssh.startAgent = true;
+  # programs.ssh.startAgent = false;
   programs.seahorse.enable = true;
   services.gnome.gnome-keyring.enable = true;
 
@@ -151,7 +152,7 @@
 
   home-manager = {
     useUserPackages = true;
-    extraSpecialArgs = { inherit inputs outputs; };
+    extraSpecialArgs = { inherit inputs outputs self; };
     users.adjoly = import ../../home/adjoly/home-desktop.nix;
   };
 

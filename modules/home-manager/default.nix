@@ -1,4 +1,4 @@
-{ config, lib, ... }:
+{ inputs, config, lib, ... }:
 let
   cli-conf = lib.mkIf config.cli.enable {
     tmux.enable = lib.mkDefault true;
@@ -6,13 +6,14 @@ let
   };
   gui-conf = lib.mkIf config.gui.enable {
     cli.enable = true;
-		kitty.enable = true;
+    kitty.enable = true;
   };
 in
 {
   imports = [
     ./cli
     ./gui
+    inputs.catppuccin.homeModules.catppuccin
   ];
 
   options = {

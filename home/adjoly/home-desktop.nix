@@ -1,7 +1,11 @@
-{ inputs, pkgs, ... }:
+{
+  inputs,
+  pkgs,
+  self,
+  ...
+}:
 {
   imports = [
-    ../../pkgs/adjust-brightness
     ../../modules/home-manager
 
     ./cli-app.nix
@@ -19,8 +23,6 @@
     ./programs/direnv.nix
     ./programs/fastfetch.nix
     ./programs/shell/zsh.nix
-
-    inputs.catppuccin.homeModules.catppuccin
   ];
 
   gui.enable = true;
@@ -37,8 +39,9 @@
       hyprpaper # should be in the hyprland category
       strawberry # for itunes lib and need to test if upload to ipod works
       libreoffice
+      nextcloud-client
       bitwarden-desktop # nessacary for my ssh keys (can't use git otherwise)
-      nextcloud-talk-desktop
+      self.packages.${pkgs.system}.adjust-brightness # for adjusting brightness on ddc/ci screen
     ];
     stateVersion = "24.05";
   };
@@ -71,4 +74,27 @@
     ];
   };
 
+  wayland.windowManager.hyprland = {
+    settings = {
+      windowrule = [
+        "workspace 1, class:kitty"
+        "workspace 2, class:zen-beta"
+        "workspace 3, class:obsidian"
+        "workspace 5, class:Bitwarden"
+        "workspace 8, class:Slack"
+        "workspace 9, class:discord"
+        "workspace 10, class:Beeper"
+      ];
+      exec-once = [
+        "kitty"
+        "zen-beta"
+        "/home/adjoly/AppImages/beeper.appimage"
+        "discord"
+        "bitwarden"
+        "localsend_app --hidden"
+        "solaar -w hide --restart-on-wake-up"
+      ];
+
+    };
+  };
 }

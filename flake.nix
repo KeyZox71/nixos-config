@@ -35,7 +35,7 @@
       nixosConfigurations = {
         DEV-BOYY = nixpkgs.lib.nixosSystem {
           system = "x86_64-linux";
-          specialArgs = { inherit inputs outputs; };
+          specialArgs = { inherit inputs outputs self; };
           modules = [
             ./hosts/DEV-BOYY/default.nix
 
@@ -99,6 +99,12 @@
               nixfmt-rfc-style
             ];
           };
+        }
+      );
+      packages = forEachSupportedSystem (
+        { pkgs }:
+        {
+          adjust-brightness = import ./pkgs/adjust-brightness { inherit pkgs; };
         }
       );
     };
