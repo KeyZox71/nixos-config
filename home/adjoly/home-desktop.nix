@@ -15,7 +15,6 @@
 
     ./unstable-overlay.nix
 
-    ./services/nextcloud.nix
     ./services/darkman.nix
 
     ./programs/neovim.nix
@@ -38,7 +37,7 @@
       hyprpaper # should be in the hyprland category
       strawberry # for itunes lib and need to test if upload to ipod works
       libreoffice
-      nextcloud-client
+      # nextcloud-client
       bitwarden-desktop # nessacary for my ssh keys (can't use git otherwise)
       self.packages.${pkgs.system}.adjust-brightness # for adjusting brightness on ddc/ci screen
     ];

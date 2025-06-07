@@ -13,6 +13,7 @@ let
   gui-conf = lib.mkIf config.gui.enable {
     cli.enable = lib.mkDefault true;
     kitty.enable = lib.mkDefault true;
+    nextcloud.enable = lib.mkDefault true;
   };
 in
 {
@@ -20,7 +21,7 @@ in
     ./cli
     ./gui
     inputs.catppuccin.homeModules.catppuccin
-      inputs.pogit.homeManagerModules.default
+    inputs.pogit.homeManagerModules.default
   ];
 
   options = {
