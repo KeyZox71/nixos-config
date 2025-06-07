@@ -1,0 +1,44 @@
+{
+  config,
+  lib,
+  pkgs,
+  ...
+}:
+
+# need to enable (in nixos config) :   programs.dconf.enable = true;
+# TEST: need to test if qt need to be enabled
+{
+  options = {
+    darkman.enable = lib.mkEnableOption "Can be used to enable darkman config (for autodarkmode)";
+  };
+
+  config = lib.mkIf config.darkman.enable {
+    services.darkman = {
+      enable = true;
+      lightModeScripts = {
+        notification = ''
+          dunstify --appname=darkman --urgency=low "switching to light mode" 
+        '';
+        system-light = ''
+          dconf write /org/gnome/desktop/interface/color-scheme "'prefer-light'"
+          dconf write /org/gnome/desktop/interface/gtk-theme "'Adwaita'"
+        '';
+      };
+      darkModeScripts = {
+        notification = ''
+          dunstify --appname=darkman --urgency=low "switching to dark mode" 
+        '';
+        system-dark = ''
+          dconf write /org/gnome/desktop/interface/color-scheme "'prefer-dark'"
+          dconf write /org/gnome/desktop/interface/gtk-theme "'Adwaita-dark'"
+        '';
+      };
+      settings = {
+        lat = 45.64;
+        lng = 0.16;
+        dbusserver = true;
+        portal = true;
+      };
+    };
+  };
+}

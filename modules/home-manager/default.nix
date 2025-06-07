@@ -2,6 +2,7 @@
   inputs,
   config,
   lib,
+  pkgs,
   ...
 }:
 let
@@ -14,6 +15,7 @@ let
     cli.enable = lib.mkDefault true;
     kitty.enable = lib.mkDefault true;
     nextcloud.enable = lib.mkDefault true;
+    darkman.enable = lib.mkDefault true;
   };
 in
 {

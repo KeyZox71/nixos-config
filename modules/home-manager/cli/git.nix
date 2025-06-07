@@ -9,6 +9,7 @@
   options = {
     git.enable = lib.mkEnableOption "Can be used to enable git config";
   };
+
   config = lib.mkIf config.git.enable {
     programs = {
       git = {
