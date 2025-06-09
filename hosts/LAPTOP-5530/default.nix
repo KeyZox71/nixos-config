@@ -88,6 +88,7 @@
     #chiaki-ng
     bluetuith
     cifs-utils
+    brightnessctl
     wl-clipboard
     docker-compose
     inputs.nh.packages.${pkgs.system}.default
