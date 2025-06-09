@@ -2,6 +2,7 @@
   pkgs,
   inputs,
   outputs,
+  self,
   ...
 }:
 
@@ -11,11 +12,18 @@
     ./boot.nix
     ./fonts.nix
     ./hardware
-	./programs
-	./virtualisation/
+    ./services
+    ./programs
 
     inputs.home-manager.nixosModules.home-manager
   ];
+
+  programs.appimage = {
+    enable = true;
+    binfmt = true;
+  };
+
+  powerManagement.enable = true;
 
   nixpkgs = {
     config = {
@@ -28,6 +36,7 @@
     platformTheme = "qt5ct";
   };
 
+  security.polkit.enable = true;
   security.pam.services.hyprlock = { };
 
   environment.variables = {
@@ -41,46 +50,61 @@
   };
   programs.dconf.enable = true;
 
-  nix.settings = {
-    trusted-users = [
-      "adjoly"
-    ];
-    experimental-features = [
-      "nix-command"
-      "flakes"
-    ];
+  nix = {
+    settings = {
+      trusted-users = [
+        "adjoly"
+      ];
+      experimental-features = [
+        "nix-command"
+        "flakes"
+      ];
+      auto-optimise-store = true;
+    };
   };
 
   programs.zsh.enable = true;
+  #  programs.fish.enable = true;
+  programs.nh = {
+    enable = true;
+    clean = {
+      enable = true;
+      extraArgs = "--keep 5 --keep-since 3d";
+    };
+    flake = "/home/adjoly/nixos-config";
+  };
 
   environment.systemPackages = with pkgs; [
     git
-    zsh
     nil
     vim
     wget
     curl
     btop
+    ddcui
+    sbctl
     unzip
-    wluma
-    plexamp
-    firefox
-	gearlever
-    chiaki-ng
+    ddcutil
+    #chiaki-ng
     bluetuith
     cifs-utils
-    xfce.thunar
-	appimage-run
     wl-clipboard
-    brightnessctl
     docker-compose
-    xfce.thunar-volman
-    xfce.thunar-archive-plugin
-    xfce.thunar-media-tags-plugin
-    #inputs.zen-browser.packages.${system}.twilight-official
-    inputs.hyprland-contrib.packages.${pkgs.system}.grimblast
+    inputs.nh.packages.${pkgs.system}.default
   ];
-  programs.ssh.startAgent = true;
+
+  hardware.i2c.enable = true;
+  hardware.logitech = {
+    wireless = {
+      enable = true;
+      enableGraphical = true;
+    };
+  };
+  services.udev.packages = with pkgs; [
+    ddcutil
+  ];
+
+  # programs.ssh.startAgent = false;
   programs.seahorse.enable = true;
   services.gnome.gnome-keyring.enable = true;
 
@@ -90,6 +114,7 @@
   users.users.adjoly = {
     shell = pkgs.zsh;
     isNormalUser = true;
+    initialPassword = "kanelthego@t";
     extraGroups = [
       "docker"
       "audio"
@@ -98,11 +123,15 @@
       "networkmanager"
       "wheel"
       "sudo"
+      "i2c"
       "vboxusers"
     ];
   };
-
+  users.groups.i2c = { };
   virtualisation.docker.enable = true;
+  services.udev.extraRules = ''
+    KERNEL=="i2c-[0-9]*", GROUP="i2c", MODE="0660"
+  '';
 
   catppuccin = {
     enable = true;
@@ -110,14 +139,10 @@
     accent = "lavender";
   };
 
-  nixpkgs.config.permittedInsecurePackages = [
-    "electron-25.9.0"
-  ];
-
   home-manager = {
     useUserPackages = true;
-    extraSpecialArgs = { inherit inputs outputs; };
-    users.adjoly = import ../../home/adjoly/home.nix;
+    extraSpecialArgs = { inherit inputs outputs self; };
+    users.adjoly = import ../../home/LAPTOP-5530;
   };
 
   # This value determines the NixOS release from which the default
@@ -126,5 +151,5 @@
   # this value at the release version of the first install of this system.
   # Before changing this value read the documentation for this option
   # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
-  system.stateVersion = "24.05"; # Did you read the comment?
+  system.stateVersion = "24.11"; # Did you read the comment?
 }

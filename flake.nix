@@ -43,11 +43,11 @@
             lanzaboote.nixosModules.lanzaboote
           ];
         };
-        LAPTOP-5530-ADAM = nixpkgs.lib.nixosSystem {
+        LAPTOP-5530 = nixpkgs.lib.nixosSystem {
           system = "x86_64-linux";
           specialArgs = { inherit inputs outputs; };
           modules = [
-            ./hosts/LAPTOP-5530-ADAM/default.nix
+            ./hosts/LAPTOP-5530/default.nix
 
             disko.nixosModules.disko
             catppuccin.nixosModules.catppuccin

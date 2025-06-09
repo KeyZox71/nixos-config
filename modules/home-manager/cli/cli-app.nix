@@ -35,7 +35,7 @@
       enable = true;
       settings = {
         color_theme = "ayu";
-        vim_keys = "True";
+        vim_keys = true;
       };
     };
 

@@ -132,7 +132,7 @@
           "discord"
           "bitwarden"
           "localsend_app --hidden"
-          "solaar -w hide --restart-on-wake-up"
+          "solaar -w hide"
         ];
       };
     })
