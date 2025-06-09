@@ -119,8 +119,7 @@
     (lib.mkIf config.hyprland.autostart.enable {
       wayland.windowManager.hyprland.settings = {
         windowrule = [
-          "workspace 1, class:kitty"
-          "workspace 2, class:zen-beta"
+          # "workspace 1, class:kitty"
           "workspace 3, class:obsidian"
           "workspace 5, class:Bitwarden"
           "workspace 8, class:Slack"
@@ -128,8 +127,7 @@
           "workspace 10, class:Beeper"
         ];
         exec-once = [
-          "kitty"
-          "zen-beta"
+          # "kitty"
           "/home/adjoly/AppImages/beeper.appimage"
           "discord"
           "bitwarden"

@@ -42,7 +42,7 @@
     })
     (lib.mkIf config.bitwarden-ssh-agent.enable {
       home.packages = [
-        pkgs.bitwarden-desktop
+        pkgs.unstable.bitwarden-desktop
       ];
       programs.zsh = {
         envExtra = lib.mkBefore ''
