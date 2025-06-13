@@ -68,6 +68,7 @@
           env = [
             "XCURSOR_SIZE,30"
             "XDG_CURRENT_DESKTOP,Hyprland"
+						"OBSIDIAN_USE_WAYLAND=1"
           ];
           cursor = {
             no_hardware_cursors = true;
@@ -124,11 +125,10 @@
           "workspace 5, class:Bitwarden"
           "workspace 8, class:Slack"
           "workspace 9, class:discord"
-          "workspace 10, class:Beeper"
+          "workspace 10, class:BeeperTexts"
         ];
         exec-once = [
-          # "kitty"
-          "/home/adjoly/AppImages/beeper.appimage"
+          "/home/adjoly/AppImages/beeper.appimage -enable-features=UseOzonePlatform -ozone-platform=wayland"
           "discord"
           "bitwarden"
           "localsend_app --hidden"
