@@ -18,6 +18,12 @@ in
 {
   options = {
     hyprlock.enable = lib.mkEnableOption "Can be used to enable my lock screen";
+    hyprlock.monitor = lib.mkOption {
+      type = lib.types.string;
+      default = "";
+      example = "DP-2";
+      description = "Can be used to set the main screen for the lock";
+    };
   };
 
   config = lib.mkIf config.hyprlock.enable {
@@ -31,7 +37,7 @@ in
           grace = 0;
         };
         input-field = {
-          monitor = "";
+          monitor = [ config.hyprlock.monitor ];
           size = "200, 50";
           position = "0, 150";
           outer_color = "rgba(0, 0, 0, 0)";
@@ -60,7 +66,7 @@ in
         };
         label = [
           {
-            monitor = "";
+            monitor = [ config.hyprlock.monitor ];
             font_size = 120;
             position = "0, 250";
             text = "cmd[update:1000] echo \"<span>\$(date +\"\%H:\%M\")</span>\"";
@@ -70,8 +76,8 @@ in
             color = "rgba(216, 222, 233, 0.90)";
           }
           {
+            monitor = [ config.hyprlock.monitor ];
             text = "cmd[update:1000] echo -e \"$(date +\"%A, %B %d\")\"";
-            monitor = "";
             position = "0, 350";
             halign = "center";
             valign = "center";
@@ -79,6 +85,7 @@ in
             color = "rgba(216, 222, 233, 0.90)";
           }
           {
+            monitor = [ config.hyprlock.monitor ];
             text = "adjoly's computer";
             position = "0, 225";
             font_size = 15;
@@ -90,7 +97,7 @@ in
         ];
         shape = [
           {
-            monitor = "";
+            monitor = [ config.hyprlock.monitor ];
             size = "300, 350";
             position = "0, 100";
             halign = "center";
@@ -101,7 +108,7 @@ in
         ];
         image = [
           {
-            monitor = "";
+            monitor = [ config.hyprlock.monitor ];
             path = "${bsky-profile}";
             border_size = 0;
             position = "0, 270";

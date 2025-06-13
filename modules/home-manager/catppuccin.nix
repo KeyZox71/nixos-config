@@ -12,7 +12,7 @@
 
   config = lib.mkIf config.theme.enable {
     catppuccin = {
-      enable = lib.mkDefault true;
+      enable = true;
       flavor = "frappe";
       accent = "lavender";
       cursors = {
