@@ -47,7 +47,7 @@
               "$mod, Q, killactive"
               "$win, L, exec, hyprlock"
               "$win + SHIFT, S, exec, grimblast --notify copysave area \"$HOME/Nextcloud/Images/Captures d’écran/Capture d’écran $(date +%F-%H%M%S).png\""
-              "CTRL ALT, L, exec, hyprlock & systemctl suspend"
+              "CTRL ALT, L, exec, systemctl suspend"
             ]
             ++ (builtins.concatLists (
               builtins.genList (

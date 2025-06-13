@@ -19,7 +19,7 @@ in
   options = {
     hyprlock.enable = lib.mkEnableOption "Can be used to enable my lock screen";
     hyprlock.monitor = lib.mkOption {
-      type = lib.types.string;
+      type = lib.types.str;
       default = "";
       example = "DP-2";
       description = "Can be used to set the main screen for the lock";
@@ -27,6 +27,8 @@ in
   };
 
   config = lib.mkIf config.hyprlock.enable {
+	hypridle.enable = true;
+
     programs.hyprlock = {
       enable = true;
       settings = {

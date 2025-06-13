@@ -151,8 +151,7 @@
               warning = 30;
               critical = 15;
             };
-            on-click-right = "hyprlock & systemctl suspend";
-            on-click-middle = "hyprlock & systemctl hibernate";
+            on-click-right = "systemctl suspend";
           };
         };
       };
