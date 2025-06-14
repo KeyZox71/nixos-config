@@ -114,6 +114,13 @@
         cli = import ./modules/home-manager/cli;
       };
 
+      nixosModules = {
+        default = import ./modules/nixos;
+        services = import ./modules/nixos/services;
+        hardware = import ./modules/nixos/hardware;
+        programs = import ./modules/nixos/programs;
+      };
+
     };
 
   inputs = {

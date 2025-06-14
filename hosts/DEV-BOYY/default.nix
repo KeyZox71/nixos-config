@@ -8,6 +8,7 @@
 
 {
   imports = [
+    self.nixosModules.default
     ./env.nix
     ./boot.nix
     ./fonts.nix
@@ -64,7 +65,6 @@
   };
 
   programs.zsh.enable = true;
-  #  programs.fish.enable = true;
   programs.nh = {
     enable = true;
     clean = {
@@ -104,7 +104,6 @@
     ddcutil
   ];
 
-  # programs.ssh.startAgent = false;
   programs.seahorse.enable = true;
   services.gnome.gnome-keyring.enable = true;
 
@@ -133,16 +132,9 @@
     KERNEL=="i2c-[0-9]*", GROUP="i2c", MODE="0660"
   '';
 
-  catppuccin = {
-    enable = true;
-    flavor = "frappe";
-    accent = "lavender";
-  };
-
-  home-manager = {
-    useUserPackages = true;
-    extraSpecialArgs = { inherit inputs outputs self; };
-    users.adjoly = import ../../home/DEV-BOYY;
+  keyzox = {
+    home-manager.enable = true;
+    theme.enable = true;
   };
 
   # This value determines the NixOS release from which the default

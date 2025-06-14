@@ -6,12 +6,12 @@
   ...
 }:
 let
+
 in
 {
   imports = [
-
     ./catppuccin.nix
-		inputs.home-manager.nixosModules.home-mananger
+    ./home-manager.nix
   ];
 
   options = {
