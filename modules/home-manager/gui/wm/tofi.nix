@@ -7,10 +7,10 @@
 
 {
   options = {
-    tofi.enable = lib.mkEnableOption "Can be used to enable my tofi config";
+    keyzox.tofi.enable = lib.mkEnableOption "Can be used to enable my tofi config";
   };
 
-  config = lib.mkIf config.tofi.enable {
+  config = lib.mkIf config.keyzox.tofi.enable {
     programs.tofi = {
       enable = true;
       settings = {

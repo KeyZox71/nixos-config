@@ -17,9 +17,9 @@
       inherit (self) outputs;
       supportedSystems = [
         "x86_64-linux"
-        "aarch64-linux"
+        # "aarch64-linux"
         "x86_64-darwin"
-        "aarch64-darwin"
+        # "aarch64-darwin"
       ];
       forEachSupportedSystem =
         f:
@@ -151,6 +151,7 @@
       url = "github:0xc000022070/zen-browser-flake";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
     timmy = {
       url = "github:keyzox71/timmy";
       inputs.nixpkgs.follows = "nixpkgs";

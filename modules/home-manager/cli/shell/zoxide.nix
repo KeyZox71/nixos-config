@@ -5,7 +5,7 @@
 }:
 
 {
-  programs.zoxide = lib.mkIf config.shell.enable {
+  programs.zoxide = lib.mkIf config.keyzox.shell.enable {
     enable = lib.mkDefault true;
     enableZshIntegration = true;
     options = [

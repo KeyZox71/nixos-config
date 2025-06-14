@@ -7,10 +7,10 @@
 
 {
   options = {
-    nextcloud.enable = lib.mkEnableOption "Can be use to enable my nextcloud config";
+    keyzox.nextcloud.enable = lib.mkEnableOption "Can be use to enable my nextcloud config";
   };
 
-  config = lib.mkIf config.nextcloud.enable {
+  config = lib.mkIf config.keyzox.nextcloud.enable {
     services.nextcloud-client = {
       enable = true;
       startInBackground = true;

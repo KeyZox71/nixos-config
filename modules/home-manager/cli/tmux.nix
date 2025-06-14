@@ -5,11 +5,11 @@
   ...
 }:
 {
-  options.tmux = {
-    enable = lib.mkEnableOption "Can be used to enable my tmux config";
+  options = {
+    keyzox.tmux.enable = lib.mkEnableOption "Can be used to enable my tmux config";
   };
 
-  config = lib.mkIf config.tmux.enable {
+  config = lib.mkIf config.keyzox.tmux.enable {
 
     catppuccin.tmux.enable = true;
 

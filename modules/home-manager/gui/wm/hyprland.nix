@@ -7,16 +7,16 @@
 
 {
   options = {
-    hyprland.enable = lib.mkEnableOption "Can be used to enable my hyprland config";
-    hyprland.autostart.enable = lib.mkEnableOption "Can be used the enable my autostart routine";
+    keyzox.hyprland.enable = lib.mkEnableOption "Can be used to enable my hyprland config";
+    keyzox.hyprland.autostart.enable = lib.mkEnableOption "Can be used the enable my autostart routine";
   };
 
   config = lib.mkMerge [
 
-    (lib.mkIf config.hyprland.enable {
-      hyprpaper.enable = lib.mkDefault true;
-      tofi.enable = lib.mkDefault true;
-      waybar.enable = lib.mkDefault true;
+    (lib.mkIf config.keyzox.hyprland.enable {
+      keyzox.hyprpaper.enable = lib.mkDefault true;
+      keyzox.tofi.enable = lib.mkDefault true;
+      keyzox.waybar.enable = lib.mkDefault true;
 
       wayland.windowManager.hyprland = {
         enable = true;
@@ -117,7 +117,7 @@
         };
       };
     })
-    (lib.mkIf config.hyprland.autostart.enable {
+    (lib.mkIf config.keyzox.hyprland.autostart.enable {
       wayland.windowManager.hyprland.settings = {
         windowrule = [
           # "workspace 1, class:kitty"

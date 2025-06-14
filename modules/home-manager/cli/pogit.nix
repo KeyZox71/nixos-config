@@ -8,10 +8,10 @@
 
 {
   options = {
-    pogit.enable = lib.mkEnableOption "Can be used to enable my pogit config :D";
+    keyzox.pogit.enable = lib.mkEnableOption "Can be used to enable my pogit config :D";
   };
 
-  config = lib.mkIf config.pogit.enable {
+  config = lib.mkIf config.keyzox.pogit.enable {
     programs.pogit = {
       enable = true;
       config = {

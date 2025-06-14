@@ -8,10 +8,10 @@
 
 {
   options = {
-    gui-app.enable = lib.mkEnableOption "Can be used to install the default gui app";
+    keyzox.gui-app.enable = lib.mkEnableOption "Can be used to install the default gui app";
   };
 
-  config = lib.mkIf config.gui-app.enable {
+  config = lib.mkIf config.keyzox.gui-app.enable {
     home.packages = with pkgs; [
       vlc
       slack

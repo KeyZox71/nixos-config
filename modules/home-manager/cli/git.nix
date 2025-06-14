@@ -7,10 +7,10 @@
 
 {
   options = {
-    git.enable = lib.mkEnableOption "Can be used to enable git config";
+    keyzox.git.enable = lib.mkEnableOption "Can be used to enable git config";
   };
 
-  config = lib.mkIf config.git.enable {
+  config = lib.mkIf config.keyzox.git.enable {
     programs = {
       git = {
         enable = true;

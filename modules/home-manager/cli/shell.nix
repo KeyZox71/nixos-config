@@ -11,13 +11,13 @@
   ];
 
   options = {
-    shell.enable = lib.mkEnableOption "Can be used to enable my shell config";
-    shell.nixos.enable = lib.mkEnableOption "Can be use the enable the shell config for nixos";
-    bitwarden-ssh-agent.enable = lib.mkEnableOption "Can be used to add the env for bitwarden ssh agent";
+    keyzox.shell.enable = lib.mkEnableOption "Can be used to enable my shell config";
+    keyzox.shell.nixos.enable = lib.mkEnableOption "Can be use the enable the shell config for nixos";
+    keyzox.bitwarden-ssh-agent.enable = lib.mkEnableOption "Can be used to add the env for bitwarden ssh agent";
   };
 
   config = lib.mkMerge [
-    (lib.mkIf config.shell.enable {
+    (lib.mkIf config.keyzox.shell.enable {
       programs.zsh = {
         enable = lib.mkDefault true;
         autosuggestion.enable = true;
@@ -31,7 +31,7 @@
         };
       };
     })
-    (lib.mkIf config.shell.nixos.enable {
+    (lib.mkIf config.keyzox.shell.nixos.enable {
       programs.zsh = {
         shellAliases = {
           re = "nh os switch /home/adjoly/nixos-config";
@@ -40,7 +40,7 @@
         };
       };
     })
-    (lib.mkIf config.bitwarden-ssh-agent.enable {
+    (lib.mkIf config.keyzox.bitwarden-ssh-agent.enable {
       home.packages = [
         pkgs.unstable.bitwarden-desktop
       ];

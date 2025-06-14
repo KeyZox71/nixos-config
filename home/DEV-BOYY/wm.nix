@@ -27,7 +27,6 @@
       "DP-1"
     ];
   };
-  hyprlock.monitor = "DP-2";
 
   wayland.windowManager.hyprland = {
     settings = {

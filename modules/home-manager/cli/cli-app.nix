@@ -8,10 +8,10 @@
 
 {
   options = {
-    cli-app.enable = lib.mkEnableOption "can be used to enable the random cli app i use";
+    keyzox.cli-app.enable = lib.mkEnableOption "can be used to enable the random cli app i use";
   };
 
-  config = lib.mkIf config.cli-app.enable {
+  config = lib.mkIf config.keyzox.cli-app.enable {
     home.packages = with pkgs; [
       inputs.timmy.packages.${pkgs.system}.timmy
       keyznvim

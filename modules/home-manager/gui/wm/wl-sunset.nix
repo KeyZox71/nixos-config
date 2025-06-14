@@ -7,10 +7,10 @@
 
 {
   options = {
-    wl-sunset.enable = lib.mkEnableOption "Can be used to enable wl-sunset";
+    keyzox.wl-sunset.enable = lib.mkEnableOption "Can be used to enable wl-sunset";
   };
 
-  config = lib.mkIf config.wl-sunset.enable {
+  config = lib.mkIf config.keyzox.wl-sunset.enable {
     services.wlsunset = {
       enable = true;
       latitude = 45.64;

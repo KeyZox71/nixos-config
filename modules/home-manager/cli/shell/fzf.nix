@@ -5,7 +5,7 @@
 }:
 
 {
-  programs.fzf = lib.mkIf config.shell.enable {
+  programs.fzf = lib.mkIf config.keyzox.shell.enable {
     enable = lib.mkDefault true;
     enableZshIntegration = true;
     tmux.enableShellIntegration = true;

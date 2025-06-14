@@ -13,10 +13,10 @@ let
 in
 {
   options = {
-    hyprpaper.enable = lib.mkEnableOption "";
+    keyzox.hyprpaper.enable = lib.mkEnableOption "";
   };
 
-  config = lib.mkIf config.hyprpaper.enable {
+  config = lib.mkIf config.keyzox.hyprpaper.enable {
     services.hyprpaper = {
       enable = true;
       settings = {

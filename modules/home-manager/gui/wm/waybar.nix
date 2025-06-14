@@ -7,10 +7,10 @@
 
 {
   options = {
-    waybar.enable = lib.mkEnableOption "Can be used to enable my waybar config";
+    keyzox.waybar.enable = lib.mkEnableOption "Can be used to enable my waybar config";
   };
 
-  config = lib.mkIf config.waybar.enable {
+  config = lib.mkIf config.keyzox.waybar.enable {
     services.mpris-proxy.enable = true;
 
     home.packages = [

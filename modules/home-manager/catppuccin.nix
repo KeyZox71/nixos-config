@@ -7,10 +7,10 @@
 
 {
   options = {
-    theme.enable = lib.mkEnableOption "Can be used the enable catppuccin :D";
+    keyzox.theme.enable = lib.mkEnableOption "Can be used the enable catppuccin :D";
   };
 
-  config = lib.mkIf config.theme.enable {
+  config = lib.mkIf config.keyzox.theme.enable {
     catppuccin = {
       enable = true;
       flavor = "frappe";

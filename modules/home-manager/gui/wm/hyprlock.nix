@@ -17,8 +17,8 @@ let
 in
 {
   options = {
-    hyprlock.enable = lib.mkEnableOption "Can be used to enable my lock screen";
-    hyprlock.monitor = lib.mkOption {
+    keyzox.hyprlock.enable = lib.mkEnableOption "Can be used to enable my lock screen";
+    keyzox.hyprlock.monitor = lib.mkOption {
       type = lib.types.str;
       default = "";
       example = "DP-2";
@@ -26,8 +26,8 @@ in
     };
   };
 
-  config = lib.mkIf config.hyprlock.enable {
-	hypridle.enable = true;
+  config = lib.mkIf config.keyzox.hyprlock.enable {
+	keyzox.hypridle.enable = true;
 
     programs.hyprlock = {
       enable = true;
@@ -39,7 +39,7 @@ in
           grace = 0;
         };
         input-field = {
-          monitor = [ config.hyprlock.monitor ];
+          monitor = [ config.keyzox.hyprlock.monitor ];
           size = "200, 50";
           position = "0, 150";
           outer_color = "rgba(0, 0, 0, 0)";
@@ -68,7 +68,7 @@ in
         };
         label = [
           {
-            monitor = [ config.hyprlock.monitor ];
+            monitor = [ config.keyzox.hyprlock.monitor ];
             font_size = 120;
             position = "0, 250";
             text = "cmd[update:1000] echo \"<span>\$(date +\"\%H:\%M\")</span>\"";
@@ -78,7 +78,7 @@ in
             color = "rgba(216, 222, 233, 0.90)";
           }
           {
-            monitor = [ config.hyprlock.monitor ];
+            monitor = [ config.keyzox.hyprlock.monitor ];
             text = "cmd[update:1000] echo -e \"$(date +\"%A, %B %d\")\"";
             position = "0, 350";
             halign = "center";
@@ -87,7 +87,7 @@ in
             color = "rgba(216, 222, 233, 0.90)";
           }
           {
-            monitor = [ config.hyprlock.monitor ];
+            monitor = [ config.keyzox.hyprlock.monitor ];
             text = "adjoly's computer";
             position = "0, 225";
             font_size = 15;
@@ -99,7 +99,7 @@ in
         ];
         shape = [
           {
-            monitor = [ config.hyprlock.monitor ];
+            monitor = [ config.keyzox.hyprlock.monitor ];
             size = "300, 350";
             position = "0, 100";
             halign = "center";
@@ -110,7 +110,7 @@ in
         ];
         image = [
           {
-            monitor = [ config.hyprlock.monitor ];
+            monitor = [ config.keyzox.hyprlock.monitor ];
             path = "${bsky-profile}";
             border_size = 0;
             position = "0, 270";

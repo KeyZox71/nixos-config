@@ -7,8 +7,8 @@
 
 {
   options = {
-    hypridle.enable = lib.mkEnableOption "Can be used to enable the hypridle daemon";
-    hypridle.sleep_timeout = lib.mkOption {
+    keyzox.hypridle.enable = lib.mkEnableOption "Can be used to enable the hypridle daemon";
+    keyzox.hypridle.sleep_timeout = lib.mkOption {
       type = lib.types.int;
       default = 600;
       example = 300;
@@ -16,7 +16,7 @@
     };
   };
 
-  config = lib.mkIf config.hypridle.enable {
+  config = lib.mkIf config.keyzox.hypridle.enable {
     services.hypridle = {
       enable = true;
       settings = {
@@ -27,7 +27,7 @@
         };
         listener = [
           {
-            timeout = config.hypridle.sleep_timeout;
+            timeout = config.keyzox.hypridle.sleep_timeout;
             on-timeout = "systemctl suspend";
           }
           {

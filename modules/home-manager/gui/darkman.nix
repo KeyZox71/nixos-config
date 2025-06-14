@@ -9,10 +9,10 @@
 # TEST: need to test if qt need to be enabled
 {
   options = {
-    darkman.enable = lib.mkEnableOption "Can be used to enable darkman config (for autodarkmode)";
+    keyzox.darkman.enable = lib.mkEnableOption "Can be used to enable darkman config (for autodarkmode)";
   };
 
-  config = lib.mkIf config.darkman.enable {
+  config = lib.mkIf config.keyzox.darkman.enable {
     services.darkman = {
       enable = true;
       lightModeScripts = {

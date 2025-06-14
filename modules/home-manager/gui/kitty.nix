@@ -7,10 +7,10 @@
 
 {
   options = {
-    kitty.enable = lib.mkEnableOption "Can be used to enable my kitty config";
+    keyzox.kitty.enable = lib.mkEnableOption "Can be used to enable my kitty config";
   };
 
-  config = lib.mkIf config.kitty.enable {
+  config = lib.mkIf config.keyzox.kitty.enable {
     programs.kitty = {
       enable = true;
       shellIntegration.enableZshIntegration = lib.mkDefault true;
