@@ -1,10 +1,11 @@
 {
+  self,
   ...
 }:
 
 {
   imports = [
-    ../../modules/home-manager # import home-manager modules
+    self.homeModules.default
     ../adjoly/nixpkgs-conf.nix
 
     ./packages.nix

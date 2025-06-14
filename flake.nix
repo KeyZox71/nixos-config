@@ -107,6 +107,13 @@
           adjust-brightness = import ./pkgs/adjust-brightness { inherit pkgs; };
         }
       );
+
+      homeModules = {
+        default = import ./modules/home-manager;
+        gui = import ./modules/home-manager/gui;
+        cli = import ./modules/home-manager/cli;
+      };
+
     };
 
   inputs = {
