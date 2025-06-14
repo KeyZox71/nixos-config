@@ -94,7 +94,7 @@ in
             font_family = "Noto Sans Medium";
             color = "rgba(216, 222, 233, 0.95)";
             halign = "center";
-            valign = "botton";
+            valign = "bottom";
           }
         ];
         shape = [
@@ -103,7 +103,7 @@ in
             size = "300, 350";
             position = "0, 100";
             halign = "center";
-            valign = "botton";
+            valign = "bottom";
             color = "rgba(35, 38, 52, 0.7)";
             rounding = 10;
           }
@@ -117,7 +117,7 @@ in
             size = 130;
             rounding = -1;
             halign = "center";
-            valign = "botton";
+            valign = "bottom";
           }
         ];
       };
