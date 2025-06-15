@@ -27,6 +27,7 @@ let
         gdm.enable = true;
         xserver.enable = true;
         sound.enable = true;
+        ddcutils.enable = true;
       };
     };
   };

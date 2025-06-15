@@ -1,8 +1,5 @@
 {
   pkgs,
-  inputs,
-  outputs,
-  self,
   config,
   ...
 }:
@@ -15,52 +12,36 @@
     ./hardware-configuration.nix
   ];
 
-  powerManagement.enable = true;
-
-  security.polkit.enable = true;
-
-  hardware.nvidia = {
-    package = config.boot.kernelPackages.nvidiaPackages.beta;
-  };
-
-  networking = {
-    hostName = "LAPTOP-5530";
-  };
   services.xserver.videoDrivers = [
     "modesetting"
     "nvidia"
   ];
 
-  environment.systemPackages = with pkgs; [
-  ];
+  networking.hostName = "LAPTOP-5530";
 
-  users.users.adjoly.extraGroups = [
-    "i2c" # TODO: see about that
-  ];
+  # For ddcutils compatibility
+  users.users.adjoly.extraGroups = [ "i2c" ];
 
   keyzox = {
     defaults = true;
     wm = true;
 
     grub-boot.enable = true;
+    theme.enable = true;
+
     hardware = {
       bluetooth.enable = true;
       logitech.enable = true;
       nvidia.powerManagement = true;
     };
-
-    services = {
-      ddcutils.enable = true;
-    };
     programs = {
       docker.enable = true;
       steam.enable = true;
     };
-    theme.enable = true;
+    services = { };
   };
-
-  programs.steam.gamescopeSession.enable = false;
-  programs.steam.protontricks.enable = false;
+  powerManagement.enable = true;
+  environment.systemPackages = with pkgs; [ ];
 
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions
