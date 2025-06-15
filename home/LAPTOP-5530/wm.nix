@@ -5,22 +5,6 @@
 {
   programs.waybar.settings.bar = {
     "hyprland/workspaces" = {
-      "persistent-workspaces" = {
-        "eDP-1" = [
-          1
-          2
-          3
-          4
-          5
-        ];
-        "DP-3" = [
-          6
-          7
-          8
-          9
-          10
-        ];
-      };
     };
     output = [
       "eDP-1"
@@ -35,20 +19,20 @@
       env = [
       ];
       monitor = [
-        "eDP-1, 1920x1080, 0x0, 1.25"
-        "DP-3, 1920x1080, auto-up, 1"
+        "eDP-1, 1920x1080@60, 0x0, 1.25"
+        "DP-3, 1920x1080@60, auto-up, 1"
       ];
       workspace = [
-        "1, monitor:eDP-1"
-        "2, monitor:eDP-1"
-        "3, monitor:eDP-1"
-        "4, monitor:eDP-1"
-        "5, monitor:eDP-1"
-        "6, monitor:DP-3"
-        "7, monitor:DP-3"
-        "8, monitor:DP-3"
-        "9, monitor:DP-3"
-        "10, monitor:DP-3"
+        "1, monitor:DP-3"
+        "2, monitor:DP-3"
+        "3, monitor:DP-3"
+        "4, monitor:DP-3"
+        "5, monitor:DP-3"
+        "6, monitor:eDP-1"
+        "7, monitor:eDP-1"
+        "8, monitor:eDP-1"
+        "9, monitor:eDP-1"
+        "10, monitor:eDP-1"
       ];
 
     };

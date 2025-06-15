@@ -2,10 +2,11 @@
 
 {
 	imports = [
+		./ddcutils.nix	
 		./gdm.nix
+		./ly.nix
+		./tailscale.nix
 		./sound.nix
-		./network.nix
 		./xserver.nix
-		# ./wireguard.nix
 	];
 }

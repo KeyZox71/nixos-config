@@ -45,13 +45,14 @@
         };
         LAPTOP-5530 = nixpkgs.lib.nixosSystem {
           system = "x86_64-linux";
-          specialArgs = { inherit inputs outputs; };
+          specialArgs = { inherit inputs outputs self; };
           modules = [
             ./hosts/LAPTOP-5530/default.nix
 
             disko.nixosModules.disko
             catppuccin.nixosModules.catppuccin
             nixos-hardware.nixosModules.dell-precision-5530
+            self.nixosModules.default
           ];
         };
         nixos-server = nixpkgs.lib.nixosSystem {
@@ -62,17 +63,6 @@
 
             inputs.disko.nixosModules.disko
           ];
-        };
-        wsl-adjoly = nixpkgs.lib.nixosSystem {
-          system = "x86_64-linux";
-          specialArgs = { inherit inputs outputs; };
-          modules = [
-            ./hosts/WSL/default.nix
-
-            nixos-wsl.nixosModules.default
-            catppuccin.nixosModules.catppuccin
-          ];
-
         };
       };
       homeConfigurations = {
@@ -120,7 +110,6 @@
         hardware = import ./modules/nixos/hardware;
         programs = import ./modules/nixos/programs;
       };
-
     };
 
   inputs = {
@@ -169,10 +158,6 @@
     };
     lanzaboote = {
       url = "github:nix-community/lanzaboote/v0.4.2";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-    nh = {
-      url = "github:nix-community/nh";
       inputs.nixpkgs.follows = "nixpkgs";
     };
   };

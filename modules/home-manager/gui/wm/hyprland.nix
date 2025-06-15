@@ -120,7 +120,6 @@
     (lib.mkIf config.keyzox.hyprland.autostart.enable {
       wayland.windowManager.hyprland.settings = {
         windowrule = [
-          # "workspace 1, class:kitty"
           "workspace 3, class:obsidian"
           "workspace 5, class:Bitwarden"
           "workspace 8, class:Slack"
