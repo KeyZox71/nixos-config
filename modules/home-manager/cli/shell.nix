@@ -26,7 +26,7 @@
           l = "ls -lA --color=auto";
           ls = "ls -A --color=auto";
           grep = "grep --color=auto";
-          tm = "timmy create";
+          tm = "timmy create -d";
           ts = "timmy search";
         };
       };

@@ -561,11 +561,11 @@
         "pogit": "pogit_2"
       },
       "locked": {
-        "lastModified": 1733503296,
-        "narHash": "sha256-TxhEwhEaaUj/8+S/10wvEzuRiHjnqKGxVvZP/xWeogc=",
+        "lastModified": 1750006897,
+        "narHash": "sha256-fNZ6x1B9jFakzyRmGfOPOOsfRYCO1SatYhtewQNXlrw=",
         "owner": "keyzox71",
         "repo": "timmy",
-        "rev": "cbcf83150a59f9a37f0497369244b689e8bb1e57",
+        "rev": "fa3f9695ad6496c5b4f07f488d5c47572a37281c",
         "type": "github"
       },
       "original": {
