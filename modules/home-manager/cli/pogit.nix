@@ -31,6 +31,10 @@
           icon = "👷";
           msg = "ci just got an update";
         };
+        update = {
+          icon = "🆙";
+          msg = "just made a quick update !";
+        };
       };
     };
   };
