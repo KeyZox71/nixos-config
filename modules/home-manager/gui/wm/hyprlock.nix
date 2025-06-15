@@ -88,7 +88,7 @@ in
           }
           {
             monitor = [ config.keyzox.hyprlock.monitor ];
-            text = "adjoly's computer";
+            text = "${config.home.username}'s computer";
             position = "0, 225";
             font_size = 15;
             font_family = "Noto Sans Medium";
