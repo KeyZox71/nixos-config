@@ -19,12 +19,11 @@
       firefox
       obsidian
       localsend
-      gearlever # for beeper cause the one from the nixpkgs seems bugged
+      gearlever
       libreoffice
-      inputs.zen-browser.packages.${pkgs.system}.default # TODO: move it to home conf
-      inputs.hyprland-contrib.packages.${pkgs.system}.grimblast # TODO: move it to home conf
-
-      xfce.thunar # TODO: move it to home conf
+      inputs.zen-browser.packages.${pkgs.system}.default
+      inputs.hyprland-contrib.packages.${pkgs.system}.grimblast
+      xfce.thunar
       xfce.thunar-volman
       xfce.thunar-archive-plugin
       xfce.thunar-media-tags-plugin

@@ -17,8 +17,13 @@
     hyprland.autostart.enable = true;
     bitwarden-ssh-agent.enable = true;
     theme.enable = true;
-    hypridle.sleep_timeout = 300;
+    hypridle.sleep_timeout = 600;
     hyprlock.monitor = "eDP-1";
+  };
+
+  services.batsignal = {
+		enable = true;
+		extraArgs = [ "-c" "10" "-w" "30" "-f" "100" ];
   };
 
   programs.kitty.font.size = 12; # for kitty

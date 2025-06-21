@@ -13,6 +13,14 @@
   };
 
   config = lib.mkIf config.keyzox.darkman.enable {
+
+    xdg.configFile."xdg-desktop-portal/portals.conf" = {
+      text = ''
+        [preferred]
+        org.freedesktop.impl.portal.Settings=darkman
+      '';
+    };
+
     services.darkman = {
       enable = true;
       lightModeScripts = {

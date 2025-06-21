@@ -7,10 +7,10 @@
 }:
 let
   auto-theme = lib.mkIf config.keyzox.theme.auto {
-    qt = {
-      enable = true; # TEST: see if necessary
-      platformTheme = "qt5ct";
-    };
+    # qt = {
+    #   enable = true; # TEST: see if necessary
+    #   platformTheme = "qt5ct";
+    # };
     programs.dconf.enable = true;
   };
   wm = lib.mkIf config.keyzox.wm {
