@@ -6,11 +6,14 @@
   ];
 
   hardware = {
-    nvidia-container-toolkit.enable = true;
+    #nvidia-container-toolkit.enable = true;
     nvidia = {
-			package = config.boot.kernelPackages.nvidiaPackages.stable;
+		    modesetting.enable = true;
+			powerManagement.finegrained = false;
+			powerManagement.enable = false;
+			package = config.boot.kernelPackages.nvidiaPackages.beta;
 			open = false;
-		};
+	};
     graphics = {
       enable = true;
     };
