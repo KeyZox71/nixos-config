@@ -45,6 +45,7 @@
               "CONTROLALT, delete, exec, hyprctl dispatch exit"
               "$mod, return, exec, kitty"
               "$mod, Q, killactive"
+			  "$mod, F, fullscreen"
               "$win, L, exec, hyprlock"
               "$win + SHIFT, S, exec, grimblast --notify copysave area \"$HOME/Nextcloud/Images/Captures d’écran/Capture d’écran $(date +%F-%H%M%S).png\""
               "CTRL ALT, L, exec, systemctl suspend"
@@ -68,7 +69,7 @@
           env = [
             "XCURSOR_SIZE,30"
             "XDG_CURRENT_DESKTOP,Hyprland"
-						"OBSIDIAN_USE_WAYLAND=1"
+            "OBSIDIAN_USE_WAYLAND=1"
           ];
           cursor = {
             no_hardware_cursors = true;
@@ -111,7 +112,7 @@
               tap-and-drag = true;
               scroll_factor = "0.5";
             };
-            sensitivity = "0.6";
+            sensitivity = "0.7";
             accel_profile = "flat";
           };
         };
