@@ -8,5 +8,6 @@
 		./smb.nix
 		./ollama.nix
 		./network.nix
+		./adguard.nix
 	];
 }
