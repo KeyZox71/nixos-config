@@ -12,6 +12,7 @@
     strawberry # for itunes lib and need to test if upload to ipod works
     brightnessctl
     prismlauncher
+    jellyfin-media-player
     self.packages.${pkgs.system}.adjust-brightness
   ];
 }
