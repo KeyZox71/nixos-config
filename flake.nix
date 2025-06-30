@@ -68,8 +68,9 @@
       homeConfigurations = {
         "42adjoly" = home-manager.lib.homeManagerConfiguration {
           pkgs = nixpkgs.legacyPackages."x86_64-linux";
+          extraSpecialArgs = { inherit self; };
           modules = [
-            ./home/adjoly/home42.nix
+            ./home/42/default.nix
             {
               home = {
                 homeDirectory = "/home/adjoly";
