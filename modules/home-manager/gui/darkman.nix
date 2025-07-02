@@ -5,8 +5,6 @@
   ...
 }:
 
-# need to enable (in nixos config) :   programs.dconf.enable = true;
-# TEST: need to test if qt need to be enabled
 {
   options = {
     keyzox.darkman.enable = lib.mkEnableOption "Can be used to enable darkman config (for autodarkmode)";
