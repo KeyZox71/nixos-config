@@ -41,6 +41,7 @@
 
             catppuccin.nixosModules.catppuccin
             lanzaboote.nixosModules.lanzaboote
+            self.nixosModules.default
           ];
         };
         LAPTOP-5530 = nixpkgs.lib.nixosSystem {

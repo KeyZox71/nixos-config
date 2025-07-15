@@ -5,22 +5,6 @@
 {
   programs.waybar.settings.bar = {
     "hyprland/workspaces" = {
-      "persistent-workspaces" = {
-        "DP-2" = [
-          1
-          2
-          3
-          4
-          5
-        ];
-        "DP-1" = [
-          6
-          7
-          8
-          9
-          10
-        ];
-      };
     };
     output = [
       "DP-2"

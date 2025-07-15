@@ -2,6 +2,9 @@
 
 {
   boot = {
+    kernelParams = [
+      "video=DP-2:1920x1080@75"
+    ];
     loader = {
       systemd-boot.enable = lib.mkForce false;
       efi = {

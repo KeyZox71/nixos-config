@@ -8,134 +8,40 @@
 
 {
   imports = [
-    self.nixosModules.default
-    ./env.nix
+    ../home.nix
+
     ./boot.nix
-    ./fonts.nix
-    ./hardware
-    ./services
-    ./programs
-
-    inputs.home-manager.nixosModules.home-manager
+    ./hardware-configuration.nix
   ];
 
-  programs.appimage = {
-    enable = true;
-    binfmt = true;
-  };
+  networking.hostName = "DEV-BOYY";
 
-  powerManagement.enable = true;
-
-  nixpkgs = {
-    config = {
-      allowUnfree = true;
-    };
-  };
-
-  qt = {
-    enable = true;
-    platformTheme = "qt5ct";
-  };
-
-  security.polkit.enable = true;
-  security.pam.services.hyprlock = { };
-
-  environment.variables = {
-    QT_STYLE_OVERRIDE = "Fusion";
-    QT_QPA_PLATFORM = "wayland";
-    GDK_BACKEND = "wayland";
-    NIXOS_OZONE_WL = "1";
-    CLUTTER_BACKEND = "wayland";
-    KITTY_ENABLE_WAYLAND = "1";
-    MOZ_ENABLE_WAYLAND = 1;
-  };
-  programs.dconf.enable = true;
-
-  nix = {
-    settings = {
-      trusted-users = [
-        "adjoly"
-      ];
-      experimental-features = [
-        "nix-command"
-        "flakes"
-      ];
-      auto-optimise-store = true;
-    };
-  };
-
-  programs.zsh.enable = true;
-  programs.nh = {
-    enable = true;
-    clean = {
-      enable = true;
-      extraArgs = "--keep 5 --keep-since 3d";
-    };
-    flake = "/home/adjoly/nixos-config";
-  };
-
-  environment.systemPackages = with pkgs; [
-    git
-    nil
-    vim
-    wget
-    curl
-    btop
-    ddcui
-    sbctl
-    unzip
-    ddcutil
-    #chiaki-ng
-    bluetuith
-    cifs-utils
-    wl-clipboard
-    docker-compose
-    inputs.nh.packages.${pkgs.system}.default
-  ];
-
-  hardware.i2c.enable = true;
-  hardware.logitech = {
-    wireless = {
-      enable = true;
-      enableGraphical = true;
-    };
-  };
-  services.udev.packages = with pkgs; [
-    ddcutil
-  ];
-
-  programs.seahorse.enable = true;
-  services.gnome.gnome-keyring.enable = true;
-
-  hardware.bluetooth.enable = true; # enables support for Bluetooth
-  hardware.bluetooth.powerOnBoot = true; # powers up the default Bluetooth controller on boot
-
-  users.users.adjoly = {
-    shell = pkgs.zsh;
-    isNormalUser = true;
-    initialPassword = "kanelthego@t";
-    extraGroups = [
-      "docker"
-      "audio"
-      "video"
-      "input"
-      "networkmanager"
-      "wheel"
-      "sudo"
-      "i2c"
-      "vboxusers"
-    ];
-  };
-  users.groups.i2c = { };
-  virtualisation.docker.enable = true;
-  services.udev.extraRules = ''
-    KERNEL=="i2c-[0-9]*", GROUP="i2c", MODE="0660"
-  '';
+  # For ddcutils compatibility
+  users.users.adjoly.extraGroups = [ "i2c" ];
 
   keyzox = {
-    home-manager.enable = true;
+    defaults = true;
+    wm = true;
+
     theme.enable = true;
+
+    hardware = {
+      bluetooth.enable = true;
+      logitech.enable = true;
+      nvidia.enable = true;
+    };
+    programs = {
+      docker.enable = true;
+      # steam.enable = true;
+    };
+    services = { };
   };
+  powerManagement.enable = true;
+  hardware.nvidia.powerManagement.enable = true;
+
+  environment.systemPackages = with pkgs; [
+    wlr-randr
+  ];
 
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions
