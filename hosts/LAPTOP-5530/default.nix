@@ -20,7 +20,15 @@
   networking.hostName = "LAPTOP-5530";
 
   # For ddcutils compatibility
-  users.users.adjoly.extraGroups = [ "i2c" ];
+  users.users.adjoly.extraGroups = [
+    "i2c"
+    "vboxusers"
+  ];
+  boot.blacklistedKernelModules = [
+    "kvm"
+    "kvm_intel"
+    "kvm_amd"
+  ];
 
   keyzox = {
     defaults = true;
@@ -41,7 +49,12 @@
     services = { };
   };
   powerManagement.enable = true;
-  environment.systemPackages = with pkgs; [ ];
+  environment.systemPackages = with pkgs; [
+    vagrant
+  ];
+  virtualisation.virtualbox.host.enable = true;
+  virtualisation.docker.daemon.settings.features.cdi = true;
+  hardware.nvidia-container-toolkit.enable = true;
 
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions
