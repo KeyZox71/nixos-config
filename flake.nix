@@ -162,6 +162,11 @@
       url = "github:nix-community/lanzaboote/v0.4.2";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    randomTimer = {
+      url = "github:keyzox71/randomTimer";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
 }

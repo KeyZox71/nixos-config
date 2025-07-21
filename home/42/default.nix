@@ -25,11 +25,15 @@
   programs.zsh = {
     shellAliases = {
       re = "nix run nixpkgs#home-manager -- switch --flake /home/adjoly/nixos-config#42adjoly";
-	  bgs = "brightnessctl set";
+      bgs = "brightnessctl set";
     };
     envExtra = lib.mkBefore ''
       export SSH_AUTH_SOCK=$HOME/.var/app/com.bitwarden.desktop/data/.bitwarden-ssh-agent.sock
     '';
+  };
+
+  programs.zsh.shellAliases = {
+    code = "flatpak run com.visualstudio.code";
   };
 
   programs.kitty.font.size = 13; # for kitty
