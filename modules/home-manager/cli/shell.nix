@@ -30,6 +30,9 @@
           ts = "timmy search";
         };
       };
+      home.sessionVariables = {
+		EDITOR = "nvim";
+      };
     })
     (lib.mkIf config.keyzox.shell.nixos.enable {
       programs.zsh = {
