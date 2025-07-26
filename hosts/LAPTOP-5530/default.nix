@@ -1,8 +1,6 @@
 {
   pkgs,
-  inputs,
-  outputs,
-  self,
+  config,
   ...
 }:
 
@@ -10,38 +8,53 @@
   imports = [
     ../home.nix
 
-    ./boot.nix
+    ./disko.nix
     ./hardware-configuration.nix
   ];
 
-  networking.hostName = "DEV-BOYY";
+  services.xserver.videoDrivers = [
+    "modesetting"
+    "nvidia"
+  ];
+
+  networking.hostName = "LAPTOP-5530";
 
   # For ddcutils compatibility
-  users.users.adjoly.extraGroups = [ "i2c" ];
+  users.users.adjoly.extraGroups = [
+    "i2c"
+    "vboxusers"
+  ];
+  boot.blacklistedKernelModules = [
+    "kvm"
+    "kvm_intel"
+    "kvm_amd"
+  ];
 
   keyzox = {
     defaults = true;
     wm = true;
 
+    grub-boot.enable = true;
     theme.enable = true;
 
     hardware = {
       bluetooth.enable = true;
       logitech.enable = true;
-      nvidia.enable = true;
+      nvidia.powerManagement = true;
     };
     programs = {
       docker.enable = true;
-      # steam.enable = true;
+      steam.enable = true;
     };
     services = { };
   };
   powerManagement.enable = true;
-  hardware.nvidia.powerManagement.enable = true;
-
   environment.systemPackages = with pkgs; [
-    wlr-randr
+    vagrant
   ];
+  virtualisation.virtualbox.host.enable = true;
+  virtualisation.docker.daemon.settings.features.cdi = true;
+  hardware.nvidia-container-toolkit.enable = true;
 
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions
