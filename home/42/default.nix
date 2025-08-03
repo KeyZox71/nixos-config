@@ -26,7 +26,7 @@
     shellAliases = {
       re = "nix run nixpkgs#home-manager -- switch --flake /home/adjoly/nixos-config#42adjoly";
       bgs = "brightnessctl set";
-	  wl-copy = "xclip -i -selection clipboard";
+      wl-copy = "xclip -i -selection clipboard";
     };
     envExtra = lib.mkBefore ''
       export SSH_AUTH_SOCK=$HOME/.var/app/com.bitwarden.desktop/data/.bitwarden-ssh-agent.sock
@@ -38,6 +38,11 @@
   };
 
   programs.kitty.font.size = 13; # for kitty
+
+  programs.nh = {
+	enable = true;
+	flake = "/home/adjoly/nixos-config";
+  };
 
   home.stateVersion = "24.05";
 }

@@ -29,9 +29,12 @@
           tm = "timmy create -d";
           ts = "timmy search";
         };
+        initContent = lib.mkOrder 1000 ''
+			bindkey -e
+		'';
       };
       home.sessionVariables = {
-		EDITOR = "nvim";
+        EDITOR = "nvim";
       };
     })
     (lib.mkIf config.keyzox.shell.nixos.enable {

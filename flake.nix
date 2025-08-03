@@ -123,7 +123,10 @@
 
     nixos-hardware.url = "github:keyzox71/nixos-hardware/master";
 
-    catppuccin.url = "github:catppuccin/nix";
+    catppuccin = {
+      url = "github:catppuccin/nix/release-25.05";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
 
     home-manager = {
       url = "github:nix-community/home-manager/release-25.05";
