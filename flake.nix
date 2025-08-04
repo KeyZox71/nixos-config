@@ -8,7 +8,6 @@
       catppuccin,
       home-manager,
       nixos-hardware,
-      nixos-wsl,
       disko,
       lanzaboote,
       ...
@@ -17,9 +16,7 @@
       inherit (self) outputs;
       supportedSystems = [
         "x86_64-linux"
-        # "aarch64-linux"
         "x86_64-darwin"
-        # "aarch64-darwin"
       ];
       forEachSupportedSystem =
         f:
@@ -27,6 +24,7 @@
           system:
           f {
             pkgs = import nixpkgs { inherit system; };
+            system = system;
           }
         );
 
@@ -83,7 +81,7 @@
         };
       };
       devShells = forEachSupportedSystem (
-        { pkgs }:
+        { pkgs, system }:
         {
           default = pkgs.mkShell {
             packages = with pkgs; [
@@ -94,9 +92,13 @@
         }
       );
       packages = forEachSupportedSystem (
-        { pkgs }:
+        { pkgs, system }:
+        let
+          nixvim = inputs.nixvim.legacyPackages.${system};
+        in
         {
           adjust-brightness = import ./pkgs/adjust-brightness { inherit pkgs; };
+          keyznvim = import ./pkgs/keyznvim { inherit pkgs nixvim; };
         }
       );
 
@@ -168,6 +170,11 @@
 
     randomTimer = {
       url = "github:keyzox71/randomTimer";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
+    nixvim = {
+      url = "github:nix-community/nixvim";
       inputs.nixpkgs.follows = "nixpkgs";
     };
   };
