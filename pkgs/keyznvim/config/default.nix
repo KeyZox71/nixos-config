@@ -1,4 +1,5 @@
 {
+  liteMode,
   ...
 }:
 {
@@ -8,6 +9,7 @@
     ./performance.nix
 
     ./plugins
+    ./lsp
   ];
 
   viAlias = true;

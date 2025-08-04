@@ -95,10 +95,12 @@
         { pkgs, system }:
         let
           nixvim = inputs.nixvim.legacyPackages.${system};
+          liteMode = true;
         in
         {
           adjust-brightness = import ./pkgs/adjust-brightness { inherit pkgs; };
           keyznvim = import ./pkgs/keyznvim { inherit pkgs nixvim; };
+          keyznvim-lite = import ./pkgs/keyznvim { inherit pkgs nixvim liteMode; };
         }
       );
 

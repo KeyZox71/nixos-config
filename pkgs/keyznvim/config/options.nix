@@ -17,6 +17,6 @@
     swapfile = false;
     backup = false;
     undofile = true;
-    undodir = "${if builtins.getEnv "HOME" != "" then builtins.getEnv "HOME" else "~"}/.vim/undodir";
+    undodir = "${if builtins.getEnv "HOME" != "" then builtins.getEnv "HOME" else "/tmp"}/.vim/undodir";
   };
 }
