@@ -5,6 +5,7 @@
   imports = [
     ./options.nix
     ./mappings.nix
+    ./performance.nix
 
     ./plugins
   ];

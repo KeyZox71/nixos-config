@@ -12,13 +12,13 @@
     {
       mode = "n";
       key = "<leader>gd";
-      action = "<cmd>lua vim.lsp.buf.definition()<cr><cmd>vim.cmd('normal! zz')<cr>";
+      action.__raw = "function() vim.lsp.buf.definition() vim.cmd('normal! zz') end";
       options.desc = "Go to definition";
     }
     {
       mode = "n";
       key = "<leader>FF";
-      action = "<cmd>lua vim.lsp.buf.format<cr>";
+      action.__raw = "function() vim.lsp.buf.format() end";
       options.desc = "Format the code";
     }
     {
