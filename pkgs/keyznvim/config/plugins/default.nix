@@ -10,7 +10,7 @@
     ./oil.nix
     ./telescope.nix
     ./undotree.nix
-	./treesitter.nix
+    ./treesitter.nix
   ];
 
   plugins = {
@@ -20,6 +20,7 @@
     illuminate.enable = true;
     nvim-autopairs.enable = true;
     comment.enable = true;
+    web-devicons.enable = true;
   };
-  
+
 }
