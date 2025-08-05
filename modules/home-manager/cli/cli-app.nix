@@ -16,6 +16,7 @@
     home.packages = with pkgs; [
       inputs.timmy.packages.${pkgs.system}.timmy
       self.packages.${pkgs.system}.keyznvim
+	  inputs.randomTimer.packages.${pkgs.system}.default
     ];
 
     programs.yazi = {
