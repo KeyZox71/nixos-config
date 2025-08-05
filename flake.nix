@@ -96,6 +96,7 @@
         let
           nixvim = inputs.nixvim.legacyPackages.${system};
           liteMode = true;
+          home = "/home/adjoly/";
         in
         {
           adjust-brightness = import ./pkgs/adjust-brightness { inherit pkgs; };
@@ -106,6 +107,7 @@
               outputs
               inputs
               self
+              home
               ;
           };
           keyznvim-lite = import ./pkgs/keyznvim {
@@ -116,6 +118,7 @@
               outputs
               liteMode
               self
+              home
               ;
           };
         }
@@ -159,10 +162,10 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    keyznvim = {
-      url = "github:keyzox71/nvim/indev";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
+    # keyznvim = {
+    #   url = "github:keyzox71/nvim/indev";
+    #   inputs.nixpkgs.follows = "nixpkgs";
+    # };
 
     pogit = {
       url = "github:y-syo/pogit";
@@ -199,7 +202,7 @@
 
     nixvim = {
       url = "github:nix-community/nixvim";
-      inputs.nixpkgs.follows = "nixpkgs";
+      # inputs.nixpkgs.follows = "nixpkgs";
     };
   };
 

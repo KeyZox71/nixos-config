@@ -1,4 +1,5 @@
 {
+  home ? "",
   ...
 }:
 {
@@ -17,6 +18,6 @@
     swapfile = false;
     backup = false;
     undofile = true;
-    undodir = "${if builtins.getEnv "HOME" != "" then builtins.getEnv "HOME" else "/tmp"}/.vim/undodir";
+    undodir = "${if home != "" then home else "/tmp/"}.vim/undodir";
   };
 }
