@@ -99,8 +99,25 @@
         in
         {
           adjust-brightness = import ./pkgs/adjust-brightness { inherit pkgs; };
-          keyznvim = import ./pkgs/keyznvim { inherit pkgs nixvim; };
-          keyznvim-lite = import ./pkgs/keyznvim { inherit pkgs nixvim liteMode; };
+          keyznvim = import ./pkgs/keyznvim {
+            inherit
+              pkgs
+              nixvim
+              outputs
+              inputs
+              self
+              ;
+          };
+          keyznvim-lite = import ./pkgs/keyznvim {
+            inherit
+              nixvim
+              pkgs
+              inputs
+              outputs
+              liteMode
+              self
+              ;
+          };
         }
       );
 
@@ -115,6 +132,11 @@
         services = import ./modules/nixos/services;
         hardware = import ./modules/nixos/hardware;
         programs = import ./modules/nixos/programs;
+      };
+
+      nixvimModules = {
+        default = import ./modules/nixvim;
+        servers = import ./modules/nixvim/servers;
       };
     };
 

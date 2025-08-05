@@ -1,17 +1,16 @@
 {
   liteMode,
   pkgs,
+  self,
   ...
 }:
 {
   imports = [
-    ./lspconfig.nix
+    self.nixvimModules.servers
   ];
-  lsp = {
-    servers = import ./servers { inherit pkgs liteMode; };
-    onAttach = "
 
-	";
+  lsp = {
+    onAttach = "";
     keymaps = [
       {
         key = "K";
@@ -19,4 +18,17 @@
       }
     ];
   };
+
+  plugins.lspconfig.enable = true;
+
+  keyzox.lsp.liteMode = liteMode;
+  keyzox.lsp.enabled = [
+    "clangd"
+    "gopls"
+    "bashls"
+    "solidity_ls" # need custom conf
+    "nixd" # also need custom conf
+    "lua_ls"
+    "ts_ls" # filetypes
+  ];
 }
