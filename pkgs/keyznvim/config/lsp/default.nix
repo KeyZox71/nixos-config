@@ -21,14 +21,17 @@
 
   plugins.lspconfig.enable = true;
 
-  keyzox.lsp.liteMode = liteMode;
-  keyzox.lsp.enabled = [
-    "clangd"
-    "gopls"
-    "bashls"
-    "solidity_ls" # need custom conf
-    "nixd" # also need custom conf
-    "lua_ls"
-    "ts_ls" # filetypes
-  ];
+  keyzox.lsp = {
+    liteMode = liteMode;
+    enabled = [
+      "clangd"
+      "gopls"
+      "bashls"
+      "solidity_ls" # need custom conf
+      "nixd" # also need custom conf
+      "lua_ls"
+      "ts_ls" # filetypes
+    ];
+    serversPath = ./servers;
+  };
 }
