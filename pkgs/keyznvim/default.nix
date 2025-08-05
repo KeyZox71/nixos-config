@@ -5,7 +5,7 @@
   inputs,
   outputs,
   self,
-home
+  home,
 }:
 let
 in
@@ -13,6 +13,12 @@ nixvim.makeNixvimWithModule {
   inherit pkgs;
   module = import ./config;
   extraSpecialArgs = {
-    inherit self liteMode inputs outputs home;
+    inherit
+      self
+      liteMode
+      inputs
+      outputs
+      home
+      ;
   };
 }
