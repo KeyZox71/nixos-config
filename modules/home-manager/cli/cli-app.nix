@@ -3,6 +3,7 @@
   config,
   pkgs,
   inputs,
+  self,
   ...
 }:
 
@@ -14,7 +15,7 @@
   config = lib.mkIf config.keyzox.cli-app.enable {
     home.packages = with pkgs; [
       inputs.timmy.packages.${pkgs.system}.timmy
-      keyznvim
+      self.packages.${pkgs.system}.keyznvim
     ];
 
     programs.yazi = {
@@ -39,8 +40,8 @@
       };
     };
 
-    nixpkgs.overlays = [
-      inputs.keyznvim.overlays.default
-    ];
+    # nixpkgs.overlays = [
+    #   inputs.keyznvim.overlays.default
+    # ];
   };
 }
