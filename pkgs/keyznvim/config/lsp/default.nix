@@ -1,23 +1,41 @@
 {
   liteMode,
-  pkgs,
   self,
   ...
 }:
 {
   imports = [
     self.nixvimModules.servers
+
+    ./cmp.nix
   ];
 
   lsp = {
-    onAttach = "";
     keymaps = [
       {
         key = "K";
         lspBufAction = "hover";
       }
     ];
+    inlayHints.enable = true;
   };
+  lsp.servers."*" = {
+    settings = {
+      capabilities = {
+        textDocument = {
+          semanticTokens = {
+            multilineTokenSupport = true;
+          };
+        };
+      };
+    };
+  };
+  extraConfigLua = ''
+    vim.diagnostic.enable()
+    vim.diagnostic.config({
+      virtual_text = true
+    })
+  '';
 
   plugins.lspconfig.enable = true;
 
@@ -27,10 +45,10 @@
       "clangd"
       "gopls"
       "bashls"
-      "solidity_ls" # need custom conf
-      "nixd" # also need custom conf
+      "solidity_ls"
+      "nixd"
       "lua_ls"
-      "ts_ls" # filetypes
+      "ts_ls"
     ];
     serversPath = ./servers;
   };

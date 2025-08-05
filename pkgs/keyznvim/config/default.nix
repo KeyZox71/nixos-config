@@ -4,6 +4,7 @@
 }:
 {
   imports = [
+    ./color.nix
     ./options.nix
     ./mappings.nix
     ./performance.nix
@@ -21,5 +22,4 @@
   };
 
   clipboard.register = "unnamedplus";
-  colorschemes.catppuccin.enable = true;
 }
