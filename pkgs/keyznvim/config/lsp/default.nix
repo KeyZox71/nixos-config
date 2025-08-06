@@ -13,6 +13,7 @@
   lsp = {
     keymaps = [
       {
+        mode = "n";
         key = "K";
         lspBufAction = "hover";
       }

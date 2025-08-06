@@ -10,6 +10,7 @@
       nixos-hardware,
       disko,
       lanzaboote,
+      nixos-generators,
       ...
     }:
     let
@@ -121,6 +122,29 @@
               home
               ;
           };
+          virtualBoyy =
+            let
+              generate-vm =
+                modules:
+                nixos-generators.nixosGenerate {
+                  inherit modules system;
+                  specialArgs = {
+                    inherit
+                      pkgs
+                      inputs
+                      self
+                      outputs
+                      ;
+                  };
+                  format = "vm";
+                };
+              vm = generate-vm [
+                self.nixosModules.default
+                catppuccin.nixosModules.catppuccin
+                ./hosts/VM/default.nix
+              ];
+            in
+            vm;
         }
       );
 
@@ -141,6 +165,42 @@
         default = import ./modules/nixvim;
         servers = import ./modules/nixvim/servers;
       };
+
+      apps = forEachSupportedSystem (
+        { pkgs, system }:
+        {
+          virtualBoyy =
+            let
+              scriptName = "run-virtualBoyy-vm";
+              script = pkgs.writeShellScriptBin "${scriptName}" ''
+                ${self.packages.${system}.virtualBoyy}/bin/run-virtualBoyy-vm \
+                -enable-kvm \
+                -m 8G \
+                -smp 4\
+              '';
+            in
+            {
+              type = "app";
+              program = "${script}/bin/${scriptName}";
+            };
+
+          virtualBoyy-headless =
+            let
+              scriptName = "run-virtualBoyy-vm-headless";
+              script = pkgs.writeShellScriptBin "${scriptName}" ''
+                ${self.packages.${system}.virtualBoyy}/bin/run-virtualBoyy-vm \
+                -enable-kvm \
+                -nographic \
+                -m 8G \
+                -smp 4\
+              '';
+            in
+            {
+              type = "app";
+              program = "${script}/bin/${scriptName}";
+            };
+        }
+      );
     };
 
   inputs = {
@@ -202,8 +262,14 @@
 
     nixvim = {
       url = "github:nix-community/nixvim";
-      # inputs.nixpkgs.follows = "nixpkgs";
+      inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    nixos-generators = {
+      url = "github:nix-community/nixos-generators";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
   };
 
 }
