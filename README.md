@@ -6,7 +6,7 @@ This repository contains the configuration files and scripts for setting up and 
 ## 📦 Packages
 
 #### `keyznvim` or `keyznvim-lite`
-My custom nixvim config with lsp support, auto sessions, and other QOL plugins and features. It also has a lite mode, that does not install all the lsp servers.
+My custom nixvim config with lsp support, auto sessions, auto light/dark mode and other QOL plugins and features. It also has a lite mode, that does not install all the lsp servers.
 
 #### `adjust-brightness`
 A wrapper script for ddcutil to change brightness of a DDC/CI compatible screen (need ddcutil installed and working).
