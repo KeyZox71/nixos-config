@@ -28,7 +28,6 @@
             system = system;
           }
         );
-
     in
     {
       nixosConfigurations = {
@@ -123,6 +122,9 @@
               ;
           };
           virtualBoyy =
+            {
+              mount-enabled ? false,
+            }:
             let
               generate-vm =
                 modules:
@@ -138,10 +140,28 @@
                   };
                   format = "vm";
                 };
+              mount = {
+                systemd.services.mount-work = {
+                  description = "Mount the shared folder";
+                  # fstab entry:
+                  #  host0   /wherever    9p      trans=virtio,version=9p2000.L   0 0
+				  script = ''
+					  mkdir -p /work
+					  /run/wrappers/bin/mount -t 9p -o trans=virtio,version=9p2000.L host0 /work
+				  '';
+                  wantedBy = [ "multi-user.target" ];
+                  after = [ "network.target" ];
+                  serviceConfig = {
+                    Type = "oneshot";
+                    RemainAfterExit = true;
+                  };
+                };
+              };
               vm = generate-vm [
                 self.nixosModules.default
                 catppuccin.nixosModules.catppuccin
                 ./hosts/VM/default.nix
+                (nixpkgs.lib.optionalAttrs mount-enabled mount)
               ];
             in
             vm;
@@ -173,7 +193,7 @@
             let
               scriptName = "run-virtualBoyy-vm";
               script = pkgs.writeShellScriptBin "${scriptName}" ''
-                ${self.packages.${system}.virtualBoyy}/bin/run-virtualBoyy-vm \
+                ${self.packages.${system}.virtualBoyy { mount-enabled = false; }}/bin/run-virtualBoyy-vm \
                 -enable-kvm \
                 -m 8G \
                 -smp 4\
@@ -188,7 +208,7 @@
             let
               scriptName = "run-virtualBoyy-vm-headless";
               script = pkgs.writeShellScriptBin "${scriptName}" ''
-                ${self.packages.${system}.virtualBoyy}/bin/run-virtualBoyy-vm \
+                ${self.packages.${system}.virtualBoyy { mount-enabled = false; }}/bin/run-virtualBoyy-vm \
                 -enable-kvm \
                 -nographic \
                 -m 8G \
