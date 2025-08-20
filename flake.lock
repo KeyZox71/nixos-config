@@ -406,8 +406,7 @@
         "nixpkgs": "nixpkgs_5",
         "pogit": "pogit",
         "timmy": "timmy",
-        "unstablepkgs": "unstablepkgs",
-        "zen-browser": "zen-browser"
+        "unstablepkgs": "unstablepkgs"
       }
     },
     "systems": {
@@ -459,26 +458,6 @@
         "owner": "nixos",
         "ref": "nixos-unstable",
         "repo": "nixpkgs",
-        "type": "github"
-      }
-    },
-    "zen-browser": {
-      "inputs": {
-        "nixpkgs": [
-          "nixpkgs"
-        ]
-      },
-      "locked": {
-        "lastModified": 1738776963,
-        "narHash": "sha256-FFbj24WGwWQQ5dFAdySfQrVR0J1Z6bXW7lVUjQcmKnU=",
-        "owner": "keyzox71",
-        "repo": "zen-browser-flake",
-        "rev": "4ed48ef695a5fb07e726b126de26278ed51adcbc",
-        "type": "github"
-      },
-      "original": {
-        "owner": "keyzox71",
-        "repo": "zen-browser-flake",
         "type": "github"
       }
     }

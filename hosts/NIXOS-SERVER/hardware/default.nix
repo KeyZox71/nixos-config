@@ -6,7 +6,7 @@
   ];
 
   hardware = {
-    #nvidia-container-toolkit.enable = true;
+    nvidia-container-toolkit.enable = true;
     nvidia = {
 		    modesetting.enable = true;
 			powerManagement.finegrained = false;

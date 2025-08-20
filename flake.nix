@@ -38,10 +38,6 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    zen-browser = {
-      url = "github:keyzox71/zen-browser-flake";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
     timmy = {
       url = "github:keyzox71/timmy";
       inputs.nixpkgs.follows = "nixpkgs";
