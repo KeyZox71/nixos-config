@@ -15,7 +15,7 @@
       device = lib.mkDefault "nodev";
       enable = true;
       efiSupport = lib.mkDefault true;
-      useOSProber = lib.mkDefault true;
+      useOSProber = lib.mkDefault false;
     };
   };
 }

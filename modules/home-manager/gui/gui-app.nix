@@ -18,11 +18,14 @@
       discord
       firefox
       obsidian
+      rustdesk
       localsend
       gearlever
       libreoffice
+      parsec-bin
       inputs.zen-browser.packages.${pkgs.system}.default
       inputs.hyprland-contrib.packages.${pkgs.system}.grimblast
+
       xfce.thunar
       xfce.thunar-volman
       xfce.thunar-archive-plugin

@@ -1,87 +1,51 @@
 {
   pkgs,
-  inputs,
-  outputs,
+  config,
   ...
 }:
 
 {
   imports = [
+    ./services
 	./zfs
-	./virt
-	./services
-	./hardware
 
-	./env.nix
-	./boot.nix
+    ../home.nix
 
-    inputs.home-manager.nixosModules.home-manager
+    ./disko.nix
+    ./hardware-configuration.nix
   ];
 
-  nixpkgs = {
-    config = {
-      allowUnfree = true;
+  boot.kernelModules = [
+    "lpfc"
+    "qla2xxx"
+  ];
+
+  networking = {
+    hostId = "49ff816f";
+    hostName = "nixos-server";
+    networkmanager.enable = true;
+    firewall.enable = false;
+  };
+
+  services.tailscale.extraUpFlags = [ "--ssh" ];
+
+  keyzox = {
+    defaults = true;
+
+    grub-boot.enable = true;
+    theme.enable = true;
+
+    hardware = {
+      nvidia.enable = true;
     };
-	overlays = [
-      (final: prev: {
-        unstable = import inputs.unstablepkgs {
-          system = pkgs.system;
-          config.allowUnfree = true;
-        };
-      })
-    ];
+    programs = {
+      docker.enable = true;
+      docker.rootless = true;
+    };
+    services = { };
   };
+  virtualisation.docker.daemon.settings.features.cdi = true;
+  hardware.nvidia-container-toolkit.enable = true;
 
-  environment.variables = {
-  };
-
-  nix.settings.experimental-features = [
-    "nix-command"
-    "flakes"
-  ];
-
-  programs.zsh.enable = true;
-
-  environment.systemPackages = with pkgs; [
-    git
-    zsh
-    nil
-    vim
-    wget
-    curl
-	sudo
-    btop
-    unzip
-    cifs-utils
-  ];
-
-  users.users.adjoly = {
-    shell = pkgs.zsh;
-    isNormalUser = true;
-	initialPassword = "alpine";
-    extraGroups = [
-      "sudo"
-      "input"
-      "wheel"
-	  "networkmanager"
-    ];
-  };
-
-
-  nixpkgs.config.permittedInsecurePackages = [
-  ];
-
-  home-manager = {
-    useUserPackages = true;
-    extraSpecialArgs = { inherit inputs outputs; };
-    users.adjoly = import ../../home/adjoly/home-cli.nix;
-  };
-
-  # This value determines the NixOS release from which the default
-  # settings for stateful data, like file locations and database versions
-  # on your system were taken. It‘s perfectly fine and recommended to leave
-  # this value at the release version of the first install of this system.
-  # Before changing this value read the documentation for this option
-  # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
-  system.stateVersion = "24.05"; # Did you read the comment?
+  system.stateVersion = "24.11"; # Did you read the comment?
 }
