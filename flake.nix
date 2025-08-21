@@ -61,6 +61,7 @@
             ./hosts/NIXOS-SERVER/default.nix
 
             inputs.disko.nixosModules.disko
+            self.nixosModules.default
           ];
         };
       };
