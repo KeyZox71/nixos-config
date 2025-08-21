@@ -62,6 +62,7 @@
 
             inputs.disko.nixosModules.disko
             self.nixosModules.default
+            catppuccin.nixosModules.catppuccin
           ];
         };
       };
