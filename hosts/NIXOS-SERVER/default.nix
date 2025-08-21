@@ -44,7 +44,7 @@
   services.tailscale.extraUpFlags = [ "--ssh" ];
 
   virtualisation.docker = {
-    daemon.settings.features.cdi = true;
+    # daemon.settings.features.cdi = true;
     storageDriver = "btrfs";
   };
   hardware.nvidia-container-toolkit.enable = true;
