@@ -1,4 +1,9 @@
-{ pkgs, inputs, ... }:
+{
+  pkgs,
+  inputs,
+  self,
+  ...
+}:
 
 {
   nixpkgs = {
@@ -15,4 +20,9 @@
       })
     ];
   };
+  home.packages = [
+    (self.packages.${pkgs.system}.keyznvim.override {
+      home = "/home/adjoly/";
+    })
+  ];
 }

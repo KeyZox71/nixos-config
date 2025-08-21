@@ -97,31 +97,20 @@
         { pkgs, system }:
         let
           nixvim = inputs.nixvim.legacyPackages.${system};
-          liteMode = true;
-          home = "/home/adjoly/";
         in
         {
           adjust-brightness = import ./pkgs/adjust-brightness { inherit pkgs; };
-          keyznvim = import ./pkgs/keyznvim {
-            inherit
-              pkgs
-              nixvim
-              outputs
-              inputs
-              self
-              home
-              ;
+          keyznvim = pkgs.callPackage ./pkgs/keyznvim {
+            nixvim = nixvim;
+            liteMode = false;
+			home = "";
+			inherit inputs outputs self;
           };
-          keyznvim-lite = import ./pkgs/keyznvim {
-            inherit
-              nixvim
-              pkgs
-              inputs
-              outputs
-              liteMode
-              self
-              home
-              ;
+          keyznvim-lite = pkgs.callPackage ./pkgs/keyznvim {
+            nixvim = nixvim;
+            liteMode = true;
+			home = "";
+			inherit inputs outputs self;
           };
           virtualBoyy =
             {
@@ -243,11 +232,6 @@
       url = "github:nix-community/home-manager/release-25.05";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-
-    # keyznvim = {
-    #   url = "github:keyzox71/nvim/indev";
-    #   inputs.nixpkgs.follows = "nixpkgs";
-    # };
 
     pogit = {
       url = "github:y-syo/pogit";
