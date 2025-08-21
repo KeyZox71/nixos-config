@@ -56,7 +56,7 @@
         };
         nixos-server = nixpkgs.lib.nixosSystem {
           system = "x86_64-linux";
-          specialArgs = { inherit inputs outputs; };
+          specialArgs = { inherit inputs outputs self; };
           modules = [
             ./hosts/NIXOS-SERVER/default.nix
 
@@ -147,10 +147,10 @@
                   description = "Mount the shared folder";
                   # fstab entry:
                   #  host0   /wherever    9p      trans=virtio,version=9p2000.L   0 0
-				  script = ''
-					  mkdir -p /work
-					  /run/wrappers/bin/mount -t 9p -o trans=virtio,version=9p2000.L host0 /work
-				  '';
+                  script = ''
+                    					  mkdir -p /work
+                    					  /run/wrappers/bin/mount -t 9p -o trans=virtio,version=9p2000.L host0 /work
+                    				  '';
                   wantedBy = [ "multi-user.target" ];
                   after = [ "network.target" ];
                   serviceConfig = {
@@ -293,5 +293,4 @@
     };
 
   };
-
 }
