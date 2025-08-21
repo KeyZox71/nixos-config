@@ -3,7 +3,7 @@
 }:
 {
   imports = [
-    ./42header.nix
+    # ./42header.nix
     ./autodarkmode.nix
     ./auto-session.nix
     ./harpoon.nix

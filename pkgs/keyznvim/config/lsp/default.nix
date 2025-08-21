@@ -50,6 +50,7 @@
       "nixd"
       "lua_ls"
       "ts_ls"
+	  "hls"
     ];
     serversPath = ./servers;
   };
