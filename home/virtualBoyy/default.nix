@@ -9,7 +9,7 @@
 {
   imports = [
     self.homeModules.default
-    ../adjoly/nixpkgs-conf.nix
+    ../nixpkgs-conf.nix
   ];
 
   keyzox = {
