@@ -1,19 +1,33 @@
 {
   pkgs,
-  config,
+  inputs,
   ...
 }:
 
 {
   imports = [
     ./services
-	./zfs
+    ./zfs
 
     ../home.nix
 
     ./disko.nix
     ./hardware-configuration.nix
   ];
+
+  nixpkgs = {
+    config = {
+      allowUnfree = true;
+    };
+    overlays = [
+      (final: prev: {
+        unstable = import inputs.unstablepkgs {
+          system = pkgs.system;
+          config.allowUnfree = true;
+        };
+      })
+    ];
+  };
 
   boot.kernelModules = [
     "lpfc"
@@ -29,11 +43,17 @@
 
   services.tailscale.extraUpFlags = [ "--ssh" ];
 
+  virtualisation.docker = {
+    daemon.settings.features.cdi = true;
+    storageDriver = "btrfs";
+  };
+  hardware.nvidia-container-toolkit.enable = true;
+
   keyzox = {
     defaults = true;
 
     grub-boot.enable = true;
-    theme.enable = true;
+    # theme.enable = true;
 
     hardware = {
       nvidia.enable = true;
@@ -44,8 +64,6 @@
     };
     services = { };
   };
-  virtualisation.docker.daemon.settings.features.cdi = true;
-  hardware.nvidia-container-toolkit.enable = true;
 
-  system.stateVersion = "24.11"; # Did you read the comment?
+  system.stateVersion = "25.05"; # Did you read the comment?
 }
