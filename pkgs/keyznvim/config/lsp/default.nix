@@ -51,6 +51,7 @@
       "lua_ls"
       "ts_ls"
 	  "hls"
+	  "ocamllsp"
     ];
     serversPath = ./servers;
   };

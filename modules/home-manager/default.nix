@@ -12,6 +12,7 @@ let
     keyzox.pogit.enable = lib.mkDefault true;
     keyzox.shell.enable = lib.mkDefault true;
     keyzox.cli-app.enable = lib.mkDefault true;
+	keyzox.gh.enable = lib.mkDefault true;
   };
   gui-conf = lib.mkIf config.keyzox.gui.enable {
     keyzox.cli.enable = lib.mkDefault true;
