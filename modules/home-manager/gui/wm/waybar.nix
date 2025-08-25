@@ -21,10 +21,10 @@
       enable = true;
       settings = {
         bar = {
-          margin-top = 8;
+          margin-top = 4;
           margin-bottom = 0;
-          margin-right = 8;
-          margin-left = 8;
+          margin-right = 4;
+          margin-left = 4;
           layer = "top";
           modules-left = [
             "hyprland/workspaces"
