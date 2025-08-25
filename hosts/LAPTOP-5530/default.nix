@@ -51,10 +51,14 @@
   powerManagement.enable = true;
   environment.systemPackages = with pkgs; [
     vagrant
+    wireshark
   ];
   virtualisation.virtualbox.host.enable = true;
   virtualisation.docker.daemon.settings.features.cdi = true;
   hardware.nvidia-container-toolkit.enable = true;
+
+
+  programs.wireshark.enable = true;
 
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions

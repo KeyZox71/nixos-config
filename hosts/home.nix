@@ -21,6 +21,7 @@
       "networkmanager"
       "wheel"
       "sudo"
+	  "wireshark"
     ];
   };
   home-manager = {
