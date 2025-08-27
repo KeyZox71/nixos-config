@@ -1,6 +1,7 @@
 {
   liteMode,
   self,
+  pkgs,
   ...
 }:
 {
@@ -40,6 +41,12 @@
 
   plugins.lspconfig.enable = true;
 
+  extraPackages =
+    with pkgs;
+    lib.optional liteMode [
+      nixfmt-rfc-style
+    ];
+
   keyzox.lsp = {
     liteMode = liteMode;
     enabled = [
@@ -50,8 +57,8 @@
       "nixd"
       "lua_ls"
       "ts_ls"
-	  "hls"
-	  "ocamllsp"
+      "hls"
+      "ocamllsp"
     ];
     serversPath = ./servers;
   };
