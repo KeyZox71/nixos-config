@@ -18,7 +18,6 @@
       discord
       firefox
       obsidian
-      rustdesk
       localsend
       gearlever
       libreoffice
