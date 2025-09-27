@@ -50,7 +50,6 @@
   };
   powerManagement.enable = true;
   environment.systemPackages = with pkgs; [
-    vagrant
     wireshark
   ];
   virtualisation.virtualbox.host.enable = true;
