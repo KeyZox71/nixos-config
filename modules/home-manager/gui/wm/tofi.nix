@@ -30,15 +30,15 @@
 		padding-bottom = 8;
 		scale = true;
 
-        text-color = "#babbf1";
-        selection-color = "#ca9ee6";
-        prompt-color = "#ca9ee6";
+        text-color = "#b7bdf8";
+        selection-color = "#c6a0f6";
+        prompt-color = "#c6a0f6";
         result-spacing = "13";
 		corner-radius = "10";
-		border-color = "#ca9ee6";
+		border-color = "#c6a0f6";
 		prompt-padding = 8;
 
-        background-color = "#292c3c";
+        background-color = "#1e2030";
 
         font = "monospace";
 		font-size = 18;

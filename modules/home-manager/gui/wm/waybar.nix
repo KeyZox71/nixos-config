@@ -187,7 +187,7 @@
           margin: 6px 4px;
           padding: 2px 8px;
           border-radius: 8px;
-          background-color: #303446;
+          background-color: @base;
           border: 2px solid transparent;
         }
         .modules-left #workspaces {

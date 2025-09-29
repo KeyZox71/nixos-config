@@ -29,12 +29,12 @@
     };
     xdg.configFile."kitty/dark-theme.auto.conf" = {
       text = ''
-        	  include ${pkgs.kitty-themes}/share/kitty-themes/themes/Catppuccin-Frappe.conf
+        	  include ${pkgs.kitty-themes}/share/kitty-themes/themes/Catppuccin-Macchiato.conf
       '';
     };
     xdg.configFile."kitty/no-preference-theme.auto.conf" = {
       text = ''
-        	  include ${pkgs.kitty-themes}/share/kitty-themes/themes/Catppuccin-Frappe.conf
+        	  include ${pkgs.kitty-themes}/share/kitty-themes/themes/Catppuccin-Macchiato.conf
       '';
     };
   };

@@ -40,11 +40,11 @@
 
         # Window status
         setw -g window-status-current-format ' #I #W #F '
-        setw -g window-status-current-style 'fg=#303446 bg=#babbf2'
+        setw -g window-status-current-style 'fg=#24273a bg=#cad3f5'
         setw -g window-status-format ' #I #[fg=white]#W #[fg=mauve]#F '
 
         # Pane status
-        set -g pane-border-style 'fg=#292c3c'
+        set -g pane-border-style 'fg=#1e2030'
 
       '';
     };

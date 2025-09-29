@@ -8,7 +8,7 @@
       default_integrations = true;
       flavour = "auto";
       background = {
-        dark = "frappe";
+        dark = "macchiato";
         light = "latte";
       };
       integrations = {
