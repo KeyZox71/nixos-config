@@ -16,6 +16,7 @@
     home.packages = with pkgs; [
       inputs.timmy.packages.${pkgs.system}.timmy
       inputs.randomTimer.packages.${pkgs.system}.default
+	  tea
     ];
 
     programs.yazi = {

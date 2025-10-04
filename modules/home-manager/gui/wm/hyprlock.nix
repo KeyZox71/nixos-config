@@ -11,8 +11,8 @@ let
     sha256 = "mRpFtFyEbZjH3y501UrA/O+jhBNvtlD/6VwkCwYlITQ=";
   };
   bsky-profile = pkgs.fetchurl {
-    url = "https://cdn.bsky.app/img/avatar/plain/did:plc:7g74v3wiannux6tuc5t74gln/bafkreigdabcv3w3qmabjtkwxb6rnvtgnk3megwdcclni6bkv4frbcqf4ma@jpeg";
-    sha256 = "jKqJ+6PEO37NpY0FakGAwrRKzY1N6A6mYeUxhaL+jAA=";
+    url = "https://cdn.bsky.app/img/avatar/plain/did:plc:7g74v3wiannux6tuc5t74gln/bafkreigqkghx7qvofu7lgtlc6r3s7t5vkbni7476c2lxy3zqrtc3eupnny@jpeg";
+    sha256 = "Y225OzevISn5aiBH29qzokHSx4MT7FpBRKWDR6imlXo=";
   };
 in
 {
@@ -43,15 +43,15 @@ in
           size = "200, 50";
           position = "0, 150";
           outer_color = "rgba(0, 0, 0, 0)";
-          fail_color = "rgba(231, 130, 132, 0.90)";
+          fail_color = "rgba(237, 135, 150, 0.95)";
           fail_text = "Wrong password";
-          check_color = "rgba(225, 200, 145, 0.90)";
+          check_color = "rgba(238, 212, 159, 0.95)";
           rounding = 10;
-          font_color = "rgba(198, 208, 245, 1.0)";
+          font_color = "rgba(202, 211, 245, 1.0)";
           font_size = 3;
           dot_spacing = 0.3;
           dot_size = 1.0;
-          inner_color = "rgba(48, 52, 70, 0.7)";
+          inner_color = "rgba(30, 32, 48, 0.7)";
           placeholder_text = "Enter password";
           hide_input = false;
           fade_on_empty = false;
@@ -75,7 +75,7 @@ in
             halign = "center";
             valign = "center";
             font_family = "Noto Sans Medium";
-            color = "rgba(216, 222, 233, 0.90)";
+            color = "rgba(202, 211, 245, 0.90)";
           }
           {
             monitor = [ config.keyzox.hyprlock.monitor ];
@@ -84,7 +84,7 @@ in
             halign = "center";
             valign = "center";
             font_family = "Noto Sans Medium";
-            color = "rgba(216, 222, 233, 0.90)";
+            color = "rgba(202, 211, 245, 0.90)";
           }
           {
             monitor = [ config.keyzox.hyprlock.monitor ];
@@ -92,7 +92,7 @@ in
             position = "0, 225";
             font_size = 15;
             font_family = "Noto Sans Medium";
-            color = "rgba(216, 222, 233, 0.95)";
+            color = "rgba(202, 211, 245, 0.95)";
             halign = "center";
             valign = "bottom";
           }
@@ -104,7 +104,7 @@ in
             position = "0, 100";
             halign = "center";
             valign = "bottom";
-            color = "rgba(35, 38, 52, 0.7)";
+            color = "rgba(24, 25, 38, 0.7)";
             rounding = 10;
           }
         ];
