@@ -2,6 +2,7 @@
   config,
   lib,
   pkgs,
+  inputs,
   ...
 }:
 
@@ -14,6 +15,7 @@
     services.tailscale = {
       enable = true;
       extraUpFlags = lib.mkBefore [ "--accept-routes" ];
+	  package = inputs.unstablepkgs.legacyPackages.${pkgs.system}.tailscale;
     };
   };
 }
