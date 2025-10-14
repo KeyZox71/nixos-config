@@ -12,7 +12,7 @@
       allowUnfreePredicate = (_: true);
     };
     overlays = [
-      (final: prev: {
+      (_: _: {
         unstable = import inputs.unstablepkgs {
           system = pkgs.system;
           config.allowUnfree = true;

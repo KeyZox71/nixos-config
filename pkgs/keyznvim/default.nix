@@ -7,8 +7,6 @@
   self,
   home,
 }:
-let
-in
 nixvim.makeNixvimWithModule {
   inherit pkgs;
   module = import ./config;
