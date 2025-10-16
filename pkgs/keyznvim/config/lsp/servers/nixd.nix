@@ -1,5 +1,5 @@
 {
-  settings.nixd = {
+  config.nixd = {
     formatting = {
       command = [ "nixfmt" ];
     };

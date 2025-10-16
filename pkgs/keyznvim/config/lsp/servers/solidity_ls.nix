@@ -1,5 +1,5 @@
 {
-  settings = {
+  config = {
     solitidy = {
       linter = "solhint";
     };

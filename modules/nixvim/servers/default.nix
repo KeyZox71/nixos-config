@@ -17,7 +17,7 @@ let
       settingsPart =
         if hasCustomSettings then
           {
-            settings = import path;
+            config = import path;
           }
         else
           {

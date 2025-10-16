@@ -22,7 +22,7 @@
     inlayHints.enable = true;
   };
   lsp.servers."*" = {
-    settings = {
+    config = {
       capabilities = {
         textDocument = {
           semanticTokens = {
