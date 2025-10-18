@@ -85,13 +85,8 @@
       devShells = forEachSupportedSystem (
         { pkgs, ... }:
         {
-          default = pkgs.mkShell {
-            packages = with pkgs; [
-              nixd
-              nixfmt-rfc-style
-            ];
-          };
-        }
+          default = pkgs.callPackage ./shell.nix {};
+		}
       );
       packages = forEachSupportedSystem (
         { pkgs, system }:
