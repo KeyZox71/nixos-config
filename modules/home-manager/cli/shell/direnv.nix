@@ -1,6 +1,8 @@
 {
   lib,
   config,
+  inputs,
+  pkgs,
   ...
 }:
 
@@ -10,5 +12,6 @@
     enableZshIntegration = true;
     nix-direnv.enable = true;
     silent = true;
+    package = inputs.unstablepkgs.legacyPackages.${pkgs.system}.direnv;
   };
 }
