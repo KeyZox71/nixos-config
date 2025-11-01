@@ -23,13 +23,13 @@
     hyprlock.enable = lib.mkForce false;
     nextcloud.enable = lib.mkForce false;
     wl-sunset.enable = lib.mkForce false;
-	gui-app.enable = lib.mkForce false;
+    gui-app.enable = lib.mkForce false;
   };
 
   home.packages = with pkgs; [
     firefox
-	discord
-	gearlever
+    discord
+    gearlever
     inputs.hyprland-contrib.packages.${pkgs.system}.grimblast
     xfce.thunar
     (self.packages.${pkgs.system}.keyznvim.override {

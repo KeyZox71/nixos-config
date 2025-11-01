@@ -24,7 +24,7 @@
     (lib.mkIf config.keyzox.programs.docker.rootless {
       virtualisation.docker.rootless = {
         enable = true;
-		setSocketVariable = true;
+        setSocketVariable = true;
       };
     })
   ];

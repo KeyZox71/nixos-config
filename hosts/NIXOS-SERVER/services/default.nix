@@ -1,8 +1,8 @@
 { ... }:
 
 {
-	imports = [
-		./ollama.nix
-		./samba.nix
-	];
+  imports = [
+    ./ollama.nix
+    ./samba.nix
+  ];
 }

@@ -1,8 +1,8 @@
-{...}: 
+{ ... }:
 {
-	imports = [
-		./bluetooth.nix
-		./nvidia.nix
-		./logitech.nix
-	];
+  imports = [
+    ./bluetooth.nix
+    ./nvidia.nix
+    ./logitech.nix
+  ];
 }

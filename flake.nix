@@ -110,6 +110,31 @@
             home = "";
             inherit inputs outputs self;
           };
+
+        }
+      );
+
+      homeModules = {
+        default = import ./modules/home-manager;
+        gui = import ./modules/home-manager/gui;
+        cli = import ./modules/home-manager/cli;
+      };
+
+      nixosModules = {
+        default = import ./modules/nixos;
+        services = import ./modules/nixos/services;
+        hardware = import ./modules/nixos/hardware;
+        programs = import ./modules/nixos/programs;
+      };
+
+      nixvimModules = {
+        default = import ./modules/nixvim;
+        servers = import ./modules/nixvim/servers;
+      };
+
+      vm = forEachSupportedSystem (
+        { pkgs, system }:
+        {
           virtualBoyy =
             {
               mount-enabled ? false,
@@ -157,24 +182,6 @@
         }
       );
 
-      homeModules = {
-        default = import ./modules/home-manager;
-        gui = import ./modules/home-manager/gui;
-        cli = import ./modules/home-manager/cli;
-      };
-
-      nixosModules = {
-        default = import ./modules/nixos;
-        services = import ./modules/nixos/services;
-        hardware = import ./modules/nixos/hardware;
-        programs = import ./modules/nixos/programs;
-      };
-
-      nixvimModules = {
-        default = import ./modules/nixvim;
-        servers = import ./modules/nixvim/servers;
-      };
-
       apps = forEachSupportedSystem (
         { pkgs, system }:
         {
@@ -210,7 +217,13 @@
             };
         }
       );
-      formatter = forEachSupportedSystem (pkgs: treefmtEval.${pkgs.system}.config.build.wrapper);
+      formatter = forEachSupportedSystem ({ pkgs, ... }: treefmtEval.${pkgs.system}.config.build.wrapper);
+      checks = forEachSupportedSystem (
+        { pkgs, ... }:
+        {
+          formatting = treefmtEval.${pkgs.system}.config.build.check self;
+        }
+      );
     };
 
   inputs = {

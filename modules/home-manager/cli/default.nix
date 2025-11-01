@@ -4,7 +4,7 @@
     ./git.nix
     ./pogit.nix
     ./shell.nix
-	./github.nix
+    ./github.nix
     ./cli-app.nix
   ];
 }

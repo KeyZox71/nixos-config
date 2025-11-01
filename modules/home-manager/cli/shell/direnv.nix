@@ -11,9 +11,9 @@
     enable = lib.mkDefault true;
     enableZshIntegration = true;
     nix-direnv = {
-		enable = true;
-		package = inputs.unstablepkgs.legacyPackages.${pkgs.system}.nix-direnv;
-	};
+      enable = true;
+      package = inputs.unstablepkgs.legacyPackages.${pkgs.system}.nix-direnv;
+    };
     silent = true;
     package = inputs.unstablepkgs.legacyPackages.${pkgs.system}.direnv;
   };

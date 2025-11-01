@@ -12,11 +12,11 @@
   config = lib.mkIf config.keyzox.gh.enable {
     programs = {
       gh = {
-		  enable = true;
-		  settings = {
-			editor = lib.mkDefault "nvim";
-			git_protocol = lib.mkDefault "ssh";
-		  };
+        enable = true;
+        settings = {
+          editor = lib.mkDefault "nvim";
+          git_protocol = lib.mkDefault "ssh";
+        };
       };
     };
   };

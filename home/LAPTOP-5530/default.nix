@@ -22,8 +22,13 @@
   };
 
   services.batsignal = {
-		enable = true;
-		extraArgs = [ "-c" "10" "-w" "30" ];
+    enable = true;
+    extraArgs = [
+      "-c"
+      "10"
+      "-w"
+      "30"
+    ];
   };
 
   programs.kitty.font.size = 12; # for kitty

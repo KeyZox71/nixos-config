@@ -15,7 +15,7 @@ nixvim.makeNixvimWithModule {
     inherit
       self
       liteMode
-	  quickMode
+      quickMode
       inputs
       outputs
       home

@@ -40,8 +40,8 @@
   programs.kitty.font.size = 13; # for kitty
 
   programs.nh = {
-	enable = true;
-	flake = "/home/adjoly/nixos-config";
+    enable = true;
+    flake = "/home/adjoly/nixos-config";
   };
 
   home.stateVersion = "24.05";

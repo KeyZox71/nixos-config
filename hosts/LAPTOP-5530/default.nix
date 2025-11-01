@@ -55,7 +55,6 @@
   virtualisation.docker.daemon.settings.features.cdi = true;
   hardware.nvidia-container-toolkit.enable = true;
 
-
   programs.wireshark.enable = true;
 
   # This value determines the NixOS release from which the default

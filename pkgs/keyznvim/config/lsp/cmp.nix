@@ -13,7 +13,7 @@
     lspkind = {
       enable = true;
 
-	settings.cmp = {
+      settings.cmp = {
         enable = true;
         menu = {
           nvim_lsp = "[LSP]";

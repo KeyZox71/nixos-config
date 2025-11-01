@@ -14,7 +14,7 @@
   config = lib.mkIf config.keyzox.cli-app.enable {
     home.packages = with pkgs; [
       inputs.timmy.packages.${pkgs.system}.timmy
-	  tea
+      tea
     ];
 
     programs.yazi = {

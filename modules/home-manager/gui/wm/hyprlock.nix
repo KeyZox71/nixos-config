@@ -27,7 +27,7 @@ in
   };
 
   config = lib.mkIf config.keyzox.hyprlock.enable {
-	keyzox.hypridle.enable = true;
+    keyzox.hypridle.enable = true;
 
     programs.hyprlock = {
       enable = true;

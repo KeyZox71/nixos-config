@@ -11,7 +11,7 @@ let
     keyzox.pogit.enable = lib.mkDefault true;
     keyzox.shell.enable = lib.mkDefault true;
     keyzox.cli-app.enable = lib.mkDefault true;
-	keyzox.gh.enable = lib.mkDefault true;
+    keyzox.gh.enable = lib.mkDefault true;
   };
   gui-conf = lib.mkIf config.keyzox.gui.enable {
     keyzox.cli.enable = lib.mkDefault true;
@@ -22,7 +22,7 @@ let
     keyzox.hyprlock.enable = lib.mkDefault true;
     keyzox.hyprland.enable = lib.mkDefault true;
     keyzox.wl-sunset.enable = lib.mkDefault true;
-	keyzox.gui-app.enable = lib.mkDefault true;
+    keyzox.gui-app.enable = lib.mkDefault true;
   };
 in
 {
