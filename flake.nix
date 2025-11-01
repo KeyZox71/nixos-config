@@ -11,6 +11,7 @@
       disko,
       lanzaboote,
       nixos-generators,
+      treefmt-nix,
       ...
     }:
     let
@@ -28,6 +29,8 @@
             system = system;
           }
         );
+
+      treefmtEval = forEachSupportedSystem ({ pkgs, ... }: treefmt-nix.lib.evalModule pkgs ./treefmt.nix);
     in
     {
       nixosConfigurations = {
@@ -85,8 +88,8 @@
       devShells = forEachSupportedSystem (
         { pkgs, ... }:
         {
-          default = pkgs.callPackage ./shell.nix {};
-		}
+          default = pkgs.callPackage ./shell.nix { };
+        }
       );
       packages = forEachSupportedSystem (
         { pkgs, system }:
@@ -98,14 +101,14 @@
           keyznvim = pkgs.callPackage ./pkgs/keyznvim {
             nixvim = nixvim;
             liteMode = false;
-			home = "";
-			inherit inputs outputs self;
+            home = "";
+            inherit inputs outputs self;
           };
           keyznvim-lite = pkgs.callPackage ./pkgs/keyznvim {
             nixvim = nixvim;
             liteMode = true;
-			home = "";
-			inherit inputs outputs self;
+            home = "";
+            inherit inputs outputs self;
           };
           virtualBoyy =
             {
@@ -207,6 +210,7 @@
             };
         }
       );
+      formatter = forEachSupportedSystem (pkgs: treefmtEval.${pkgs.system}.config.build.wrapper);
     };
 
   inputs = {
@@ -251,20 +255,19 @@
     disko = {
       url = "github:nix-community/disko";
     };
+
     lanzaboote = {
       url = "github:nix-community/lanzaboote/v0.4.2";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    nixvim = {
-      url = "github:nix-community/nixvim";
-      # inputs.nixpkgs.follows = "nixpkgs";
-    };
+    nixvim.url = "github:nix-community/nixvim";
 
     nixos-generators = {
       url = "github:nix-community/nixos-generators";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    treefmt-nix.url = "github:numtide/treefmt-nix";
   };
 }
