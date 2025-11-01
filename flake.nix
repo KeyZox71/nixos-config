@@ -18,7 +18,6 @@
       inherit (self) outputs;
       supportedSystems = [
         "x86_64-linux"
-        "x86_64-darwin"
       ];
       forEachSupportedSystem =
         f:
