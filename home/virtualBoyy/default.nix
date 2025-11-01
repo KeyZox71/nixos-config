@@ -32,6 +32,9 @@
 	gearlever
     inputs.hyprland-contrib.packages.${pkgs.system}.grimblast
     xfce.thunar
+    (self.packages.${pkgs.system}.keyznvim.override {
+      home = "/home/adjoly/";
+    })
   ];
 
   programs.kitty.font.size = 13; # for kitty

@@ -1,13 +1,15 @@
 {
-	pkgs,
-	inputs,
-	...
+  pkgs,
+  self,
+  ...
 }:
 
 {
-	home.packages = with pkgs; [
-		mockoon
-		brightnessctl
-		inputs.randomTimer.packages.${pkgs.system}.default
-	];
+  home.packages = with pkgs; [
+    mockoon
+    brightnessctl
+    (self.packages.${pkgs.system}.keyznvim.override {
+      home = "/home/adjoly/";
+    })
+  ];
 }

@@ -613,26 +613,6 @@
         "type": "github"
       }
     },
-    "randomTimer": {
-      "inputs": {
-        "nixpkgs": [
-          "nixpkgs"
-        ]
-      },
-      "locked": {
-        "lastModified": 1753110793,
-        "narHash": "sha256-sytqwPJQYf3OlKvFHxlCbtKOTGEviE99huTnxBf41iQ=",
-        "owner": "keyzox71",
-        "repo": "randomTimer",
-        "rev": "d04d13a10803a7d860485d5a4e6658aee3da6a09",
-        "type": "github"
-      },
-      "original": {
-        "owner": "keyzox71",
-        "repo": "randomTimer",
-        "type": "github"
-      }
-    },
     "root": {
       "inputs": {
         "catppuccin": "catppuccin",
@@ -646,7 +626,6 @@
         "nixpkgs": "nixpkgs_3",
         "nixvim": "nixvim",
         "pogit": "pogit",
-        "randomTimer": "randomTimer",
         "timmy": "timmy",
         "unstablepkgs": "unstablepkgs",
         "zen-browser": "zen-browser"

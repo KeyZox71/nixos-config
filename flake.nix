@@ -256,11 +256,6 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    randomTimer = {
-      url = "github:keyzox71/randomTimer";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
     nixvim = {
       url = "github:nix-community/nixvim";
       # inputs.nixpkgs.follows = "nixpkgs";

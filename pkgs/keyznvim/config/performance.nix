@@ -1,9 +1,10 @@
 {
+  quickMode,
   ...
 }:
 {
   performance = {
-    byteCompileLua.enable = true;
-    combinePlugins.enable = true;
+    byteCompileLua.enable = if quickMode then false else true;
+    combinePlugins.enable = if quickMode then false else true;
   };
 }

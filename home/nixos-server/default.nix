@@ -1,5 +1,6 @@
 {
   self,
+  pkgs,
   ...
 }:
 {
@@ -15,6 +16,13 @@
   };
 
   services.ssh-agent.enable = false;
+
+  home.packages = [
+    (self.packages.${pkgs.system}.keyznvim.override {
+      quickMode = false;
+      home = "/home/adjoly/";
+    })
+  ];
 
   home.stateVersion = "25.05";
 }

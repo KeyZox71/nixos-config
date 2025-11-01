@@ -43,9 +43,12 @@
 
   extraPackages =
     with pkgs;
-    lib.optional liteMode [
-      nixfmt-rfc-style
-    ];
+    if liteMode then
+      [
+        nixfmt-rfc-style
+      ]
+    else
+      [ ];
 
   keyzox.lsp = {
     liteMode = liteMode;

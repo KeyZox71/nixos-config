@@ -2,6 +2,7 @@
   pkgs ? import <nixpkgs> { },
   nixvim,
   liteMode ? false,
+  quickMode ? true,
   inputs,
   outputs,
   self,
@@ -14,6 +15,7 @@ nixvim.makeNixvimWithModule {
     inherit
       self
       liteMode
+	  quickMode
       inputs
       outputs
       home
