@@ -189,7 +189,7 @@
             let
               scriptName = "run-virtualBoyy-vm";
               script = pkgs.writeShellScriptBin "${scriptName}" ''
-                ${self.packages.${system}.virtualBoyy { mount-enabled = false; }}/bin/run-virtualBoyy-vm \
+                ${self.vm.${system}.virtualBoyy { mount-enabled = false; }}/bin/run-virtualBoyy-vm \
                 -enable-kvm \
                 -m 8G \
                 -smp 4\
@@ -204,7 +204,7 @@
             let
               scriptName = "run-virtualBoyy-vm-headless";
               script = pkgs.writeShellScriptBin "${scriptName}" ''
-                ${self.packages.${system}.virtualBoyy { mount-enabled = false; }}/bin/run-virtualBoyy-vm \
+                ${self.vm.${system}.virtualBoyy { mount-enabled = false; }}/bin/run-virtualBoyy-vm \
                 -enable-kvm \
                 -nographic \
                 -m 8G \
