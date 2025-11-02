@@ -18,7 +18,7 @@
     hyprland.autostart.enable = true;
     bitwarden-ssh-agent.enable = true;
     theme.enable = true;
-    hypridle.sleep_timeout = 600;
+    hypridle.sleep_timeout = -1;
     hyprlock.monitor = "DP-2";
   };
 
