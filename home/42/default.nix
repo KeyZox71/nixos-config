@@ -37,10 +37,10 @@
   };
 
   programs.kitty = {
-	  package = lib.mkForce pkgs.emptyDirectory;
-	  font = {
-		  size = 13.5; # for kitty
-	  };
+    package = lib.mkForce pkgs.emptyDirectory;
+    font = {
+      size = 13.5; # for kitty
+    };
   };
 
   programs.nh = {

@@ -22,7 +22,7 @@
         size = lib.mkDefault 13;
       };
       settings = {
-		placement_strategy = "center";
+        placement_strategy = "center";
       };
     };
     xdg.configFile."kitty/light-theme.auto.conf" = {
