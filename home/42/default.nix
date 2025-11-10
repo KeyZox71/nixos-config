@@ -20,7 +20,6 @@
     darkman.enable = true;
   };
 
-  programs.kitty.package = lib.mkForce pkgs.emptyDirectory;
   catppuccin.cursors.enable = lib.mkForce false;
   programs.zsh = {
     shellAliases = {
@@ -37,7 +36,12 @@
     code = "flatpak run com.visualstudio.code";
   };
 
-  programs.kitty.font.size = 13; # for kitty
+  programs.kitty = {
+	  package = lib.mkForce pkgs.emptyDirectory;
+	  font = {
+		  size = 13.5; # for kitty
+	  };
+  };
 
   programs.nh = {
     enable = true;

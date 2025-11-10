@@ -21,6 +21,9 @@
         name = lib.mkDefault "JetBrainsMono Nerd Font Mono";
         size = lib.mkDefault 13;
       };
+      settings = {
+		placement_strategy = "center";
+      };
     };
     xdg.configFile."kitty/light-theme.auto.conf" = {
       text = ''

@@ -45,7 +45,6 @@
 
         # Pane status
         set -g pane-border-style 'fg=#1e2030'
-
       '';
     };
 
