@@ -25,8 +25,8 @@
         "__GLX_VENDOR_LIBRARY_NAME,nvidia"
       ];
       monitor = [
-        "DP-2, 1920x1080@75, 0x0, 1"
-        "DP-1, 1920x1080@75, -1080x0, 1, transform, 1"
+        "DP-2, 1920x1080@240, 0x0, 1"
+        "DP-1, 1920x1080@60, -1080x0, 1, transform, 1"
       ];
       workspace = [
         "1, monitor:DP-2"
