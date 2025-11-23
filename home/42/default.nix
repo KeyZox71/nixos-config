@@ -34,6 +34,8 @@
 
   programs.zsh.shellAliases = {
     code = "flatpak run com.visualstudio.code";
+	tssh = "docker exec -it tailscale-42 tailscale ssh";
+	tsqr = "docker compose -f ~/Documents/compose.yml up -d && docker exec -it tailscale-42 tailscale up --qr --accept-dns --hostname=tailscale-42 --accept-routes";
   };
 
   programs.kitty = {
