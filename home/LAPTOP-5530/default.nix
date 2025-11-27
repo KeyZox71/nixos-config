@@ -31,7 +31,7 @@
     ];
   };
 
-  programs.kitty.font.size = 12; # for kitty
+  programs.kitty.font.size = 13.5; # for kitty
 
   home.stateVersion = "24.05";
 }
