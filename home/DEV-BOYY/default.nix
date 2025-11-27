@@ -22,7 +22,7 @@
     hyprlock.monitor = "DP-2";
   };
 
-  programs.kitty.font.size = 13; # for kitty
+  programs.kitty.font.size = 14; # for kitty
 
   home.stateVersion = "24.05";
 }

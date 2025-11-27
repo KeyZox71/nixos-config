@@ -25,7 +25,8 @@
           margin-bottom = 0;
           margin-right = 4;
           margin-left = 4;
-          layer = "top";
+          layer = "overlay";
+          exclusive = false;
           modules-left = [
             "hyprland/workspaces"
             "hyprland/window"
@@ -176,8 +177,6 @@
         #mpris, #battery, #network, #clock, #pulseaudio, #window, #tray, #tray menu {
           color: @text;
           margin: 6px 4px;
-          padding: 2px 8px;
-          border-radius: 8px;
           background-color: @base;
           border: 2px solid transparent;
         }

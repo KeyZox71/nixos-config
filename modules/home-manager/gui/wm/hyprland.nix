@@ -1,6 +1,7 @@
 {
   lib,
   config,
+  pkgs,
   ...
 }:
 
@@ -17,20 +18,27 @@
       keyzox.tofi.enable = lib.mkDefault true;
       keyzox.waybar.enable = lib.mkDefault true;
 
+      home.packages = with pkgs; [
+        killall
+      ];
+
       wayland.windowManager.hyprland = {
         enable = true;
         xwayland.enable = true;
         settings = {
           general = {
             border_size = "0";
-            gaps_in = "4";
-            gaps_out = "4,4,4,4";
+            gaps_in = "0";
+            gaps_out = "0,0,0,0";
             "col.active_border" = "rgba(ffbabbf1)";
             "col.inactive_border" = "rgba(ff303446)";
           };
           decoration = {
-            rounding = 8;
+            rounding = 0;
           };
+          windowrulev2 = [
+            "fullscreen, class:zen-beta"
+          ];
           gestures.workspace_swipe = "on";
           exec-once = lib.mkBefore [
             "hyprpaper"
@@ -48,6 +56,7 @@
             "$win + SHIFT, S, exec, grimblast --notify copysave area \"$HOME/Nextcloud/Images/Captures d’écran/Capture d’écran $(date +%F-%H%M%S).png\""
             "CTRL ALT, L, exec, systemctl suspend"
             ",Print,  exec, grimblast --notify copysave area \"$HOME/Nextcloud/Images/Captures d’écran/Capture d’écran $(date +%F-%H%M%S).png\""
+            "SUPER, B, exec, killall -SIGUSR1 .waybar-wrapped"
           ]
           ++ (builtins.concatLists (
             builtins.genList (
