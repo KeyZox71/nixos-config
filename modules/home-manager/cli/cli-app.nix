@@ -22,11 +22,6 @@
       enableZshIntegration = true;
     };
 
-    programs.thefuck = {
-      enable = lib.mkDefault true;
-      enableZshIntegration = true;
-    };
-
     programs.fastfetch = {
       enable = true;
     };
