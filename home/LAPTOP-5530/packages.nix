@@ -13,8 +13,8 @@
     brightnessctl
     prismlauncher
     jellyfin-media-player
-    self.packages.${pkgs.system}.adjust-brightness
-    (self.packages.${pkgs.system}.keyznvim.override {
+    self.packages.${pkgs.stdenv.hostPlatform.system}.adjust-brightness
+    (self.packages.${pkgs.stdenv.hostPlatform.system}.keyznvim.override {
       quickMode = false;
       home = "/home/adjoly/";
     })

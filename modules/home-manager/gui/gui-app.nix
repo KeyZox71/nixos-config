@@ -22,8 +22,8 @@
       gearlever
       libreoffice
       parsec-bin
-      inputs.zen-browser.packages.${pkgs.system}.default
-      inputs.hyprland-contrib.packages.${pkgs.system}.grimblast
+      inputs.zen-browser.packages.${pkgs.stdenv.hostPlatform.system}.default
+      inputs.hyprland-contrib.packages.${pkgs.stdenv.hostPlatform.system}.grimblast
 
       xfce.thunar
       xfce.thunar-volman

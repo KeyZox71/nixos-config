@@ -9,7 +9,7 @@
     nix
     mockoon
     brightnessctl
-    (self.packages.${pkgs.system}.keyznvim.override {
+    (self.packages.${pkgs.stdenv.hostPlatform.system}.keyznvim.override {
       home = "/home/adjoly/";
     })
   ];

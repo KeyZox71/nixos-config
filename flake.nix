@@ -216,11 +216,13 @@
             };
         }
       );
-      formatter = forEachSupportedSystem ({ pkgs, ... }: treefmtEval.${pkgs.system}.config.build.wrapper);
+      formatter = forEachSupportedSystem (
+        { pkgs, ... }: treefmtEval.${pkgs.stdenv.hostPlatform.system}.config.build.wrapper
+      );
       checks = forEachSupportedSystem (
         { pkgs, ... }:
         {
-          formatting = treefmtEval.${pkgs.system}.config.build.check self;
+          formatting = treefmtEval.${pkgs.stdenv.hostPlatform.system}.config.build.check self;
         }
       );
     };
