@@ -1,5 +1,4 @@
 {
-  # pkgs,
   config,
   ...
 }:
@@ -28,17 +27,6 @@
   ];
 
   boot = {
-    # initrd.availableKernelModules = [
-    #   "ohci_pci"
-    #   "ehci_pci"
-    #   "ahci"
-    #   "firewire_ohci"
-    #   "usb_storage"
-    #   "usbhid"
-    #   "sd_mod"
-    #   "sr_mod"
-    #   "sdhci_pci"
-    # ];
     kernelModules = [
       "kvm-intel"
       "wl"
