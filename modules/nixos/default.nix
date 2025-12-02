@@ -67,6 +67,7 @@ let
       };
       services = {
         tailscale.enable = lib.mkDefault true;
+		plymouth.enable = lib.mkDefault true;
       };
     };
 
@@ -84,7 +85,6 @@ let
           "nix-command"
           "flakes"
         ];
-        # auto-optimise-store = true;
       };
     };
 

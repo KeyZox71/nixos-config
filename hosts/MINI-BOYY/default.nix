@@ -57,7 +57,6 @@
       docker.enable = true;
     };
     services = {
-      plymouth.enable = true;
     };
   };
   powerManagement.enable = true;
