@@ -44,6 +44,17 @@
             self.nixosModules.default
           ];
         };
+        MINI-BOYY = nixpkgs.lib.nixosSystem {
+          system = "x86_64-linux";
+          specialArgs = { inherit inputs outputs self; };
+          modules = [
+            ./hosts/MINI-BOYY/default.nix
+
+            disko.nixosModules.disko
+            catppuccin.nixosModules.catppuccin
+            self.nixosModules.default
+          ];
+        };
         LAPTOP-5530 = nixpkgs.lib.nixosSystem {
           system = "x86_64-linux";
           specialArgs = { inherit inputs outputs self; };
