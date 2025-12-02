@@ -56,7 +56,9 @@
     programs = {
       docker.enable = true;
     };
-    services = { };
+    services = {
+      plymouth.enable = true;
+    };
   };
   powerManagement.enable = true;
   # environment.systemPackages = with pkgs; [

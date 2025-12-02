@@ -12,6 +12,7 @@
   config = lib.mkIf config.keyzox.theme.enable {
     catppuccin = {
       enable = true;
+	  cache.enable = true;
       flavor = "macchiato";
       accent = "lavender";
     };

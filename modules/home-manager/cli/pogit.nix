@@ -33,6 +33,10 @@
           icon = "🆙";
           msg = "just made a quick update !";
         };
+        format = {
+          icon = "🧼";
+          msg = "formatted code";
+        };
       };
     };
   };
