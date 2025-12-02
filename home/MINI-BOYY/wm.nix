@@ -7,8 +7,7 @@
     "hyprland/workspaces" = {
     };
     output = [
-      "eDP-1"
-      "DP-3"
+      "HDMI-A-3"
     ];
   };
 
@@ -19,20 +18,19 @@
       env = [
       ];
       monitor = [
-        "eDP-1, 1920x1080@60, 0x0, 1.25"
-        "DP-3, 1920x1080@60, auto-up, 1"
+        "HDMI-A-3, 1920x1080@60, 0x0, 1"
       ];
       workspace = [
-        "1, monitor:DP-3"
-        "2, monitor:DP-3"
-        "3, monitor:DP-3"
-        "4, monitor:DP-3"
-        "5, monitor:DP-3"
-        "6, monitor:eDP-1"
-        "7, monitor:eDP-1"
-        "8, monitor:eDP-1"
-        "9, monitor:eDP-1"
-        "10, monitor:eDP-1"
+        "1, monitor:HDMI-A-3"
+        "2, monitor:HDMI-A-3"
+        "3, monitor:HDMI-A-3"
+        "4, monitor:HDMI-A-3"
+        "5, monitor:HDMI-A-3"
+        "6, monitor:HDMI-A-3"
+        "7, monitor:HDMI-A-3"
+        "8, monitor:HDMI-A-3"
+        "9, monitor:HDMI-A-3"
+        "10, monitor:HDMI-A-3"
       ];
 
     };

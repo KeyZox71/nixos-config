@@ -39,7 +39,7 @@
           windowrulev2 = [
             "fullscreen, class:zen-beta"
           ];
-          gestures.workspace_swipe = "on";
+          # gestures.workspace_swipe = "on";
           exec-once = lib.mkBefore [
             "hyprpaper"
             "waybar"
