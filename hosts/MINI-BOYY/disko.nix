@@ -23,7 +23,7 @@
               end = "-4G";
               content = {
                 type = "filesystem";
-				format = "xfs";
+                format = "xfs";
                 mountpoint = "/";
                 mountOptions = [
                   "defaults"

@@ -15,7 +15,7 @@
     home.packages = with pkgs; [
       vlc
       slack
-	  beeper
+      beeper
       discord
       firefox
       obsidian
