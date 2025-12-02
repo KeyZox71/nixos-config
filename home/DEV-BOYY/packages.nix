@@ -8,6 +8,9 @@
   home.packages = with pkgs; [
     prismlauncher
 
+    makemkv
+	mkvtoolnix
+
     postman
     gearlever # for beeper cause the one from the nixpkgs seems bugged
     strawberry # for itunes lib and need to test if upload to ipod works
