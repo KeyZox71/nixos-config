@@ -95,9 +95,11 @@ let
       curl
       btop
       unzip
+      wireguard-tools
     ];
 
     networking = {
+      wireguard.enable = true;
       networkmanager.enable = lib.mkDefault true;
       firewall = {
         enable = lib.mkDefault false;
