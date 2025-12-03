@@ -359,16 +359,16 @@
     },
     "nixos-hardware": {
       "locked": {
-        "lastModified": 1754564048,
-        "narHash": "sha256-dz303vGuzWjzOPOaYkS9xSW+B93PSAJxvBd6CambXVA=",
+        "lastModified": 1764787225,
+        "narHash": "sha256-aWbr5CV5JTEKatDl+C865HKD0GdMail7C3aXdPO+NFs=",
         "owner": "keyzox71",
         "repo": "nixos-hardware",
-        "rev": "26ed7a0d4b8741fe1ef1ee6fa64453ca056ce113",
+        "rev": "afb2a67b858a3b7323e7c822a2a8d6ac83fcd199",
         "type": "github"
       },
       "original": {
         "owner": "keyzox71",
-        "ref": "master",
+        "ref": "macmini-6",
         "repo": "nixos-hardware",
         "type": "github"
       }

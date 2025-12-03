@@ -67,7 +67,7 @@ let
       };
       services = {
         tailscale.enable = lib.mkDefault true;
-		plymouth.enable = lib.mkDefault true;
+        plymouth.enable = lib.mkDefault true;
       };
     };
 

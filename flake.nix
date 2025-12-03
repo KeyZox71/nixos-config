@@ -52,6 +52,7 @@
 
             disko.nixosModules.disko
             catppuccin.nixosModules.catppuccin
+            nixos-hardware.nixosModules.apple-macmini-6-1
             self.nixosModules.default
           ];
         };
@@ -245,7 +246,8 @@
 
     unstablepkgs.url = "github:nixos/nixpkgs/nixos-unstable";
 
-    nixos-hardware.url = "github:keyzox71/nixos-hardware/master";
+    nixos-hardware.url = "github:keyzox71/nixos-hardware/macmini-6";
+    # nixos-hardware.url = "git+file:///home/adjoly/workspace/nixos-hardware";
 
     catppuccin = {
       url = "github:catppuccin/nix";

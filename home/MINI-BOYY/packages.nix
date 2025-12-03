@@ -6,6 +6,9 @@
 
 {
   home.packages = with pkgs; [
+    k3d
+    kubectl
+
     parsec-bin
     brightnessctl
     self.packages.${pkgs.stdenv.hostPlatform.system}.adjust-brightness

@@ -1,5 +1,4 @@
 {
-  config,
   ...
 }:
 
@@ -11,10 +10,6 @@
     ./hardware-configuration.nix
   ];
 
-  services.xserver.videoDrivers = [
-    "modesetting"
-  ];
-
   networking.hostName = "MINI-BOYY";
 
   # For ddcutils compatibility
@@ -22,25 +17,9 @@
     "i2c"
     "vboxusers"
   ];
-  nixpkgs.config.permittedInsecurePackages = [
-    "broadcom-sta-6.30.223.271-59-6.12.59"
-  ];
-
-  boot = {
-    kernelModules = [
-      "kvm-intel"
-      "wl"
-      "applesmc"
-    ];
-    blacklistedKernelModules = [
-      "b43"
-      "bcma"
-    ];
-    extraModulePackages = [
-      # install broadcom driver for macos wifi
-      config.boot.kernelPackages.broadcom_sta
-    ];
-  };
+  # nixpkgs.config.permittedInsecurePackages = [
+  #   "broadcom-sta-6.30.223.271-59-6.12.59"
+  # ];
 
   keyzox = {
     defaults = true;

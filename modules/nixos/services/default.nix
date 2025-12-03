@@ -5,7 +5,7 @@
     ./ddcutils.nix
     ./gdm.nix
     ./ly.nix
-	./plymouth.nix
+    ./plymouth.nix
     ./tailscale.nix
     ./sound.nix
     ./xserver.nix
