@@ -67,6 +67,7 @@ let
       };
       services = {
         tailscale.enable = lib.mkDefault true;
+        plymouth.enable = lib.mkDefault true;
       };
     };
 
@@ -84,7 +85,6 @@ let
           "nix-command"
           "flakes"
         ];
-        # auto-optimise-store = true;
       };
     };
 
@@ -95,9 +95,11 @@ let
       curl
       btop
       unzip
+      wireguard-tools
     ];
 
     networking = {
+      wireguard.enable = true;
       networkmanager.enable = lib.mkDefault true;
       firewall = {
         enable = lib.mkDefault false;

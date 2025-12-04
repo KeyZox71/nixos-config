@@ -39,7 +39,7 @@
           windowrulev2 = [
             "fullscreen, class:zen-beta"
           ];
-          gestures.workspace_swipe = "on";
+          # gestures.workspace_swipe = "on";
           exec-once = lib.mkBefore [
             "hyprpaper"
             "waybar"
@@ -136,7 +136,7 @@
           "workspace 10, class:BeeperTexts"
         ];
         exec-once = [
-          "/home/adjoly/AppImages/beeper.appimage -enable-features=UseOzonePlatform -ozone-platform=wayland"
+          "beeper -enable-features=UseOzonePlatform -ozone-platform=wayland"
           "discord"
           "bitwarden"
           "localsend_app --hidden"

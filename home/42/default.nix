@@ -23,7 +23,7 @@
   catppuccin.cursors.enable = lib.mkForce false;
   programs.zsh = {
     shellAliases = {
-      re = "nix run nixpkgs#home-manager -- switch --flake /home/adjoly/nixos-config#42adjoly";
+      re = "nix shell nixpkgs#nix nixpkgs#nh --command nh home switch \"$$HOME\"/nixos-config -c 42adjoly";
       bgs = "brightnessctl set";
       wl-copy = "xclip -i -selection clipboard";
     };

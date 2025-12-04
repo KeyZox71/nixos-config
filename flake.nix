@@ -44,6 +44,18 @@
             self.nixosModules.default
           ];
         };
+        MINI-BOYY = nixpkgs.lib.nixosSystem {
+          system = "x86_64-linux";
+          specialArgs = { inherit inputs outputs self; };
+          modules = [
+            ./hosts/MINI-BOYY/default.nix
+
+            disko.nixosModules.disko
+            catppuccin.nixosModules.catppuccin
+            nixos-hardware.nixosModules.apple-macmini-6
+            self.nixosModules.default
+          ];
+        };
         LAPTOP-5530 = nixpkgs.lib.nixosSystem {
           system = "x86_64-linux";
           specialArgs = { inherit inputs outputs self; };
@@ -216,31 +228,34 @@
             };
         }
       );
-      formatter = forEachSupportedSystem ({ pkgs, ... }: treefmtEval.${pkgs.system}.config.build.wrapper);
+      formatter = forEachSupportedSystem (
+        { pkgs, ... }: treefmtEval.${pkgs.stdenv.hostPlatform.system}.config.build.wrapper
+      );
       checks = forEachSupportedSystem (
         { pkgs, ... }:
         {
-          formatting = treefmtEval.${pkgs.system}.config.build.check self;
+          formatting = treefmtEval.${pkgs.stdenv.hostPlatform.system}.config.build.check self;
         }
       );
     };
 
   inputs = {
-    nixpkgs.url = "github:nixos/nixpkgs/nixos-25.05";
+    nixpkgs.url = "github:nixos/nixpkgs/nixos-25.11";
 
     nixos-wsl.url = "github:nix-community/NixOS-WSL/main";
 
     unstablepkgs.url = "github:nixos/nixpkgs/nixos-unstable";
 
-    nixos-hardware.url = "github:keyzox71/nixos-hardware/master";
+    nixos-hardware.url = "github:keyzox71/nixos-hardware/macmini-6";
+    # nixos-hardware.url = "git+file:///home/adjoly/workspace/nixos-hardware";
 
     catppuccin = {
-      url = "github:catppuccin/nix/release-25.05";
+      url = "github:catppuccin/nix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
     home-manager = {
-      url = "github:nix-community/home-manager/release-25.05";
+      url = "github:nix-community/home-manager/release-25.11";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
@@ -269,7 +284,14 @@
     };
 
     lanzaboote = {
-      url = "github:nix-community/lanzaboote/v0.4.2";
+      url = "github:nix-community/lanzaboote/v0.4.3";
+      inputs = {
+        nixpkgs.follows = "nixpkgs";
+        rust-overlay.follows = "rust-overlay";
+      };
+    };
+    rust-overlay = {
+      url = "github:oxalica/rust-overlay";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 

@@ -12,9 +12,9 @@
     enableZshIntegration = true;
     nix-direnv = {
       enable = true;
-      package = inputs.unstablepkgs.legacyPackages.${pkgs.system}.nix-direnv;
+      package = inputs.unstablepkgs.legacyPackages.${pkgs.stdenv.hostPlatform.system}.nix-direnv;
     };
     silent = true;
-    package = inputs.unstablepkgs.legacyPackages.${pkgs.system}.direnv;
+    package = inputs.unstablepkgs.legacyPackages.${pkgs.stdenv.hostPlatform.system}.direnv;
   };
 }

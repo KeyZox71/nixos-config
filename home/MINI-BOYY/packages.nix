@@ -6,10 +6,14 @@
 
 {
   home.packages = with pkgs; [
-    nix
-    mockoon
+    k3d
+    kubectl
+
+    parsec-bin
     brightnessctl
+    self.packages.${pkgs.stdenv.hostPlatform.system}.adjust-brightness
     (self.packages.${pkgs.stdenv.hostPlatform.system}.keyznvim.override {
+      quickMode = false;
       home = "/home/adjoly/";
     })
   ];

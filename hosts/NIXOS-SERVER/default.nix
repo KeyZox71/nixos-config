@@ -22,7 +22,7 @@
     overlays = [
       (_: _: {
         unstable = import inputs.unstablepkgs {
-          system = pkgs.system;
+          system = pkgs.stdenv.hostPlatform.system;
           config.allowUnfree = true;
         };
       })
