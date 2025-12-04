@@ -52,7 +52,7 @@
 
             disko.nixosModules.disko
             catppuccin.nixosModules.catppuccin
-            nixos-hardware.nixosModules.apple-macmini-6-1
+            nixos-hardware.nixosModules.apple-macmini-6
             self.nixosModules.default
           ];
         };
