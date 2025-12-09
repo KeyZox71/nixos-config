@@ -12,7 +12,7 @@ let
     keyzox.shell.enable = lib.mkDefault true;
     keyzox.cli-app.enable = lib.mkDefault true;
     keyzox.gh.enable = lib.mkDefault true;
-	keyzox.ssh-config.enable = lib.mkDefault true;
+    keyzox.ssh-config.enable = lib.mkDefault true;
   };
   gui-conf = lib.mkIf config.keyzox.gui.enable {
     keyzox.cli.enable = lib.mkDefault true;
@@ -32,7 +32,7 @@ in
     ./gui
 
     ./catppuccin.nix
-	./ssh.nix
+    ./ssh.nix
 
     inputs.catppuccin.homeModules.catppuccin
     inputs.pogit.homeManagerModules.default

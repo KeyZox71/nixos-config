@@ -38,7 +38,7 @@
 
   environment.systemPackages = with pkgs; [
     wlr-randr
-	cifs-utils
+    cifs-utils
   ];
 
   # This value determines the NixOS release from which the default

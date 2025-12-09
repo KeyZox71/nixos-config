@@ -20,10 +20,10 @@ in
         target = ".ssh/id_42.pub";
         text = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIEkLpl9HygemfyK7obLW7HCuFf4X5UFZCuXE28oe6xDN adjoly@student.42angouleme.fr";
       };
-	  "id_git.pub" = {
-		  target = ".ssh/id_git.pub";
-		  text = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIOCi8T2p48jD7EbneWqTLoyvs1SGfZBzfUb85k2oALTe";
-	  };
+      "id_git.pub" = {
+        target = ".ssh/id_git.pub";
+        text = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIOCi8T2p48jD7EbneWqTLoyvs1SGfZBzfUb85k2oALTe";
+      };
     };
     programs.ssh = {
       enable = true;

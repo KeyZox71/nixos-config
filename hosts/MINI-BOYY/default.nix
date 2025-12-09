@@ -6,7 +6,7 @@
   imports = [
     ../home.nix
 
-	./hardware.nix
+    ./hardware.nix
 
     ./disko.nix
     ./hardware-configuration.nix
