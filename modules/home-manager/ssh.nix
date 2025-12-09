@@ -30,17 +30,17 @@ in
       enableDefaultConfig = false;
       matchBlocks = {
         "ovh-vps" = {
-          hostname = "ovh-vps.neko-deminished.ts.net";
+          hostname = "ovh-vps.neko-diminished.ts.net";
           user = "rocky";
           forwardAgent = true;
         };
         "nixos-server" = {
-          hostname = "nixos-server.neko-deminished.ts.net";
+          hostname = "nixos-server.neko-diminished.ts.net";
           user = "adjoly";
           forwardAgent = true;
         };
         "mini-boyy" = {
-          hostname = "mini-boyy.neko-deminished.ts.net";
+          hostname = "mini-boyy.neko-diminished.ts.net";
           user = "adjoly";
           forwardAgent = true;
         };
