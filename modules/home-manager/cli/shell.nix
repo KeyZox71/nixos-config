@@ -50,11 +50,6 @@
       home.packages = [
         pkgs.unstable.bitwarden-desktop
       ];
-      programs.zsh = {
-        envExtra = lib.mkBefore ''
-          export SSH_AUTH_SOCK=$HOME/.bitwarden-ssh-agent.sock
-        '';
-      };
     })
   ];
 }
