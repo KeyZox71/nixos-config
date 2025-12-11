@@ -47,6 +47,11 @@
       };
     })
     (lib.mkIf config.keyzox.bitwarden-ssh-agent.enable {
+      programs.zsh = {
+        envExtra = lib.mkBefore ''
+          export SSH_AUTH_SOCK=$HOME/.bitwarden-ssh-agent.sock
+        '';
+      };
       home.packages = [
         pkgs.unstable.bitwarden-desktop
       ];
