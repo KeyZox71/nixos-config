@@ -30,9 +30,9 @@
     firefox
     discord
     gearlever
-    inputs.hyprland-contrib.packages.${pkgs.system}.grimblast
+    inputs.hyprland-contrib.packages.${pkgs.stdenv.hostPlatform.system}.grimblast
     xfce.thunar
-    (self.packages.${pkgs.system}.keyznvim.override {
+    (self.packages.${pkgs.stdenv.hostPlatform.system}.keyznvim.override {
       home = "/home/adjoly/";
     })
   ];

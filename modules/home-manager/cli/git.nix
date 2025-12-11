@@ -13,8 +13,10 @@
     programs = {
       git = {
         enable = true;
-        userName = lib.mkDefault "adjoly";
-        userEmail = lib.mkDefault "contact@adjoly.fr";
+        settings = {
+          user.name = lib.mkDefault "adjoly";
+          user.email = lib.mkDefault "contact@adjoly.fr";
+        };
         signing = {
           format = "ssh";
           signByDefault = lib.mkDefault true;

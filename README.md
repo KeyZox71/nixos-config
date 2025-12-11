@@ -27,7 +27,7 @@ inputs = {
 };
 ...
 environment.systemPackages = [
-  inputs.keyznixos.packages.${pkgs.system}.<package-name>
+  inputs.keyznixos.packages.${pkgs.stdenv.hostPlatform.system}.<package-name>
 ];
 ```
 

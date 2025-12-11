@@ -10,7 +10,7 @@
   };
 
   config = lib.mkIf config.keyzox.services.gdm.enable {
-    services.xserver.displayManager.gdm = {
+    services.displayManager.gdm = {
       enable = true;
       wayland = true;
     };

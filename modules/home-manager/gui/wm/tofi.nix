@@ -10,6 +10,9 @@
   };
 
   config = lib.mkIf config.keyzox.tofi.enable {
+    programs.zsh.shellAliases = {
+      tofi-clean-cache = "rm ~/.cache/tofi-drun";
+    };
     programs.tofi = {
       enable = true;
       settings = {

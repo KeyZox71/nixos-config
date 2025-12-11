@@ -1,5 +1,4 @@
 {
-  pkgs,
   ...
 }:
 
@@ -7,39 +6,42 @@
   imports = [
     ../home.nix
 
-    ./boot.nix
+    ./hardware.nix
+
+    ./disko.nix
     ./hardware-configuration.nix
   ];
 
-  networking.hostName = "DEV-BOYY";
+  networking.hostName = "MINI-BOYY";
 
   # For ddcutils compatibility
-  users.users.adjoly.extraGroups = [ "i2c" ];
+  users.users.adjoly.extraGroups = [
+    "i2c"
+    "vboxusers"
+  ];
 
   keyzox = {
     defaults = true;
     wm = true;
 
+    grub-boot.enable = true;
     theme.enable = true;
 
     hardware = {
       bluetooth.enable = true;
       logitech.enable = true;
-      nvidia.enable = true;
     };
     programs = {
       docker.enable = true;
-      # steam.enable = true;
     };
-    services = { };
+    services = {
+    };
   };
   powerManagement.enable = true;
-  hardware.nvidia.powerManagement.enable = true;
+  # environment.systemPackages = with pkgs; [
+  # ];
 
-  environment.systemPackages = with pkgs; [
-    wlr-randr
-    cifs-utils
-  ];
+  programs.wireshark.enable = true;
 
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions
