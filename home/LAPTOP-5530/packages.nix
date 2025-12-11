@@ -6,13 +6,15 @@
 
 {
   home.packages = with pkgs; [
+    feishin
+    mpv
+
     slack
     postman
     mockoon
     firefox
-    gearlever # for beeper cause the one from the nixpkgs seems bugged
+    gearlever
     parsec-bin
-    strawberry # for itunes lib and need to test if upload to ipod works
     libreoffice
     brightnessctl
     prismlauncher
