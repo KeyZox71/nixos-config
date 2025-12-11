@@ -7,7 +7,7 @@
 
 let
   source = pkgs.fetchurl {
-    url = "https://drive.kanel.ovh/s/kS7b2Gpip6TkyGY/download/hyprlock.png";
+    url = "https://raw.githubusercontent.com/KeyZox71/nixos-config/refs/heads/master/assets/hyprlock.png";
     sha256 = "mRpFtFyEbZjH3y501UrA/O+jhBNvtlD/6VwkCwYlITQ=";
   };
   bsky-profile = pkgs.fetchurl {
