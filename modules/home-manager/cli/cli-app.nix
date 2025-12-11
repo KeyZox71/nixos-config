@@ -15,6 +15,7 @@
     home.packages = with pkgs; [
       inputs.timmy.packages.${pkgs.stdenv.hostPlatform.system}.timmy
       tea
+	  forgejo-cli
     ];
 
     programs.yazi = {
@@ -33,9 +34,5 @@
         vim_keys = true;
       };
     };
-
-    # nixpkgs.overlays = [
-    #   inputs.keyznvim.overlays.default
-    # ];
   };
 }

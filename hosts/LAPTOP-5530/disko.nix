@@ -35,7 +35,7 @@
               size = "100%";
               content = {
                 type = "swap";
-                # resumeDevice = true;
+                resumeDevice = true;
               };
             };
           };

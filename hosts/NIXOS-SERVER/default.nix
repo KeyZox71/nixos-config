@@ -53,7 +53,6 @@
     defaults = true;
 
     grub-boot.enable = true;
-    # theme.enable = true;
 
     hardware = {
       nvidia.enable = true;
@@ -65,5 +64,5 @@
     services = { };
   };
 
-  system.stateVersion = "25.05"; # Did you read the comment?
+  system.stateVersion = "25.05";
 }

@@ -18,7 +18,6 @@
 
   networking.hostName = "LAPTOP-5530";
 
-  # For ddcutils compatibility
   users.users.adjoly.extraGroups = [
     "i2c"
     "vboxusers"
