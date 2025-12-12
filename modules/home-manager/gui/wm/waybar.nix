@@ -13,8 +13,9 @@
   config = lib.mkIf config.keyzox.waybar.enable {
     services.mpris-proxy.enable = true;
 
-    home.packages = [
-      pkgs.zenity # for the calendar popup in the bar
+    home.packages = with pkgs; [
+      wiremix # for the pipewire tui
+      zenity # for the calendar popup in the bar
     ];
 
     programs.waybar = {
@@ -109,6 +110,7 @@
             };
             reverse-mouse-scrolling = true;
             on-click = "wpctl set-mute @DEFAULT_SINK@ toggle";
+            on-middle-click = "kitty -- wiremix";
             tooltip = false;
           };
           mpris = {
