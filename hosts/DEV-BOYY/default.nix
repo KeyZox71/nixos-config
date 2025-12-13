@@ -12,9 +12,12 @@
   ];
 
   networking.hostName = "DEV-BOYY";
+  programs.noisetorch.enable = true;
 
   # For ddcutils compatibility
   users.users.adjoly.extraGroups = [ "i2c" ];
+
+  boot.kernelPackages = pkgs.linuxKernel.packages.linux_zen;
 
   keyzox = {
     defaults = true;

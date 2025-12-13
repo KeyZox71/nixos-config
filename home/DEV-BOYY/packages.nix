@@ -6,15 +6,26 @@
 
 {
   home.packages = with pkgs; [
-    prismlauncher
+    feishin
+    mpv
+
+    (prismlauncher.override {
+      jdks = [
+        javaPackages.compiler.temurin-bin.jre-8
+        javaPackages.compiler.temurin-bin.jre-11
+        javaPackages.compiler.temurin-bin.jre-17
+        javaPackages.compiler.temurin-bin.jre-21
+        javaPackages.compiler.temurin-bin.jre-25
+      ];
+    })
 
     slack
-    firefox
     postman
-    gearlever 
+    firefox
+    gearlever
     parsec-bin
     libreoffice
-    self.packages.${pkgs.stdenv.hostPlatform.system}.adjust-brightness # for adjusting brightness on ddc/ci screen
+    self.packages.${pkgs.stdenv.hostPlatform.system}.adjust-brightness
     (self.packages.${pkgs.stdenv.hostPlatform.system}.keyznvim.override {
       quickMode = false;
       home = "/home/adjoly/";

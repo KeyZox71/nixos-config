@@ -15,7 +15,7 @@
     home.packages = with pkgs; [
       inputs.timmy.packages.${pkgs.stdenv.hostPlatform.system}.timmy
       tea
-	  forgejo-cli
+      forgejo-cli
     ];
 
     programs.yazi = {

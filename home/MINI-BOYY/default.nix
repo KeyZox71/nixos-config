@@ -21,7 +21,7 @@
     hyprlock.monitor = "HDMI-A-3";
   };
 
-  programs.kitty.font.size = 13.5; 
+  programs.kitty.font.size = 13.5;
 
   home.stateVersion = "25.11";
 }
