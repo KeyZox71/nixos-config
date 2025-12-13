@@ -110,7 +110,7 @@
             };
             reverse-mouse-scrolling = true;
             on-click = "wpctl set-mute @DEFAULT_SINK@ toggle";
-            on-middle-click = "kitty -- wiremix";
+			on-click-middle = "kitty -- wiremix";
             tooltip = false;
           };
           mpris = {
