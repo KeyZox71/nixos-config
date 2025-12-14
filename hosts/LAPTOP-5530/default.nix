@@ -18,15 +18,21 @@
 
   networking.hostName = "LAPTOP-5530";
 
+  # boot.kernelModules = [ "iwlwifi" ];
+  # boot.extraModprobeConfig = "options iwlwifi power_save=0 swcrypto=1";
+
   users.users.adjoly.extraGroups = [
     "i2c"
     "vboxusers"
   ];
-  boot.blacklistedKernelModules = [
-    "kvm"
-    "kvm_intel"
-    "kvm_amd"
-  ];
+  boot = {
+    blacklistedKernelModules = [
+      "kvm"
+      "kvm_intel"
+      "kvm_amd"
+    ];
+    kernelPackages = pkgs.linuxKernel.packages.linux_zen;
+  };
 
   keyzox = {
     defaults = true;

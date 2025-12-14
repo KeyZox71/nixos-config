@@ -9,6 +9,15 @@
     feishin
     mpv
 
+    (prismlauncher.override {
+      jdks = [
+        jdk8
+        jdk17
+        jdk21
+        jdk25
+      ];
+    })
+
     slack
     postman
     mockoon
@@ -17,7 +26,6 @@
     parsec-bin
     libreoffice
     brightnessctl
-    prismlauncher
     self.packages.${pkgs.stdenv.hostPlatform.system}.adjust-brightness
     (self.packages.${pkgs.stdenv.hostPlatform.system}.keyznvim.override {
       quickMode = false;
