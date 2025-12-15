@@ -21,6 +21,14 @@
   # boot.kernelModules = [ "iwlwifi" ];
   # boot.extraModprobeConfig = "options iwlwifi power_save=0 swcrypto=1";
 
+  networking.hosts = {
+    "192.168.56.110" = [
+      "app1.com"
+      "app2.com"
+      "app3.com"
+    ];
+  };
+
   users.users.adjoly.extraGroups = [
     "i2c"
     "vboxusers"

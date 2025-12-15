@@ -19,6 +19,7 @@
     theme.enable = true;
     hypridle.sleep_timeout = 600;
     hyprlock.monitor = "eDP-1";
+	k9s.enable = true;
   };
 
   services.batsignal = {
