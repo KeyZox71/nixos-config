@@ -132,12 +132,12 @@
           "workspace 3, class:obsidian"
           "workspace 5, class:Bitwarden"
           "workspace 8, class:Slack"
-          "workspace 9, class:discord"
+          "workspace 9, class:vesktop"
           "workspace 10, class:BeeperTexts"
         ];
         exec-once = [
           "beeper -enable-features=UseOzonePlatform -ozone-platform=wayland"
-          "discord"
+          "vesktop"
           "bitwarden"
           "localsend_app --hidden"
           "solaar -w hide"

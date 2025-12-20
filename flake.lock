@@ -275,6 +275,22 @@
         "type": "github"
       }
     },
+    "libnbtplusplus": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1744811532,
+        "narHash": "sha256-qhmjaRkt+O7A+gu6HjUkl7QzOEb4r8y8vWZMG2R/C6o=",
+        "owner": "PrismLauncher",
+        "repo": "libnbtplusplus",
+        "rev": "531449ba1c930c98e0bcf5d332b237a8566f9d78",
+        "type": "github"
+      },
+      "original": {
+        "owner": "PrismLauncher",
+        "repo": "libnbtplusplus",
+        "type": "github"
+      }
+    },
     "nixlib": {
       "locked": {
         "lastModified": 1736643958,
@@ -543,6 +559,28 @@
         "type": "github"
       }
     },
+    "prismlauncher": {
+      "inputs": {
+        "libnbtplusplus": "libnbtplusplus",
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1765804165,
+        "narHash": "sha256-K8QpGnmo4lYg6VAoq/ZpQIhV7jfv2J7zbqRDBSehFMc=",
+        "owner": "prismlauncher",
+        "repo": "prismlauncher",
+        "rev": "fc3c5cba30de2d38cf49e801103f62b79ab36f46",
+        "type": "github"
+      },
+      "original": {
+        "owner": "prismlauncher",
+        "ref": "10.0.0-pre1",
+        "repo": "prismlauncher",
+        "type": "github"
+      }
+    },
     "root": {
       "inputs": {
         "catppuccin": "catppuccin",
@@ -556,6 +594,7 @@
         "nixpkgs": "nixpkgs_3",
         "nixvim": "nixvim",
         "pogit": "pogit",
+        "prismlauncher": "prismlauncher",
         "rust-overlay": "rust-overlay",
         "timmy": "timmy",
         "treefmt-nix": "treefmt-nix",

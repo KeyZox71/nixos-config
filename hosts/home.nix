@@ -27,8 +27,15 @@
   home-manager = {
     useUserPackages = lib.mkDefault true;
     extraSpecialArgs = { inherit inputs outputs self; };
-    users.adjoly = import (../home/${config.networking.hostName});
+    users.adjoly = import ../home/${config.networking.hostName};
   };
   programs.zsh.enable = true;
-  nix.settings.trusted-users = [ "@wheel" ];
+  nix.settings = {
+    trusted-users = [ "@wheel" ];
+	trusted-substituters = [ "https://prismlauncher.cachix.org" ];
+    trusted-public-keys = [
+      "prismlauncher.cachix.org-1:9/n/FGyABA2jLUVfY+DEp4hKds/rwO+SCOtbOkDzd+c="
+    ];
+  };
+
 }

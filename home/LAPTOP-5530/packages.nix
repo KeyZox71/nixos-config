@@ -1,6 +1,7 @@
 {
   pkgs,
   self,
+  inputs,
   ...
 }:
 
@@ -9,7 +10,7 @@
     feishin
     mpv
 
-    (prismlauncher.override {
+    (inputs.prismlauncher.packages.${pkgs.stdenv.hostPlatform.system}.prismlauncher.override {
       jdks = [
         jdk8
         jdk17
@@ -19,6 +20,7 @@
     })
 
     slack
+	vesktop
     postman
     mockoon
     firefox

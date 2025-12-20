@@ -8,6 +8,7 @@ let
   sshAgentLocation = "/home/adjoly/.bitwarden-ssh-agent.sock";
   ft_pubKeyLocation = "/home/adjoly/.ssh/id_42.pub";
   git_pubKeyLocation = "/home/adjoly/.ssh/id_git.pub";
+  tangled_pubKeyLocation = "/home/adjoly/.ssh/id_tangled.pub";
 in
 {
   options = {
@@ -23,6 +24,10 @@ in
       "id_git.pub" = {
         target = ".ssh/id_git.pub";
         text = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIOCi8T2p48jD7EbneWqTLoyvs1SGfZBzfUb85k2oALTe";
+      };
+      "id_tangled.pub" = {
+        target = ".ssh/id_tangled.pub";
+        text = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIKDVQLDj0e7979e8uRPWgyqCuSxltDiBep80PL+gXhfj";
       };
     };
     programs.ssh = {
@@ -59,6 +64,14 @@ in
             sshAgentLocation
           ];
           identityFile = git_pubKeyLocation;
+        };
+        "tangled.sh" = {
+          hostname = "tangled.sh";
+          user = "git";
+          identityAgent = [
+            sshAgentLocation
+          ];
+          identityFile = tangled_pubKeyLocation;
         };
         "vogsphere.42angouleme.fr" = {
           hostname = "vogsphere.42angouleme.fr";
