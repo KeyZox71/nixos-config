@@ -15,7 +15,7 @@
     home.packages = with pkgs; [
       vlc
       beeper
-      discord
+	  vesktop
       localsend
       inputs.zen-browser.packages.${pkgs.stdenv.hostPlatform.system}.default
       inputs.hyprland-contrib.packages.${pkgs.stdenv.hostPlatform.system}.grimblast
