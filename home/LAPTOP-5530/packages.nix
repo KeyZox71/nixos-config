@@ -20,7 +20,6 @@
     })
 
     slack
-	vesktop
     postman
     mockoon
     firefox
