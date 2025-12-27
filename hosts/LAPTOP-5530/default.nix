@@ -41,11 +41,11 @@
     "vboxusers"
   ];
   boot = {
-    blacklistedKernelModules = [
-      "kvm"
-      "kvm_intel"
-      "kvm_amd"
-    ];
+    # blacklistedKernelModules = [
+    #   "kvm"
+    #   "kvm_intel"
+    #   "kvm_amd"
+    # ];
     kernelPackages = pkgs.linuxKernel.packages.linux_zen;
   };
 
@@ -73,9 +73,11 @@
     gns3-gui
     wireshark
   ];
+  virtualisation.libvirtd.enable = true;
   virtualisation.virtualbox.host.enable = true;
   virtualisation.docker.daemon.settings.features.cdi = true;
   hardware.nvidia-container-toolkit.enable = true;
+  programs.virt-manager.enable = true;
 
   programs.wireshark.enable = true;
 

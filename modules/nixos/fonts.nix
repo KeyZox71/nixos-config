@@ -17,17 +17,20 @@
         nerd-fonts.jetbrains-mono
 
         jetbrains-mono
+		open-dyslexic
         noto-fonts
       ];
       fontconfig = {
         enable = true;
         defaultFonts = {
           serif = [
-            "Noto Sans Mono"
+            "Noto Serif"
             "Noto Color Emoji"
           ];
           sansSerif = [
-            "JetBrains Mono"
+            "Noto Sans"
+			"OpenDyslexic"
+            # "JetBrains Mono"
             "Noto Color Emoji"
           ];
           monospace = [
