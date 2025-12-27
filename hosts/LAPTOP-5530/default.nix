@@ -18,12 +18,15 @@
 
   networking.hostName = "LAPTOP-5530";
 
-  # boot.kernelModules = [ "iwlwifi" ];
-  # boot.extraModprobeConfig = "options iwlwifi power_save=0 swcrypto=1";
-
-  # networking.networkmanager.powerManagement = false;
   boot.kernelModules = [ "iwlwifi" ];
   boot.extraModprobeConfig = "options iwlwifi power_save=0 11n_disable=1";
+
+  services.gns3-server = {
+    enable = true;
+    ubridge = {
+      enable = true;
+    };
+  };
 
   networking.hosts = {
     "192.168.56.110" = [
@@ -66,6 +69,8 @@
   };
   powerManagement.enable = true;
   environment.systemPackages = with pkgs; [
+    qemu
+    gns3-gui
     wireshark
   ];
   virtualisation.virtualbox.host.enable = true;

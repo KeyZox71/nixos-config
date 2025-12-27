@@ -295,7 +295,7 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    nixvim.url = "github:nix-community/nixvim";
+    nixvim.url = "github:nix-community/nixvim/nixos-25.11";
 
     nixos-generators = {
       url = "github:nix-community/nixos-generators";
