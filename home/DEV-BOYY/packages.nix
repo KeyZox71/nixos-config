@@ -1,5 +1,6 @@
 {
   pkgs,
+  inputs,
   self,
   ...
 }:
@@ -9,7 +10,7 @@
     feishin
     mpv
 
-    (prismlauncher.override {
+    (inputs.prismlauncher.packages.${pkgs.stdenv.hostPlatform.system}.prismlauncher.override {
       jdks = [
         javaPackages.compiler.temurin-bin.jre-8
         javaPackages.compiler.temurin-bin.jre-11
