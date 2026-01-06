@@ -32,10 +32,21 @@
   programs.zsh.enable = true;
   nix.settings = {
     trusted-users = [ "@wheel" ];
-	trusted-substituters = [ "https://prismlauncher.cachix.org" ];
+    trusted-substituters = [ "https://prismlauncher.cachix.org" ];
     trusted-public-keys = [
       "prismlauncher.cachix.org-1:9/n/FGyABA2jLUVfY+DEp4hKds/rwO+SCOtbOkDzd+c="
     ];
   };
+  nixpkgs.overlays = [
+    (final: prev: {
+      inherit (prev.lixPackageSets.stable)
+        nixpkgs-review
+        nix-eval-jobs
+        nix-fast-build
+        colmena
+        ;
+    })
+  ];
 
+  nix.package = pkgs.lixPackageSets.stable.lix;
 }
