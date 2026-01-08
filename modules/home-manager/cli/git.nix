@@ -16,7 +16,7 @@
         settings = {
           user.name = lib.mkDefault "adjoly";
           user.email = lib.mkDefault "contact@adjoly.fr";
-		  init.defaultBranch = lib.mkDefault "master";
+          init.defaultBranch = lib.mkDefault "master";
         };
         signing = {
           format = "ssh";

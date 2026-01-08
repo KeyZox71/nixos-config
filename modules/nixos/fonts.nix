@@ -17,7 +17,7 @@
         nerd-fonts.jetbrains-mono
 
         jetbrains-mono
-		open-dyslexic
+        open-dyslexic
         noto-fonts
       ];
       fontconfig = {
@@ -29,7 +29,7 @@
           ];
           sansSerif = [
             "Noto Sans"
-			"OpenDyslexic"
+            "OpenDyslexic"
             # "JetBrains Mono"
             "Noto Color Emoji"
           ];
