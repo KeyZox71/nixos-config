@@ -303,10 +303,5 @@
     };
 
     treefmt-nix.url = "github:numtide/treefmt-nix";
-
-    prismlauncher = {
-      url = "github:prismlauncher/prismlauncher/10.0.0-pre1";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
   };
 }

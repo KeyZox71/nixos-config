@@ -10,13 +10,13 @@
     feishin
     mpv
 
-    (inputs.prismlauncher.packages.${pkgs.stdenv.hostPlatform.system}.prismlauncher.override {
+    (unstable.prismlauncher.override {
       jdks = [
-        javaPackages.compiler.temurin-bin.jre-8
-        javaPackages.compiler.temurin-bin.jre-11
-        javaPackages.compiler.temurin-bin.jre-17
-        javaPackages.compiler.temurin-bin.jre-21
-        javaPackages.compiler.temurin-bin.jre-25
+        jdk8
+		jdk11
+        jdk17
+        jdk21
+        jdk25
       ];
     })
 

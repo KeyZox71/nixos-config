@@ -10,7 +10,7 @@
     feishin
     mpv
 
-    (inputs.prismlauncher.packages.${pkgs.stdenv.hostPlatform.system}.prismlauncher.override {
+    (unstable.prismlauncher.override {
       jdks = [
         jdk8
         jdk17
